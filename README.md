@@ -1,24 +1,10 @@
-# README
+# FEEDBACK APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Aplikacja stworzona do łatwiejszego oceniania zawodników/-czek na treningach roller derby
 
-Things you may want to cover:
+Prywatny projekt, obecnie na samym początku realizacji.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Założenia początkowe:
+* widok zbiorczy z wszystkimi użytkownikami, skillsami, i ocenami tych skillsów u poszczególnych osób
+* opcja na zmianę oceny u osób
+* widok z podsumowaniem na stronie każdego użytkownika i skillsa
