@@ -7,4 +7,4 @@ Prywatny projekt, obecnie na samym początku realizacji.
 Założenia początkowe:
 * widok zbiorczy z wszystkimi użytkownikami, skillsami, i ocenami tych skillsów u poszczególnych osób
 * opcja na zmianę oceny u osób
-* widok z podsumowaniem na stronie każdego użytkownika i skillsa
+* widok z podsumowaniem na stronie każdego użytkownika i skillsami
