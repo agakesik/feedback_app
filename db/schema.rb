@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_111343) do
+ActiveRecord::Schema.define(version: 2020_03_27_141014) do
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.integer "skills_category_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_skills_on_name", unique: true
+    t.index ["skills_category_id"], name: "index_skills_on_skills_category_id"
+  end
+
+  create_table "skills_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
