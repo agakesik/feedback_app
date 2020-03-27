@@ -2,3 +2,22 @@
 
   <h1>Strona główna</h1>
   <p>Tu będzie widok strony głównej</p>
+
+<table class="feedback-table">
+  <tr>
+    <th> SKILLS </th>
+    <% @users.each do |user| %>
+      <th><%= user.name %></th>
+    <% end %>
+  </tr>
+  <% @skill_categories.each do |category| %>
+    <tr>
+      <td><strong><%= category.name %></strong></td>
+    </tr>
+    <% category.skills.each do |skill| %>
+      <tr>
+        <td><%= skill.name %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
