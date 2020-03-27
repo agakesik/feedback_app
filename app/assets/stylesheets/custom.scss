@@ -2,7 +2,7 @@
 body {
   display: flex;
   flex-direction: row;
-  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
   min-height: 100vh;
   margin: 0;
 }
@@ -13,8 +13,12 @@ a {
 }
 
 .content-container {
-  background-color: green;
+  // background-color: #FFFBEB;
   flex: 1 1 0;
+  padding: 1em;
+  h1 {
+    margin: 0;
+  }
 }
 
 /* SIDEBAR STYLES */
@@ -24,22 +28,48 @@ a {
   flex: 0 0 20em;
   box-shadow: 0 0 10px 0 #000;
   text-align: center;
+  h4 {
+    margin: 0;
+
+  }
 }
 
 .sidebar-links {
   padding: 0;
   li {
-    // border: 1px solid black;
     list-style-type: none;
     margin: auto;
   }
 }
 
-.nav-links > li {
+.horizontal-links > li {
   display: inline-block;
   font-size: 0.7em;
   padding: 0 1em;
 }
-.nav-links > li ~ li {
+.horizontal-links > li ~ li {
   border-left: 1px solid rgba(0,0,0, 0.3);
+}
+
+.feedback-links {
+  font-size: 2em;
+  a {
+    text-transform: uppercase;
+  }
+  ul {
+    padding: 0;
+  }
+  li {
+    margin: 0.5em auto;
+    // border: 1px solid black;
+  }
+}
+
+.user-links {
+  text-align: left;
+  padding: 0.3em 1em;
+  li {
+    margin: 0.5em 0;
+    // border: 1px solid black;
+  }
 }

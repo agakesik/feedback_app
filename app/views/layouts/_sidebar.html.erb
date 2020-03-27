@@ -1,17 +1,23 @@
 
-<ul class="nav-links sidebar-links">
+<ul class="nav-links sidebar-links horizontal-links">
   <li><%= link_to "Strona głowna", root_url %></li>
   <li><%= link_to "Pomoc", pages_help_url %></li>
 </ul>
 
-<h3>opcje</h3>
 <ul class="feedback-links sidebar-links">
+  <h4>opcje</h4>
   <li><%= link_to "Porównaj", '/#' %></li>
   <li><%= link_to "Oceń", '/#' %></li>
-  <li><%= link_to "Przeglądaj", '/#' %></li>
+  <li>
+    Przeglądaj
+    <ul class="horizontal-links">
+      <li><%= link_to "ludzi", '#' %></li>
+      <li><%= link_to "skillsy", '#' %></li>
+    </ul>
+  </li>
 </ul>
 
-<h4>Moje konto</h4>
 <ul class="user-links sidebar-links">
+  <h4>Moje konto</h4>
   <li><%= link_to "Moje oceny", '/#' %></li>
 </ul>
