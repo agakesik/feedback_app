@@ -12,8 +12,20 @@
 
   <body>
     <div class="content-container">
+      <header class="header">
+        <h1><%= yield(:position) %></h1>
+        <div class="menu-toggle">
+          <% if current_page?(menu_path) %>
+            <%= link_to "back", :back %>
+          <% else %>
+            <%= link_to 'menu', menu_path %>
+          <% end %>
+        </div>
+      </header>
+
       <%= yield %>
     </div>
+
     <div class="sidebar">
       <%= render 'layouts/sidebar' %>
     </div>

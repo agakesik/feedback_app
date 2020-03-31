@@ -17,12 +17,13 @@ a {
   flex: 1 1 0;
 }
 
+
+/* header */
 .header {
   background-color: #ffee00;
   height: 2em;
   padding: 0.2em;
-  // padding-left: 0;
-  position: relative;
+  padding-left: 1em;
   h1 {
     background-color: #fffab3;
     // border-radius: 5px;
@@ -32,9 +33,11 @@ a {
     margin: 0;
     padding: 0.5em;
     position: absolute;
-
-
   }
+}
+.menu-toggle {
+  float: right;
+  display: none;
 }
 
 /* SIDEBAR STYLES */
@@ -43,7 +46,6 @@ a {
   background-color: #fff;
   flex: 0 0 20em;
   box-shadow: 0 0 10px 0 #000;
-  text-align: center;
   h4 {
     margin: 0;
 
@@ -52,6 +54,7 @@ a {
 
 .sidebar-links {
   padding: 0;
+  text-align: center;
   li {
     list-style-type: none;
     margin: auto;
@@ -108,4 +111,20 @@ a {
   // height: 1.5em;
   width: 10em;
 
+}
+
+/* SINGLE PAGES STYLES */
+.single-page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+
+  .sidebar {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
 }
