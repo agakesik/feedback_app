@@ -13,11 +13,27 @@ a {
 }
 
 .content-container {
-  // background-color: #FFFBEB;
+  background-color: #FFFBEB;
   flex: 1 1 0;
-  padding: 1em;
+}
+
+.header {
+  background-color: #ffee00;
+  height: 2em;
+  padding: 0.2em;
+  // padding-left: 0;
+  position: relative;
   h1 {
+    background-color: #fffab3;
+    // border-radius: 5px;
+    display: inline;
+    font-size: 1em;
+    line-height: 1em;
     margin: 0;
+    padding: 0.5em;
+    position: absolute;
+
+
   }
 }
 
@@ -70,15 +86,26 @@ a {
   padding: 0.3em 1em;
   li {
     margin: 0.5em 0;
-    // border: 1px solid black;
   }
 }
 
 // HOMEPAGE STYLES
-.feedback-table {
-  tr {
-  }
+.spreadsheet {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
 }
-th, td {
+.row {
+  border: 1px solid red;
+
+}
+.cell {
   border: 1px solid black;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0.2em;
+  padding: 0.2em;
+  // height: 1.5em;
+  width: 10em;
+
 }

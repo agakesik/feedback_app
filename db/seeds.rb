@@ -14,7 +14,7 @@ end
 
 skills_category = ["Basic Skating Skills", "Recovery tactics",
                    "Balance and Agility", "Pack skills and Interactions",
-                   "Blocking" "Nasze"]
+                   "Blocking", "Nasze"]
 skills_category.each do |name|
   SkillsCategory.create(name: name)
 end
@@ -29,3 +29,4 @@ Skill.create(name: "Knee taps", skills_category_id: 2)
 Skill.create(name: "Hopping", skills_category_id: 3)
 Skill.create(name: "Whips", skills_category_id: 4)
 Skill.create(name: "Taking hits", skills_category_id: 5)
+Skill.create(name: "kaczka", skills_category_id: 6)
