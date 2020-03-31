@@ -1,5 +1,14 @@
-<ul class="skills">
-  <% @skills.each do |skill| %>
-  <li> <%= link_to skill.name, skill_path(skill) %></li>
+<% provide(:title, "Skillsy") %>
+<% provide(:position, "Skills") %>
+
+<div class="single-page">
+  <% @skills_categories.each do |category| %>
+    <p><strong><%= category.name %></strong></p>
+    <ul class="skills">
+      <% category.skills.each do |skill| %>
+        <li> <%= link_to skill.name, skill_path(skill) %></li>
+      <% end %>
+    </uL>
   <% end %>
-</uL>
+
+</div>

@@ -1,5 +1,10 @@
-<ul class="users">
-  <% @users.each do |user| %>
-  <li> <%= link_to user.name, user_path(user) %></li>
-  <% end %>
-</uL>
+<% provide(:title, "Skaters") %>
+<%provide(:position, "Skaters") %>
+
+<div class="single-page">
+  <ul class="users">
+    <% @users.each do |user| %>
+    <li> <%= link_to user.name, user_path(user) %></li>
+    <% end %>
+  </uL>
+</div>

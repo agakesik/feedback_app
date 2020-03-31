@@ -1,9 +1,10 @@
 /* GLOBAL STYLES */
 body {
+  background-color: #FFFBEB;
   display: flex;
   flex-direction: row;
   font-family: helvetica, arial, sans-serif;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
 }
 
@@ -13,17 +14,19 @@ a {
 }
 
 .content-container {
-  background-color: #FFFBEB;
+  width: 40vh;
   flex: 1 1 0;
 }
 
 
-/* header */
+/* HEADER */
 .header {
   background-color: #ffee00;
+  box-sizing: border-box;
   height: 2em;
   padding: 0.2em;
   padding-left: 1em;
+  height: 4vh;
   h1 {
     display: inline;
     font-size: 1em;
@@ -45,7 +48,7 @@ a {
 
 .sidebar {
   background-color: #fff;
-  flex: 0 0 20em;
+  flex: 0 0 18em;
   box-shadow: 0 0 10px 0 #000;
 }
 
@@ -94,12 +97,18 @@ a {
 
 // HOMEPAGE STYLES
 .spreadsheet {
-  display: flex;
-  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid red;
+  // display: flex;
+  // flex-direction: column;
   padding: 0.5em;
+  overflow: scroll;
+  height: 96vh;
+
 }
 .row {
-  border: 1px solid red;
+  // border: 1px solid red;
+  display: flex;
 
 }
 .cell {
@@ -109,12 +118,13 @@ a {
   margin: 0.2em;
   padding: 0.2em;
   // height: 1.5em;
-  width: 10em;
+  min-width: 7em;
 
 }
 
 /* SINGLE PAGES STYLES */
 .single-page {
+  // background: #f2f2f2;
   max-width: 980px;
   margin: 0 auto;
   padding: 0 0.5em;
@@ -122,10 +132,21 @@ a {
 
 @media (max-width: 800px) {
 
+  /* HEADER */
+  .header {
+    height: 7vh;
+    width: 100vw;
+  }
+
   .sidebar {
     display: none;
   }
   .menu-toggle {
     display: block;
+  }
+
+  // HOMEPAGE STYLES
+  .spreadsheet {
+    height: auto;
   }
 }
