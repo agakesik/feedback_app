@@ -1,0 +1,11 @@
+<div class="menu-toggle">
+  <% if current_page?(menu_path) %>
+    <% if url_for(:back)=="javascript:history.back()" %>
+      <%= link_to "główna", root_url %>
+    <% else %>
+      <%= link_to "back", :back %>
+    <% end %>
+  <% else %>
+    <%= link_to 'menu', menu_path %>
+  <% end %>
+</div>

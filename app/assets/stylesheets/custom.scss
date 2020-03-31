@@ -25,19 +25,20 @@ a {
   padding: 0.2em;
   padding-left: 1em;
   h1 {
-    background-color: #fffab3;
-    // border-radius: 5px;
     display: inline;
     font-size: 1em;
-    line-height: 1em;
     margin: 0;
     padding: 0.5em;
     position: absolute;
   }
 }
 .menu-toggle {
+  background-color: #fffab3;
+  border-radius: 5px;
   float: right;
+  line-height: 1em;
   display: none;
+  padding: 0.5em;
 }
 
 /* SIDEBAR STYLES */
@@ -46,15 +47,14 @@ a {
   background-color: #fff;
   flex: 0 0 20em;
   box-shadow: 0 0 10px 0 #000;
-  h4 {
-    margin: 0;
-
-  }
 }
 
 .sidebar-links {
   padding: 0;
   text-align: center;
+  h4 {
+    margin: 0;
+  }
   li {
     list-style-type: none;
     margin: auto;
@@ -117,6 +117,7 @@ a {
 .single-page {
   max-width: 980px;
   margin: 0 auto;
+  padding: 0 0.5em;
 }
 
 @media (max-width: 800px) {
