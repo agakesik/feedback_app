@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Users
-user = ["Kaczor Donald", "Hyzio", "Dyzio", "Myszka Mickie"]
+user = ["Kaczor Donald", "Hyzio", "Dyzio", "Myszka Mickey"]
 user.each do |name|
   User.create(name: name)
 end
