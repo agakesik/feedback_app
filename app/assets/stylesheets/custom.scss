@@ -16,6 +16,10 @@ a {
 .content-container {
   width: 40vh;
   flex: 1 1 0;
+}
+.page {
+  box-sizing: border-box;
+  height: 96vh;
   overflow: scroll;
 }
 
@@ -98,10 +102,7 @@ a {
 
 // HOMEPAGE STYLES
 .spreadsheet-page {
-  box-sizing: border-box;
-  // border: 1px solid red;
   padding: 0.5em;
-  height: 96vh;
 
 }
 .row {

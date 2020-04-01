@@ -16,8 +16,9 @@
         <h1><%= yield(:position) %></h1>
         <%= render 'layouts/menu_toggle' %>
       </header>
-
-      <%= yield %>
+      <div class="page">
+        <%= yield %>
+      </div>
     </div>
 
     <div class="sidebar">
