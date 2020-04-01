@@ -1,12 +1,15 @@
 <% provide(:title, "Derbowy Feedback") %>
 <% provide(:position, "Strona główna") %>
 
+<div class="spreadsheet-page">
+  <p class="options">options:</p>
+  <input type="checkbox" id="show-list" class="spreadsheet-check options">
+  <label for="show-list" class="show-list-rating options">widok listy</label>
 
-<div class="spreadsheet">
-  <div class="row">
+  <div class="row head-row">
     <div class="cell"> SKILLS </div>
     <% @users.each do |user| %>
-      <div class="cell">
+      <div class="cell user-cell">
         <%= user.name %>
       </div>
     <% end %>
@@ -14,13 +17,16 @@
 
   <% @skill_categories.each do |category| %>
     <div class="row">
-      <div class="cell"><strong><%= category.name %></strong></div>
+      <div class="cell skill-category-cell"><strong><%= category.name %></strong></div>
     </div>
     <% category.skills.each do |skill| %>
       <div class="row">
-        <div class="cell"><%= skill.name %></div>
+        <div class="cell skill-cell"><%= skill.name %></div>
         <% @users.each do |user| %>
-          <div class="cell">ocena</div>
+          <div class="line-row">
+            <div class="cell user-cell user-list-cell"><%= user.name %></div>
+            <div class="cell rating-cell">ocena</div>
+          </div>
         <% end %>
 
       </div>

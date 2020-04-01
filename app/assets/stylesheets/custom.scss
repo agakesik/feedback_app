@@ -16,8 +16,8 @@ a {
 .content-container {
   width: 40vh;
   flex: 1 1 0;
+  overflow: scroll;
 }
-
 
 /* HEADER */
 .header {
@@ -28,11 +28,12 @@ a {
   padding-left: 1em;
   height: 4vh;
   h1 {
-    display: inline;
+    display: inline-block;
     font-size: 1em;
     margin: 0;
     padding: 0.5em;
-    position: absolute;
+    top: 0;
+    position: relative;
   }
 }
 .menu-toggle {
@@ -48,8 +49,8 @@ a {
 
 .sidebar {
   background-color: #fff;
-  flex: 0 0 18em;
   box-shadow: 0 0 10px 0 #000;
+  flex: 0 0 18em;
 }
 
 .sidebar-links {
@@ -96,21 +97,18 @@ a {
 }
 
 // HOMEPAGE STYLES
-.spreadsheet {
+.spreadsheet-page {
   box-sizing: border-box;
-  border: 1px solid red;
-  // display: flex;
-  // flex-direction: column;
+  // border: 1px solid red;
   padding: 0.5em;
-  overflow: scroll;
   height: 96vh;
 
 }
 .row {
-  // border: 1px solid red;
+  flex-direction: row;
   display: flex;
-
 }
+
 .cell {
   border: 1px solid black;
   display: inline-block;
@@ -119,8 +117,45 @@ a {
   padding: 0.2em;
   // height: 1.5em;
   min-width: 7em;
-
 }
+.user-cell {
+  background-color: #99ff99;
+}
+.skill-category-cell {
+  background-color: #00b3b3;
+}
+.skill-cell {
+  background-color: #ccffff;
+}
+.rating-cell {
+  background-color: #e6e6e6;
+}
+
+.user-list-cell {
+  display: none;
+}
+.options {
+  display: none;
+}
+
+.spreadsheet-check:checked ~ .row {
+  // border: 1px solid red;
+  flex-direction: column;
+  .line-row {
+    margin: 0.5em;
+
+  }
+  .user-cell, .rating-cell {
+    display: inline;
+    flex-grow: 1;
+    // text-decoration: line-through;
+  }
+}
+
+.spreadsheet-check:checked ~ .head-row {
+  display: none;
+}
+
 
 /* SINGLE PAGES STYLES */
 .single-page {
@@ -146,7 +181,11 @@ a {
   }
 
   // HOMEPAGE STYLES
-  .spreadsheet {
+  .spreadsheet-page {
     height: auto;
+  }
+
+  .options {
+    display: inline;
   }
 }
