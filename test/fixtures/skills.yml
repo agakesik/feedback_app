@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-skill1:
-  name: First skill
-  skills_category: :cat1
+plowstop:
+  name: plowstop
+  skills_category: :basic
 
-skill2:
-  name: Second skill
-  skills_category: cat2
+hopping:
+  name: Hopping
+  skills_category: :balance

@@ -3,7 +3,7 @@ require 'test_helper'
 class SkillTest < ActiveSupport::TestCase
 
   def setup
-    @category = skills_categories(:cat1)
+    @category = skills_categories(:basic)
     @skill = Skill.new(name: "random skill", skills_category_id: @category.id)
   end
 

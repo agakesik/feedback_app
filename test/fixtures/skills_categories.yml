@@ -1,7 +1,10 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-cat1:
-  name: Category 1
+basic:
+  name: Basic Skating Skills
 
-cat2:
-  name: Category 1
+recovery:
+  name: Recovery tactics
+
+balance:
+  name: Balance and Agility
