@@ -23,6 +23,9 @@ class SkillsController < ApplicationController
   end
 
   def destroy
+    Skill.find(params[:id]).destroy
+    flash[:info] = "skill usunięty"
+    redirect_to skills_path
   end
 
   private

@@ -16,6 +16,6 @@ class UserShowTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to users_path
     follow_redirect!
-    assert_select 'div.alert-success'
+    assert_select 'div.alert-info'
   end
 end
