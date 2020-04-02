@@ -41,3 +41,12 @@ Skill.create(name: "kaczka", skills_category_id: 6)
   Skill.create(name: "blocking-#{n}", skills_category_id: 5)
   Skill.create(name: "nasze-#{n}", skills_category_id: 6)
 end
+
+# Ratings
+
+10.times do |n|
+  10.times do |m|
+    Rating.create(value: 1, user_id: n, skill_id: m*2)
+    Rating.create(value: 2, user_id: n, skill_id: m*2-1)
+  end
+end

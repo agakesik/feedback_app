@@ -35,4 +35,18 @@ class RatingTest < ActiveSupport::TestCase
     assert_not @rating.valid?
   end
 
+  test "associated ratings should be destroyed with user" do
+    @user.ratings.create!(value: 1, skill_id: @skill.id)
+    assert_difference 'Rating.count', -1 do
+      @user.destroy
+    end
+  end
+
+  test "associated ratings should be destroyed with skill" do
+    @skill.ratings.create!(value: 1, user_id: @user.id)
+    assert_difference 'Rating.count', -1 do
+      @skill.destroy
+    end
+  end
+
 end

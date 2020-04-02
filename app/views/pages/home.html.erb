@@ -24,8 +24,11 @@
         <div class="cell skill-cell"><%= skill.name %></div>
         <% @users.each do |user| %>
           <div class="line-row">
+
             <div class="cell user-cell user-list-cell"><%= user.name %></div>
-            <div class="cell rating-cell">ocena</div>
+            <div class="cell rating-cell">
+              <%= rating_value(user, skill) %>
+            </div>
           </div>
         <% end %>
 
