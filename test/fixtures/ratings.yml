@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   value: 1
+#   user_id: aga
+#   skill: plowstop
+#
+# two:
+#   value: 1
+#   user: aga
+#   skill: hopping

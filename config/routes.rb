@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/menu', to: 'pages#menu'
   resources :users
   resources :skills
+  resources :ratings, only: [:new, :create, :destroy]
 end

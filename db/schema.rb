@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_141014) do
+ActiveRecord::Schema.define(version: 2020_04_02_114347) do
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "value"
+    t.integer "user_id"
+    t.integer "skill_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["skill_id"], name: "index_ratings_on_skill_id"
+    t.index ["user_id", "skill_id", "created_at"], name: "index_ratings_on_user_id_and_skill_id_and_created_at"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
