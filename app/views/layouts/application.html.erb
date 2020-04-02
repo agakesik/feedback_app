@@ -17,6 +17,9 @@
         <%= render 'layouts/menu_toggle' %>
       </header>
       <div class="page">
+        <% flash.each do |mssg_type, message| %>
+          <%= content_tag(:div, message, class: "alert alert-#{mssg_type}") %>
+        <% end %>
         <%= yield %>
       </div>
     </div>

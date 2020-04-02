@@ -12,7 +12,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path, count: 1
     assert_select "a[href=?]", users_path, count: 1
     assert_select "a[href=?]", skills_path, count: 1
-    assert_select "a[href=?]", new_user_path, count: 1
-    assert_select "a[href=?]", new_skill_path, count: 1
+    assert_select "form[action=?]", new_user_path, count: 1
+    assert_select "form[action=?]", new_skill_path, count: 1
   end
 end

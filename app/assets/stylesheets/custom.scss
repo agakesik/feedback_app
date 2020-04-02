@@ -166,6 +166,15 @@ a {
   padding: 0 0.5em;
 }
 
+/* USER STYLES */
+.delete {
+  border: 3px solid black;
+  color: red;
+  display: inline-block;
+  margin: 0.5em;
+  padding: 0.5em;
+}
+
 @media (max-width: 800px) {
 
   /* HEADER */

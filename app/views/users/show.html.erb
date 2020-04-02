@@ -2,11 +2,13 @@
 <% provide(:position, "Profil") %>
 
 <div class="single-page">
-    <h2><%= @user.name %></h2>
+  <h2><%= @user.name %></h2>
   <div>
     Tu będą informacje o nim
   </div>
   <div>
     Tu będą jego oceny
   </div>
+  <%= link_to "usuń", @user, method: :delete, class: "delete",
+              data: { confirm: "Na pewno?" } %>
 </div>
