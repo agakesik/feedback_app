@@ -10,6 +10,14 @@ class UserShowTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_template 'users/show'
     assert_match @user.name, response.body
+    Skill.all.each do |skill|
+      assert_match skill.name, response.body
+      assert_select 'a[href=?]', path_to_new_rating(@user, skill)
+    end
+  end
+
+  test "delete user" do
+    get user_path(@user)
     assert_select 'a[href=?]', user_path(@user), text: "usuń"
     assert_difference 'User.count', -1 do
       delete user_path(@user)

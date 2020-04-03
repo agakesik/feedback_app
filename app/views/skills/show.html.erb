@@ -6,7 +6,18 @@
   <h2> <%= @skill.name %> </h2>
   <p>categoria: <%= SkillsCategory.find(@skill.skills_category_id).name %></p>
 
-  <p> tu będą oceny tego skilla u wszystkich ludzi</p>
   <%= link_to "usuń", @skill, method: :delete, class: "delete",
               data: { confirm: "Na pewno?" } %>
+
+    <% @users.each do |user| %>
+      <div class="row">
+        <div class="cell skill-cell"><%= user.name %></div>
+            <%= link_to(path_to_new_rating(user, @skill)) do %>
+              <div class="cell rating-cell">
+                <%= rating_value(user, @skill) %>
+              </div>
+            <% end %>
+
+      </div>
+    <% end %>
 </div>

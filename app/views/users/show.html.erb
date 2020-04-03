@@ -3,12 +3,27 @@
 
 <div class="single-page">
   <h2><%= @user.name %></h2>
-  <div>
-    Tu będą informacje o nim
-  </div>
-  <div>
-    Tu będą jego oceny
-  </div>
   <%= link_to "usuń", @user, method: :delete, class: "delete",
-              data: { confirm: "Na pewno?" } %>
+  data: { confirm: "Na pewno?" } %>
+
+  <h4>Oceny</h4>
+
+  <% @skill_categories.each do |category| %>
+    <div class="row">
+      <div class="cell skill-category-cell">
+        <strong><%= category.name %></strong>
+      </div>
+    </div>
+    <% category.skills.each do |skill| %>
+      <div class="row">
+        <div class="cell skill-cell"><%= skill.name %></div>
+            <%= link_to(path_to_new_rating(@user, skill)) do %>
+              <div class="cell rating-cell">
+                <%= rating_value(@user, skill) %>
+              </div>
+            <% end %>
+
+      </div>
+    <% end %>
+  <% end %>
 </div>
