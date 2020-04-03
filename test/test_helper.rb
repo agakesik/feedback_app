@@ -13,3 +13,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+class ActionView::TestCase
+  include RatingsHelper
+  fixtures :all
+end

@@ -4,7 +4,6 @@ class HomePageTest < ActionDispatch::IntegrationTest
 
   test "home page should show users, skills and ratings" do
     get root_url
-    assert_template 'pages/home'
     User.all.each do |user|
       assert_match user.name, response.body
     end
@@ -14,8 +13,14 @@ class HomePageTest < ActionDispatch::IntegrationTest
     SkillsCategory.all.each do |category|
       assert_match category.name, response.body
     end
+    Rating.all.each do |rating|
+      assert_match rating.value, reponse.body
+    end
+  end
 
-
-
+  test "template" do
+    get root_url
+    assert_template 'pages/home'
+    assert_match  new_rating_path, response.body
   end
 end
