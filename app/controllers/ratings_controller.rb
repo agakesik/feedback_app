@@ -3,13 +3,19 @@ class RatingsController < ApplicationController
 
   def new
     @rating = Rating.new
+    @previous_url = params[:previous_url]
   end
 
   def create
+    previous_url = params[:previous_url]
     @rating = Rating.new(rating_params)
     if @rating.save
-      redirect_to root_url
       flash[:success] = "Ocena dodana"
+      if previous_url
+        redirect_to previous_url
+      else
+        redirect_to root_url
+      end
     else
       flash[:danger] = "wystąpił jakiś błąd :c"
       redirect_to root_url

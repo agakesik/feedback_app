@@ -2,8 +2,11 @@
 <%= provide(:position, "Dodaj ocenę") %>
 
 <div class="single-page">
+  poprzednia strona: <%= @previous_url %>
   <%= form_with(model: @rating, local: true) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
+
+    <%= hidden_field_tag :previous_url, @previous_url %>
     <p> Dodajesz ocenę dla:</p>
     <%= f.label :user_id, "#{@user.name}" %>
     <%= f.radio_button :user_id, @user.id, checked: true %><br>
