@@ -1,30 +1,28 @@
 <% provide(:title, @user.name) %>
 <% provide(:position, "Profil") %>
 
-<div class="single-page">
 
-  <h2><%= @user.name %></h2>
-  <%= link_to "usuń", @user, method: :delete, class: "delete",
-  data: { confirm: "Na pewno?" } %>
+<h2><%= @user.name %></h2>
+<%= link_to "usuń", @user, method: :delete, class: "delete",
+data: { confirm: "Na pewno?" } %>
 
-  <h4>Oceny</h4>
+<h4>Oceny</h4>
 
-  <% @skill_categories.each do |category| %>
-    <div class="row">
-      <div class="cell skill-category-cell">
-        <strong><%= category.name %></strong>
-      </div>
+<% @skill_categories.each do |category| %>
+  <div class="row">
+    <div class="cell skill-category-cell">
+      <strong><%= category.name %></strong>
     </div>
-    <% category.skills.each do |skill| %>
-      <div class="row">
-        <div class="cell skill-cell"><%= skill.name %></div>
-            <%= link_to(path_to_new_rating(@user, skill)) do %>
-              <div class="cell rating-cell">
-                <%= rating_value(@user, skill) %>
-              </div>
-            <% end %>
+  </div>
+  <% category.skills.each do |skill| %>
+    <div class="row">
+      <div class="cell skill-cell"><%= skill.name %></div>
+          <%= link_to(path_to_new_rating(@user, skill)) do %>
+            <div class="cell rating-cell">
+              <%= rating_value(@user, skill) %>
+            </div>
+          <% end %>
 
-      </div>
-    <% end %>
+    </div>
   <% end %>
-</div>
+<% end %>

@@ -1,12 +1,10 @@
-<div class="single-page">
-  <div class="form">
-    <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<div class="form">
+  <%= form_with(model: @user, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name, "Imię" %>
-      <%= f.text_field :name, class: 'form-control' %>
+    <%= f.label :name, "Imię" %>
+    <%= f.text_field :name, class: 'form-control' %>
 
-      <%= f.submit "dodaj", class: "button" %>
-    <% end %>
-  </div>
+    <%= f.submit "dodaj", class: "button" %>
+  <% end %>
 </div>
