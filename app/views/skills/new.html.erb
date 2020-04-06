@@ -1,14 +1,14 @@
-  <div class="form">
-    <%= form_with(model: @skill, local: true) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<div class="form">
+  <%= form_with(model: @skill, local: true) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name, "Nazwa" %>
-      <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :name, "Nazwa" %>
+    <%= f.text_field :name, class: "form-control" %>
 
-      <%= f.label :skills_categories %>
-      <%= f.collection_select :skills_category_id, SkillsCategory.all, :id,
-                              :name, class: "form-control" %>
+    <%= f.label :skills_categories %>
+    <%= f.collection_select :skills_category_id, SkillsCategory.all, :id,
+                            :name, class: "form-control" %>
 
-      <%= f.submit "dodaj", class: "button" %>
-    <% end %>
-  </div>
+    <%= f.submit "dodaj", class: "button" %>
+  <% end %>
+</div>
