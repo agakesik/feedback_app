@@ -116,32 +116,39 @@ a {
 
 }
 .row {
-  flex-direction: row;
   display: flex;
+  box-sizing: content-box;
+  flex-direction: row;
+  // border: 1px solid red;
+  align-items: center;
 }
-
 .cell {
-  border: 1px solid black;
+  // border: 1px solid black;
+  box-shadow: 0 0 3px 0 rgba(0,0,0,0.3);
   display: inline-block;
-  box-sizing: border-box;
-  margin: 0.2em;
-  padding: 0.2em;
-  // height: 1.5em;
-  min-width: 7em;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 5em;
+  text-align: center;
+  border-radius: 5px;
+}
+.skill-category-cell {
+  background-color: #ffb3b3;
+  width: 10em;
+}
+.skill-cell {
+  background-color: #ffe6e6;
+  width: 7em;
 }
 .user-cell {
   background-color: #ff5c33;
-}
-.skill-category-cell {
-  background-color: #ffb3cc;
-}
-.skill-cell {
-  background-color: #ffe6ee;
+  width: 5em;
 }
 .rating-cell {
   background-color: #ffe6b3;
+  font-weight: bold;
+  width: 5em;
 }
-
 .user-list-cell {
   display: none;
 }
@@ -191,16 +198,23 @@ a {
   .options {
     display: inline;
   }
+  .row {
+    margin: 0.3em 0;
+  }
+  .cell {
+    margin: 0.2em;
+  }
   .spreadsheet-check:checked ~ .row {
     // border: 1px solid red;
     flex-direction: column;
+
     .line-row {
       margin: 0.5em;
-
     }
     .user-cell, .rating-cell {
       display: inline;
-      flex-grow: 1;
+      float:left;
+      // flex-grow: 1;
       // text-decoration: line-through;
     }
   }

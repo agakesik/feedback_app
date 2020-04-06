@@ -8,11 +8,11 @@
 <!-- top row with names of all users -->
 <% if @users && @skill_categories %>
   <div class="row head-row">
-    <div class="cell"> SKILLS </div>
+    <div class="placeholder"><div class="cell skill-cell"> SKILLS </div></div>
     <% @users.each do |user| %>
-      <div class="cell user-cell">
+      <div class="placeholder"><div class="cell user-cell">
         <%= user.name %>
-      </div>
+      </div></div>
     <% end %>
   </div>
 <% end %>
@@ -22,14 +22,14 @@
 <% if @skill_categories %>
   <% @skill_categories.each do |category| %>
     <div class="row">
-      <div class="cell skill-category-cell">
+      <div ><div class="cell skill-category-cell">
         <strong><%= category.name %></strong>
-      </div>
+      </div></div>
     </div>
 
     <% category.skills.each do |skill| %>
       <div class="row">
-        <div class="cell skill-cell"><%= skill.name %></div>
+        <div class="placeholder"><div class="cell skill-cell"><%= skill.name %></div></div>
 
         <!-- If we have many users-->
         <% if @users %>
@@ -38,9 +38,9 @@
             <div class="line-row">
               <div class="cell user-cell user-list-cell"><%= user.name %></div>
               <%= link_to(path_to_new_rating(user, skill)) do %>
-                <div class="cell rating-cell">
+                <div class="placeholder"><div class="cell rating-cell">
                   <%= rating_value(user, skill) %>
-                </div>
+                </div></div>
               <% end %>
             </div>
           <% end %>
@@ -67,7 +67,7 @@
 
   <% @users.each do |user| %>
     <div class="row">
-      <div class="cell skill-cell"><%= user.name %></div>
+      <div class="cell user-cell"><%= user.name %></div>
 
       <%= link_to(path_to_new_rating(user, @skill)) do %>
         <div class="cell rating-cell">

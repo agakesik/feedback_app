@@ -5,6 +5,7 @@ class RatingHelperTest < ActionView::TestCase
   def setup
     @user = users(:aga)
     @skill = skills(:plowstop)
+    request = ActionDispatch::Request.new(:test)
   end
 
   test "rating_value test" do
@@ -16,8 +17,4 @@ class RatingHelperTest < ActionView::TestCase
     assert_equal 3, rating_value(@user, @skill)
   end
 
-  test "path_to_new_rating" do
-    assert_match @user.id.to_s, path_to_new_rating(@user, @skill)
-    assert_match @skill.id.to_s, path_to_new_rating(@user, @skill)
-  end
 end

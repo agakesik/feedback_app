@@ -14,6 +14,12 @@ class NewRatingTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
+  test "test path_to_new_rating helper" do
+    get root_url
+    assert_match @user.id.to_s, path_to_new_rating(@user, @skill)
+    assert_match @skill.id.to_s, path_to_new_rating(@user, @skill)
+  end
+
   test "invalid rating" do
     get user_path(@user)
     get path_to_new_rating(@user, @skill)
