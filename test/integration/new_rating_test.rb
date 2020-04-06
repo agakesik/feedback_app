@@ -15,16 +15,18 @@ class NewRatingTest < ActionDispatch::IntegrationTest
   end
 
   test "invalid rating" do
+    get user_path(@user)
     get path_to_new_rating(@user, @skill)
     post ratings_path, params: { rating: { user_id: 0,
                                            skill_id: 0,
                                            value: 6 } }
-    assert_redirected_to root_url
+    # assert_redirected_to root_url
     follow_redirect!
     assert_select 'div.alert-danger'
   end
 
   test "valid new rating" do
+    get user_path(@user)
     get path_to_new_rating(@user, @skill)
     assert_match @user.name, response.body
     assert_match @skill.name, response.body
