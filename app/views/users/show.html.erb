@@ -1,11 +1,15 @@
 <% provide(:title, @user.name) %>
 <% provide(:position, "Profil") %>
 
+<div class="column-page">
+  <div class="column-3">
+    <h2><%= @user.name %></h2>
+    <%= link_to "usuń", @user, method: :delete, class: "delete",
+    data: { confirm: "Na pewno?" } %>
+  </div>
 
-<h2><%= @user.name %></h2>
-<%= link_to "usuń", @user, method: :delete, class: "delete",
-data: { confirm: "Na pewno?" } %>
-
-<h4>Oceny</h4>
-
-<%= render 'shared/ratings_base' %>
+  <div class="rating-column">
+    <h4>Oceny</h4>
+    <%= render 'shared/ratings_base' %>
+  </div>
+</div>

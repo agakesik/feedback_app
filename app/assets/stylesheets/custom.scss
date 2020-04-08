@@ -34,6 +34,7 @@ a {
   overflow: scroll;
 }
 
+
 /* HEADER */
 .header {
   background-color: #ffee00;
@@ -45,7 +46,7 @@ a {
   h1 {
     display: inline-block;
     font-size: 1em;
-    margin: 0;
+    margin: 0 0 0 3em;
     padding: 0.5em;
     top: 0;
     position: relative;
@@ -115,12 +116,15 @@ a {
   padding: 0.5em;
 
 }
+.head-row {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: #e6e6e6;
+}
 .row {
-  display: flex;
-  box-sizing: content-box;
-  flex-direction: row;
-  // border: 1px solid red;
-  align-items: center;
+  display: inline-block;
+  white-space: nowrap;
 }
 .cell {
   // border: 1px solid black;
@@ -131,10 +135,13 @@ a {
   width: 5em;
   text-align: center;
   border-radius: 5px;
+  white-space: normal;
+  vertical-align: middle
 }
 .skill-category-cell {
   background-color: #ffb3b3;
   width: 10em;
+
 }
 .skill-cell {
   background-color: #ffe6e6;
@@ -142,21 +149,15 @@ a {
 }
 .user-cell {
   background-color: #ff5c33;
-  width: 5em;
 }
 .rating-cell {
   background-color: #ffe6b3;
   font-weight: bold;
-  width: 5em;
 }
-.user-list-cell {
-  display: none;
+.hidden-cell {
+  background-color: transparent;
+  box-shadow: 0 0 0;
 }
-.options {
-  display: none;
-}
-
-
 
 /* SINGLE PAGES STYLES */
 .single-page {
@@ -166,7 +167,27 @@ a {
   padding: 0 0.5em;
 }
 
-/* USER STYLES */
+.column-page {
+  display: flex;
+
+}
+.rating-column {
+  flex-grow: 2;
+  .row {
+    border: 1px solid red;
+    display: block;
+    .cell {
+      border: 1px solid blue;
+      display: inline-block;
+      flex-grow: 1;
+
+    }
+  }
+}
+.column-3 {
+  border: 1px solid red;
+  flex-grow: 1;
+}
 .delete {
   border: 3px solid black;
   color: red;
@@ -203,23 +224,5 @@ a {
   }
   .cell {
     margin: 0.2em;
-  }
-  .spreadsheet-check:checked ~ .row {
-    // border: 1px solid red;
-    flex-direction: column;
-
-    .line-row {
-      margin: 0.5em;
-    }
-    .user-cell, .rating-cell {
-      display: inline;
-      float:left;
-      // flex-grow: 1;
-      // text-decoration: line-through;
-    }
-  }
-
-  .spreadsheet-check:checked ~ .head-row {
-    display: none;
   }
 }

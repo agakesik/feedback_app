@@ -1,7 +1,7 @@
 <% provide(:title, "Skaters") %>
 <%provide(:position, "Skaters") %>
 
-
+<h2> Wszyscy ludzie</h2>
 <ul class="users">
   <% @users.each do |user| %>
   <li> <%= link_to user.name, user_path(user) %></li>
