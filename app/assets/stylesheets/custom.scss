@@ -224,7 +224,6 @@ a {
   .page {
     background-color: #e6e6e6;
     height: 93vh;
-    overflow:hidden;
   }
   /* HEADER */
   .header {
@@ -254,7 +253,7 @@ a {
   // SINGLE PAGES STYLE
   .single-page {
     width: 100vw;
-    padding: 0;
+    padding: 0 1em;
     min-height: auto;
   }
   .column-page {
