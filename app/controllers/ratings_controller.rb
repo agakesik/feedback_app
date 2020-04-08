@@ -18,7 +18,11 @@ class RatingsController < ApplicationController
       end
     else
       flash[:danger] = "wystąpił jakiś błąd :c"
-      redirect_to root_url
+      if previous_url
+        redirect_to previous_url
+      else
+        redirect_to root_url
+      end
     end
   end
 

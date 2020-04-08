@@ -114,8 +114,8 @@ a {
 // HOMEPAGE STYLES
 .spreadsheet-page {
   background-color: #e6e6e6;
+  display: inline-block;
   padding: 0.5em;
-
 }
 .head-row {
   position: -webkit-sticky; /* Safari */
@@ -209,6 +209,41 @@ a {
     text-align: right;
   }
 }
+
+// FORM STYLES
+
+// ALERT STYLES
+.alert-container {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  left: 0;
+}
+.alert {
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 1em;
+  text-align: center;
+  .close {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 0.8em;
+    transition: 0.3s;
+  }
+}
+.alert-success{
+  background-color: #adebb0;
+  color: #145217;
+}
+.alert-info {
+  background-color: #ebd4ad;
+  color: #523b14;
+}
+.alert-danger {
+  background-color: #ebadad;
+  color: #521414;
+}
+
 .delete {
   background-color: #cc2900;
   border-radius: 7px;
