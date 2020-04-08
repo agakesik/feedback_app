@@ -2,7 +2,7 @@
 <% provide(:position, "Skills") %>
 
 <div class="column-page">
-  <div class="column-3">
+  <div class="info-column">
     <h2> <%= @skill.name %> </h2>
     <p>categoria: <%= SkillsCategory.find(@skill.skills_category_id).name %></p>
 
@@ -12,7 +12,7 @@
 
   <div class="rating-column">
     <h3>Oceny</h3>
-    
+
     <% @users.each do |user| %>
       <div class="row">
         <div class="cell user-cell"><%= user.name %></div>
