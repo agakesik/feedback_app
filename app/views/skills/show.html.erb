@@ -1,12 +1,29 @@
 <% provide(:title, @skill.name) %>
 <% provide(:position, "Skills") %>
 
+<div class="column-page">
+  <div class="column-3">
+    <h2> <%= @skill.name %> </h2>
+    <p>categoria: <%= SkillsCategory.find(@skill.skills_category_id).name %></p>
 
-<h2> <%= @skill.name %> </h2>
-<p>categoria: <%= SkillsCategory.find(@skill.skills_category_id).name %></p>
+    <%= link_to "usuń", @skill, method: :delete, class: "delete",
+              data: { confirm: "Na pewno?" } %>
+  </div>
 
-<%= link_to "usuń", @skill, method: :delete, class: "delete",
-          data: { confirm: "Na pewno?" } %>
+  <div class="rating-column">
+    <h3>Oceny</h3>
+    
+    <% @users.each do |user| %>
+      <div class="row">
+        <div class="cell user-cell"><%= user.name %></div>
 
-          
-<%= render 'shared/ratings_base' %>
+        <%= link_to(path_to_new_rating(user, @skill)) do %>
+          <div class="cell rating-cell">
+            <%= rating_value(user, @skill) %>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+</div>

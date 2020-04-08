@@ -192,8 +192,9 @@ a {
       width: 100%;
 
     }
-    .skill-cell{
+    .skill-cell, .user-cell{
       justify-self: end;
+      width: 10em;
     }
   }
 }
