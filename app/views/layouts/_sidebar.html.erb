@@ -18,8 +18,8 @@
 </ul>
 
 <ul class="sidebar-links">
-  <li><%= button_to "DODAJ CZŁOWIEKA", new_user_path, method: 'get' %></li>
-  <li><%= button_to "DODAJ SKILLA", new_skill_path, method: 'get' %></li>
+  <li><%= render 'shared/add_button', who: "user" %></li>
+  <li><%= render 'shared/add_button', who: "skill" %></li>
 </ul>
 
 <ul class="user-links sidebar-links">

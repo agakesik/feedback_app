@@ -7,7 +7,7 @@
     <div>
       <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
     </div>
-    <%= link_to "usuń", @user, method: :delete, class: "delete",
+    <%= link_to "usuń", @user, method: :delete, class: "button delete",
     data: { confirm: "Na pewno?" } %>
   </div>
 

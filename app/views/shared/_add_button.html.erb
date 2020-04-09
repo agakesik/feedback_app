@@ -1,0 +1,11 @@
+<% if who == "user" %>
+  <% title = "DODAJ człowieka" %>
+  <% path = new_user_path %>
+<% elsif who == "skill" %>
+  <% title = "DODAJ skilla" %>
+  <% path = new_skill_path %>
+
+<% end %>
+
+<%= link_to title, path,
+method: :get, class: "button add" %>
