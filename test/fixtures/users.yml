@@ -2,6 +2,8 @@
 
 aga:
   name: Aga
+  skater_status: SS1
 
 adam:
   name: Adam
+  skater_status: SS2

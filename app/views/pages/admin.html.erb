@@ -1,0 +1,16 @@
+<div class="admin-controll">
+  <h3>Katogorie Skillsów</h3>
+  <ul>
+    <% SkillsCategory.all.each do |category| %>
+      <li><%= category.name %> <span>edytuj | usuń<span></li>
+    <% end %>
+  </ul>
+</div>
+<div class="admin-controll">
+  <h3>Status Zawodników</h3>
+  <ul>
+    <% SkaterStatus.all.each do |status| %>
+      <li><%= status.name %> <span>edytuj | usuń<span></li>
+    <% end %>
+  </ul>
+</div>

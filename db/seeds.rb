@@ -7,7 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # SkaterStatus
-SkaterStatus.create(name: "ZERO kontaktu")
+SkaterStatus.create(name: "ZERO kontaktu", color: "#dc5050")
+SkaterStatus.create(name: "lekki kontakt", color: "#dcbe50")
+SkaterStatus.create(name: "mocny kontakt", color: "#56dc50")
+SkaterStatus.create(name: "gra", color: "#50a7dc")
 
 # Users
 user = ["Kaczor Donald", "Hyzio", "Dyzio", "Zyzio", "Myszka Mickey", "Pluto",

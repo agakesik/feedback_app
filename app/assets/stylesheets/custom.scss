@@ -153,7 +153,7 @@ a {
   width: 7em;
 }
 .user-cell {
-  background-color: #ff5c33;
+  // background-color: #ff5c33;
 }
 .rating-cell {
   background-color: #ffe6b3;
@@ -330,7 +330,15 @@ input[type="radio"]:checked + .rating-choice {
   color: #521414;
 }
 
-
+// Admin page
+.admin-controll {
+  font-size: 1.5em;
+  span {
+    font-size: 0.7em;
+    color: #666;
+    margin-left: 0.5em;
+  }
+}
 
 @media (max-width: 800px) {
 
@@ -399,5 +407,9 @@ input[type="radio"]:checked + .rating-choice {
   }
   .rating-choice-container {
     flex-direction: column;
+  }
+  // Admin page
+  .admin-controll {
+    font-size: 1em;
   }
 }

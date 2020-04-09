@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_121316) do
+ActiveRecord::Schema.define(version: 2020_04_09_132946) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "value"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_121316) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "color", default: "black"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -48,8 +49,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_121316) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "skater_status_id", default: 1, null: false
-    t.index "\"skater_status\"", name: "index_users_on_skater_status"
+    t.integer "skater_status_id", default: 1
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["skater_status_id"], name: "index_users_on_skater_status_id"
   end

@@ -2,6 +2,8 @@
 
 SS1:
   name: ZERO kontaktu
+  color: red
 
 SS2:
   name: lekki kontakt
+  color: yellow

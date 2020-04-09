@@ -6,9 +6,8 @@
 <div class="row head-row">
   <div class="cell skill-cell hidden-cell">  </div>
   <% @users.each do |user| %>
-    <div class="cell user-cell">
-      <%= user.name %>
-    </div>
+    <%= content_tag(:div, user.name, class: "cell user-cell",
+                    style: "background-color: #{user.skater_status.color}" ) %>
   <% end %>
 </div>
 <% @skill_categories.each do |category| %>
