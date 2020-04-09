@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/help', to: 'pages#help'
   get '/menu', to: 'pages#menu'
+  get '/admin', to: 'pages#admin'
   resources :users
   resources :skills
   resources :ratings, only: [:new, :create, :destroy]

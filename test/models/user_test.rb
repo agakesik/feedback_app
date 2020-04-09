@@ -23,4 +23,9 @@ class UserTest < ActiveSupport::TestCase
     @user.save
     assert_not duplicate.valid?
   end
+
+  test "user should get SkaterStatus on creation" do
+    @user.save
+    assert_equal @user.skater_status_id, 1
+  end
 end
