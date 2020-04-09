@@ -17,7 +17,7 @@ class RatingsController < ApplicationController
         redirect_to root_url
       end
     else
-      flash[:danger] = "wystąpił jakiś błąd :c"
+      flash[:danger] = "Ocena nie została dodana"
       if previous_url
         redirect_to previous_url
       else

@@ -1,6 +1,8 @@
 <% if object.errors.any? %>
   <div class="error-explanation">
-    Błędy w liczbie: <%= object.errors.count %>
+    <div class="alert alert-danger">
+      Błędy w liczbie: <%= object.errors.count %>
+    </div>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

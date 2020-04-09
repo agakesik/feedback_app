@@ -7,7 +7,7 @@
     <p>categoria: <%= SkillsCategory.find(@skill.skills_category_id).name %></p>
 
     <%= link_to "usuń", @skill, method: :delete, class: "button delete",
-              data: { confirm: "Na pewno?" } %>
+              data: { confirm: "Na pewno usunąć?" } %>
   </div>
 
   <div class="rating-column">

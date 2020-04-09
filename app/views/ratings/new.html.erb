@@ -6,19 +6,23 @@
     <%= render 'shared/error_messages', object: f.object %>
 
     <%= hidden_field_tag :previous_url, @previous_url %>
-    <p> Dodajesz ocenę dla:</p>
-    <%= f.label :user_id, "#{@user.name}" %>
-    <%= f.radio_button :user_id, @user.id, checked: true %><br>
-    <%= f.label :skill_id, "#{@skill.name}" %>
-    <%= f.radio_button :skill_id, @skill.id, checked: true %><br>
+    <h4> Dodajesz ocenę dla:</h4>
+    <ul>
+      <li>zawodnika: <span><%= @user.name %></span></li>
+      <li>w skillu: <span><%= @skill.name %></span></li>
+    </ul>
+    <%= f.radio_button :user_id, @user.id, checked: true, class: "hidden" %>
+    <%= f.radio_button :skill_id, @skill.id, checked: true, class: "hidden" %>
 
-    <br>
-    <p> Oceń: </p>
-    <% 5.times do |n| %>
-      <%= f.label :value, n+1 %>
-      <%= f.radio_button :value, n+1 %><br>
-    <% end %>
+    <p class="label"> Oceń: </p>
+    <div class="rating-choice-container">
+      <% 5.times do |n| %>
+        <%= f.radio_button :value, n+1, class: "hidden rating choice" %>
+        <%= f.label :value, n+1, value: n+1, class: "rating-choice button" %>
+      <% end %>
+    </div>
 
-    <%= f.submit "oceń", class: "button" %>
+
+    <%= f.submit "oceń", class: "button submit" %>
   <% end %>
 </div>

@@ -37,21 +37,6 @@ a {
   overflow: scroll;
 }
 
-// BUTTONS
-.button {
-  border-radius: 7px;
-  color: white;
-  display: inline-block;
-  margin: 2em;
-  padding: 0.5em 1em;
-
-}
-.delete {
-  background-color: #cc2900;
-}
-.add {
-  background-color: #00cc29;
-}
 
 /* HEADER */
 .header {
@@ -97,9 +82,6 @@ a {
   li {
     list-style-type: none;
     margin: auto;
-  }
-  .button {
-    margin: 0.5em;
   }
 }
 
@@ -192,13 +174,13 @@ a {
   background: #e6e6e6;
 }
 
-/* SINGLE COLUMN RATINGS */
+/* SINGLE PAGE COLUMNS RATINGS */
 .column-page {
   display: flex;
   margin: 0 1em;
 }
 .rating-column {
-  flex-grow: 2;
+  flex-grow: 1;
   h3 {
     margin-left: 3em;
   }
@@ -224,15 +206,91 @@ a {
   }
 }
 .info-column {
-  flex-grow: 1;
+  flex: 0 1 20vw;
   padding: 0 1.5em;
   text-align: center;
   h2 {
     text-align: right;
   }
 }
+.list-column {
+  flex-grow: 1;
+  padding-left: 3em;
+}
+
+// BUTTONS
+.button {
+  border-radius: 7px;
+  color: white;
+  display: inline-block;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+
+}
+.delete {
+  background-color: #cc2900;
+  // margin: 2em;
+}
+.add {
+  background-color: #00cc29;
+}
+.submit {
+  background-color: #555;
+  display: block;
+  border: none;
+  cursor: pointer;
+  margin: 2em 0;
+}
 
 // FORM STYLES
+.form {
+  margin: 1em auto;
+  width: 80%;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    margin: 0.5em;
+  }
+  span {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+}
+.label {
+  font-size: 2em;
+  display: block;
+  margin: 1em 0 0.3em;
+}
+input, select {
+  background-color: white;
+  font-size: 1.5em;
+  width: 100%;
+}
+.rating-choice-container {
+  display: flex;
+  flex-direction: row;
+}
+.rating-choice {
+  display: block;
+  flex-grow: 1;
+  background-color: #ffe6b3;
+  margin: 0.5em;
+  color: black;
+  text-align: center;
+}
+input[type="radio"]:checked + .rating-choice {
+  background-color: #444;
+  color: white;
+}
+.form-control {}
+.hidden {
+  display: none;
+}
+
 
 // ALERT STYLES
 .alert-container {
@@ -263,6 +321,12 @@ a {
 }
 .alert-danger {
   background-color: #ebadad;
+  color: #521414;
+}
+.error-explanation {
+  background-color: #f5d6d6;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
   color: #521414;
 }
 
@@ -318,5 +382,17 @@ a {
   }
   .info-column {
     border-bottom: 1px solid #a6a6a6;
+    padding: 0 0 1em;
+  }
+  .list-column {
+    padding-left: 0;
+  }
+  // FORM STYLES
+  .form {
+    margin: 1em 0;
+    width: auto;
+  }
+  .rating-choice-container {
+    flex-direction: column;
   }
 }
