@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# SkaterStatus
+SkaterStatus.create(name: "ZERO kontaktu")
+
 # Users
 user = ["Kaczor Donald", "Hyzio", "Dyzio", "Zyzio", "Myszka Mickey", "Pluto",
         "Sknerus", "Daisy", "Myszka Minnie", "Dziobak", "Goofy" ]
