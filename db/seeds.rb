@@ -49,11 +49,11 @@ Skill.create(name: "kaczka", skills_category_id: 6)
 end
 
 # Ratings value
-RatingValue.create(value: 1, name: "raw meat", color: "#ffcccc")
+RatingValue.create(value: 1, name: "raw meat", color: "#ffd7cc")
 RatingValue.create(value: 2, name: "fresh meat", color: "#fff2cc")
 RatingValue.create(value: 3, name: "rookie", color: "#ccffcf")
-RatingValue.create(value: 4, name: "gracz derby", color: "#ccfffd")
-RatingValue.create(value: 5, name: "Allstar", color: "#f9ccff")
+RatingValue.create(value: 4, name: "gracz derby", color: "#ccdeff")
+RatingValue.create(value: 5, name: "Allstar", color: "#f4ccff")
 
 # Ratings
 

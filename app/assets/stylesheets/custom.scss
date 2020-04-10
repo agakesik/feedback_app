@@ -190,7 +190,7 @@ a {
   .row {
     display: block;
     align-items: center;
-    
+
     .cell {
       display: inline-block;
       width: 10em;
@@ -273,6 +273,7 @@ input, select {
   flex-direction: row;
 }
 .choice {
+  border: 3px solid transparent;
   display: block;
   flex-grow: 1;
   background-color: #ffe6b3;
@@ -368,7 +369,6 @@ input[type="radio"]:checked + .choice {
   }
   .cell {
     margin: 0.2em;
-
   }
 
   // SINGLE PAGES STYLE
@@ -412,6 +412,10 @@ input[type="radio"]:checked + .choice {
   }
   .rating-choice-container {
     flex-direction: column;
+
+  }
+  .choice {
+    margin: 0.5em 0;
   }
   // Admin page
   .admin-controll {

@@ -6,6 +6,7 @@ class HomePageTest < ActionDispatch::IntegrationTest
     get root_url
     User.all.each do |user|
       assert_match user.name, response.body
+      assert_match user.skater_status.color, response.body
     end
     Skill.all.each do |skill|
       assert_match skill.name, response.body
@@ -15,6 +16,7 @@ class HomePageTest < ActionDispatch::IntegrationTest
     end
     Rating.all.each do |rating|
       assert_match rating.value, reponse.body
+      assert_match rating.rating_value.color, response.body
     end
   end
 

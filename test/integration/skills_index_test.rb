@@ -10,5 +10,6 @@ class SkillsIndexTest < ActionDispatch::IntegrationTest
     SkillsCategory.all.each do |category|
       assert_match category.name, response.body
     end
+    assert_select 'a.button', "DODAJ skilla"
   end
 end

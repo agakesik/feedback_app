@@ -7,5 +7,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     User.all.each do |user|
       assert_select 'a[href=?]', user_path(user), text: user.name
     end
+    assert_select 'a.button', "DODAJ człowieka"
   end
 end

@@ -5,6 +5,7 @@ class NewRatingTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:aga)
     @skill = skills(:plowstop)
+    @rating_value = rating_values(:raw)
   end
 
   test "path to new rating missing user or skill should redirect to root" do
@@ -25,7 +26,7 @@ class NewRatingTest < ActionDispatch::IntegrationTest
     get path_to_new_rating(@user, @skill)
     post ratings_path, params: { rating: { user_id: 0,
                                            skill_id: 0,
-                                           value: 6 } }
+                                           rating_value_id: 0} }
     # assert_redirected_to root_url
     follow_redirect!
     assert_select 'div.alert-danger'
@@ -38,7 +39,7 @@ class NewRatingTest < ActionDispatch::IntegrationTest
     assert_match @skill.name, response.body
     post ratings_path, params: { rating: { user_id: @user.id,
                                            skill_id: @skill.id,
-                                           value: 1 } }
+                                           rating_value_id: @rating_value.id } }
     assert_redirected_to root_url
     follow_redirect!
     assert_select 'div.alert-success'

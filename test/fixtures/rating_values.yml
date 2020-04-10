@@ -4,8 +4,12 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
+raw:
+  name: raw meat
+  color: white
+  value: 1
+fresh:
+  name: fresh meat
+  color: black
+  value: 2
 # column: value

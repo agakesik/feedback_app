@@ -10,13 +10,13 @@ module ApplicationHelper
   end
 
   def rating_cell(user, skill, full = false )
-    # name = rating_value(user, skill).value
+    # name = show_rating_value(user, skill).value
     # name += "." if full
     name = "-"
     color = "#bbb"
-    value = rating_value(user, skill)
+    value = show_rating_value(user, skill)
 
-    if rating_value(user, skill)
+    if show_rating_value(user, skill)
       name = value.value.to_s
       color = value.color
       name += ". #{value.name}" if full
