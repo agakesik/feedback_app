@@ -17,8 +17,8 @@
     <p class="label"> Oceń: </p>
     <div class="rating-choice-container">
       <% 5.times do |n| %>
-        <%= f.radio_button :value, n+1, class: "hidden rating choice" %>
-        <%= f.label :value, n+1, value: n+1, class: "rating-choice button" %>
+        <%= f.radio_button :value, n+1, class: "hidden choice" %>
+        <%= f.label :value, n+1, value: n+1, class: "choice button" %>
       <% end %>
     </div>
 
