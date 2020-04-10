@@ -3,4 +3,5 @@ class User < ApplicationRecord
                    uniqueness: { case_sensitive: false, message: "imię nie może się powtarzać"}
   has_many :ratings, dependent: :destroy
   belongs_to :skater_status
+  default_scope -> { order(created_at: :desc) }
 end
