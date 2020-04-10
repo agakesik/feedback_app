@@ -48,11 +48,18 @@ Skill.create(name: "kaczka", skills_category_id: 6)
   Skill.create(name: "nasze-#{n}", skills_category_id: 6)
 end
 
+# Ratings value
+RatingValue.create(value: 1, name: "raw meat", color: "#ffcccc")
+RatingValue.create(value: 2, name: "fresh meat", color: "#fff2cc")
+RatingValue.create(value: 3, name: "rookie", color: "#ccffcf")
+RatingValue.create(value: 4, name: "gracz derby", color: "#ccfffd")
+RatingValue.create(value: 5, name: "Allstar", color: "#f9ccff")
+
 # Ratings
 
 10.times do |n|
   10.times do |m|
-    Rating.create(value: 1, user_id: n, skill_id: m*2)
-    Rating.create(value: 2, user_id: n, skill_id: m*2-1)
+    Rating.create(rating_value_id: 1, user_id: n, skill_id: m*2)
+    Rating.create(rating_value_id: 2, user_id: n, skill_id: m*2-1)
   end
 end

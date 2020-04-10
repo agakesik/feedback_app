@@ -16,9 +16,11 @@
 
     <p class="label"> Oceń: </p>
     <div class="rating-choice-container">
-      <% 5.times do |n| %>
-        <%= f.radio_button :value, n+1, class: "hidden choice" %>
-        <%= f.label :value, n+1, value: n+1, class: "choice button" %>
+      <% @rating_values.each do |value| %>
+        <%= f.radio_button :rating_value_id, value.id, class: "hidden choice" %>
+        <%= f.label :rating_value_id, "#{value.value}.  #{value.name}",
+                    value: value.id, class: "choice button",
+                    style: "background-color: #{value.color}" %>
       <% end %>
     </div>
 

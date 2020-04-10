@@ -4,6 +4,7 @@ class RatingsController < ApplicationController
   def new
     @rating = Rating.new
     @previous_url = params[:previous_url]
+    @rating_values = RatingValue.all
   end
 
   def create
@@ -39,7 +40,7 @@ class RatingsController < ApplicationController
     end
 
     def rating_params
-      params.require(:rating).permit(:value, :user_id, :skill_id)
+      params.require(:rating).permit(:value, :user_id, :skill_id, :rating_value_id)
     end
 
 end

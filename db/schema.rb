@@ -10,14 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_132946) do
+ActiveRecord::Schema.define(version: 2020_04_10_082145) do
+
+  create_table "rating_values", force: :cascade do |t|
+    t.integer "value"
+    t.string "name"
+    t.string "color", default: "white"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer "value"
     t.integer "user_id"
     t.integer "skill_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rating_value_id"
+    t.index ["rating_value_id"], name: "index_ratings_on_rating_value_id"
     t.index ["skill_id"], name: "index_ratings_on_skill_id"
     t.index ["user_id", "skill_id", "created_at"], name: "index_ratings_on_user_id_and_skill_id_and_created_at"
     t.index ["user_id"], name: "index_ratings_on_user_id"
@@ -27,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_132946) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "color", default: "black"
+    t.string "color", default: "white"
   end
 
   create_table "skills", force: :cascade do |t|
@@ -54,5 +63,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_132946) do
     t.index ["skater_status_id"], name: "index_users_on_skater_status_id"
   end
 
+  add_foreign_key "ratings", "rating_values"
   add_foreign_key "users", "skater_statuses"
 end

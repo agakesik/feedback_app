@@ -6,8 +6,7 @@
 <div class="row head-row">
   <div class="cell skill-cell hidden-cell">  </div>
   <% @users.each do |user| %>
-    <%= content_tag(:div, user.name, class: "cell user-cell",
-                    style: "background-color: #{user.skater_status.color}" ) %>
+    <%= user_cell(user) %>
   <% end %>
 </div>
 <% @skill_categories.each do |category| %>
@@ -21,13 +20,8 @@
     <div class="row">
       <div class="cell skill-cell"><%= skill.name %></div>
 
-
         <% @users.each do |user| %>
-            <%= link_to(path_to_new_rating(user, skill)) do %>
-              <div class="cell rating-cell">
-                <%= rating_value(user, skill) %>
-              </div>
-            <% end %>
+            <%= rating_cell(user, skill) %>
         <% end %>
 
 

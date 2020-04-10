@@ -28,13 +28,9 @@
       </div>
       <% category.skills.each do |skill| %>
         <div class="row">
-          <div class="cell skill-cell"><%= skill.name %></div>
+            <%= skill_cell(skill) %>
 
-            <%= link_to(path_to_new_rating(@user, skill)) do %>
-              <div class="cell rating-cell">
-                <%= rating_value(@user, skill) %>
-              </div>
-            <% end %>
+            <%= rating_cell(@user, skill, true) %>
 
         </div>
       <% end %>

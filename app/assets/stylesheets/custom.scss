@@ -19,11 +19,11 @@ h1, h2, h3, h4 {
   text-transform: uppercase;
   text-decoration: underline;
 }
+
 a {
   color: #555;
   text-decoration: none;
 }
-
 .content-container {
   width: 40vh;
   flex: 1 1 0;
@@ -130,6 +130,9 @@ a {
 .row {
   display: inline-block;
   white-space: nowrap;
+  a {
+    color: #333;
+  }
 }
 .cell {
   // border: 1px solid black;
@@ -156,8 +159,7 @@ a {
   // background-color: #ff5c33;
 }
 .rating-cell {
-  background-color: #ffe6b3;
-  font-weight: bold;
+  background-color: #bbb;
   width: 5em;
 }
 .hidden-cell {
@@ -186,23 +188,18 @@ a {
     margin-left: 3em;
   }
   .row {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: block;
     align-items: center;
+    
     .cell {
       display: inline-block;
+      width: 10em;
     }
     .skill-category-cell {
       box-sizing: border-box;
-      grid-column-start: 1;
-      grid-column-end: 3;
       margin: 0;
       width: 100%;
 
-    }
-    .skill-cell, .user-cell{
-      justify-self: end;
-      width: 10em;
     }
   }
 }
@@ -276,7 +273,6 @@ input, select {
   flex-direction: row;
 }
 .choice {
-  box-sizing: border-box;
   display: block;
   flex-grow: 1;
   background-color: #ffe6b3;
@@ -378,25 +374,31 @@ input[type="radio"]:checked + .choice {
   // SINGLE PAGES STYLE
   .single-page {
     width: 100vw;
-    padding: 0 1em;
+    padding: 0;
     min-height: auto;
   }
   .column-page {
     display: flex;
     flex-direction: column;
     margin: 0;
-    .skill-category-cell {
-      grid-column-start: 1;
-      grid-column-end: 2;
-      width: 50%;
-    }
+    padding: 0;
   }
   .info-column {
     border-bottom: 1px solid #a6a6a6;
-    padding: 0 0 1em;
+    padding: 0 1em 1em;
   }
   .list-column {
     padding-left: 0;
+  }
+  .rating-column {
+    .row {
+      .cell {
+        width: 40%;
+      }
+      .skill-category-cell {
+        width: 100%;
+      }
+    }
   }
 
   // BUTTONS STYLES

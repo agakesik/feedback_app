@@ -15,13 +15,9 @@
 
     <% @users.each do |user| %>
       <div class="row">
-        <div class="cell user-cell"><%= user.name %></div>
+        <%= user_cell(user) %>
 
-        <%= link_to(path_to_new_rating(user, @skill)) do %>
-          <div class="cell rating-cell">
-            <%= rating_value(user, @skill) %>
-          </div>
-        <% end %>
+        <%= rating_cell(user, @skill, true) %>
 
       </div>
     <% end %>
