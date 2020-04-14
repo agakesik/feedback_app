@@ -18,11 +18,11 @@
 
   <% category.skills.each do |skill| %>
     <div class="row">
-      <div class="cell skill-cell"><%= skill.name %></div>
+      <%= skill_cell(skill) %>
 
-        <% @users.each do |user| %>
-            <%= rating_cell(user, skill) %>
-        <% end %>
+      <% @users.each do |user| %>
+          <%= rating_cell(user, skill) %>
+      <% end %>
 
 
     </div>
