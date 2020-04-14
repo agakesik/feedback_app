@@ -3,10 +3,14 @@
   font-family: 'Scope-One';
   src:font-url('ScopeOne-Regular.ttf');
 }
+@font-face {
+  font-family: 'Montserrat';
+  src:font-url('Montserrat-Regular.ttf');
+}
 @import "font-awesome";
 
 /* VARIABLES AND MIXINS */
-$background-color: #f5f5f5;
+$light-gray: #f5f5f5;
 $menu-color: #121212;
 $test-border: 1px solid blue;
 
@@ -15,17 +19,17 @@ $test-border: 1px solid blue;
   color: #f2f2f2;
   a {
     color: #d9d9d9;
-  }
-  a:hover, a:active {
-    color: rgba(255, 255, 153, 0.8)
+    &:hover, &:active {
+      color: rgba(255, 255, 153, 0.8)
+    }
   }
 }
 
 /* GLOBAL STYLES */
 body {
-  background-color: $background-color;
+  background-color: $light-gray;
   display: flex;
-  font-family: helvetica, arial, sans-serif;
+  font-family: "Montserrat",helvetica, arial, sans-serif;
   height: 100vh;
   margin: 0;
 }
@@ -36,10 +40,10 @@ h1, h2, h3, h4 {
 
 a {
   color: #555;
-  text-decoration: none;
-}
-a:hover, a:active {
-  color: rgba(204, 153, 0, 0.8)
+  text-decoration-color: rgba(204, 153, 0, 0.8)
+  &:hover, &:active {
+    color: rgba(204, 153, 0, 0.8)
+  }
 }
 .content-container {
   display: flex;
@@ -86,49 +90,35 @@ a:hover, a:active {
 
 .sidebar {
   @include menu-box;
-  box-shadow: 0 0 10px 0 #000;
+  // box-shadow: 0 0 10px 0 #000;
   flex: 0 0 18em;
 }
-
-.sidebar-links {
-  padding: 0;
-  text-align: center;
-  h4 {
+.sidebar-item {
+  padding: 0.5em 1em;
+  h3 {
     margin: 0;
   }
-  li {
-    list-style-type: none;
-    margin: auto;
-  }
-}
-
-.horizontal-links > li {
-  display: inline-block;
-  font-size: 0.7em;
-  padding: 0 1em;
-}
-.horizontal-links > li ~ li {
-  border-left: 1px solid rgba(0,0,0, 0.3);
-}
-
-.feedback-links {
-  font-size: 2em;
   a {
-    text-transform: uppercase;
   }
-  ul {
-    padding: 0;
-  }
-  li {
-    margin: 0.5em auto;
+}
+.sidebar-link {
+  padding-left: 2em;
+  &:hover {
+    background-color: rgba(255, 255, 153, 0.8);
+    color: black;
   }
 }
 
-.user-links {
-  text-align: left;
-  padding: 0.3em 1em;
+.horizontal-links {
+  padding: 0.5em 0;
+  text-align: center;
   li {
-    margin: 0.5em 0;
+    display: inline-block;
+    font-size: 0.7em;
+    padding: 0 1em;
+  }
+  a ~ a {
+   border-left: 1px solid rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -149,7 +139,7 @@ a:hover, a:active {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-  background-color: $background-color;
+  background-color: $light-gray;
 }
 .row {
   display: inline-block;

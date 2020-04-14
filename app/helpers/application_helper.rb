@@ -40,5 +40,4 @@ module ApplicationHelper
       content_tag(:div, skill.name, class: "cell skill-cell")
     end
   end
-
 end
