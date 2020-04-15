@@ -2,11 +2,11 @@
 <%provide(:position, "Skaters") %>
 
 <div class="column-page">
-  <div class="info-column">
+  <div class="info-column column">
     <h2> Lista ludzi</h2>
     <%= render 'shared/add_button', who: "user" %>
   </div>
-  <div class="list-column">
+  <div class="list-column column">
     <ul class="users">
       <% @users.each do |user| %>
       <li> <%= link_to user.name, user_path(user) %></li>

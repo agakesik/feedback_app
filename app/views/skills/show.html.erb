@@ -2,7 +2,7 @@
 <% provide(:position, "Skills") %>
 
 <div class="column-page">
-  <div class="info-column">
+  <div class="info-column column">
     <h2> <%= @skill.name %> </h2>
     <p>categoria: <%= SkillsCategory.find(@skill.skills_category_id).name %></p>
 
@@ -10,7 +10,7 @@
               data: { confirm: "Na pewno usunąć?" } %>
   </div>
 
-  <div class="rating-column">
+  <div class="rating-column column">
     <h3>Oceny</h3>
 
     <% @users.each do |user| %>

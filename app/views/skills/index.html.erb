@@ -2,11 +2,11 @@
 <% provide(:position, "Skills") %>
 
 <div class="column-page">
-  <div class="info-column">
+  <div class="info-column column">
     <h2>Lista skillów</h2>
     <%= render 'shared/add_button', who: "skill" %>
   </div>
-  <div class="list-column">
+  <div class="list-column column">
     <% @skills_categories.each do |category| %>
       <p><strong><%= category.name %></strong></p>
       <ul class="skills">

@@ -13,18 +13,18 @@ module ApplicationHelper
     # name = show_rating_value(user, skill).value
     # name += "." if full
     name = "-"
-    color = "#bbb"
+    background_color = nil
     value = show_rating_value(user, skill)
 
     if show_rating_value(user, skill)
       name = value.value.to_s
-      color = value.color
+      background_color = "background-color: #{value.color}"
       name += ". #{value.name}" if full
     end
     link_to(path_to_new_rating(user, skill)) do
       content_tag(:div, name,
               class: "cell rating-cell",
-              style: "background-color: #{color}" )
+              style: background_color )
     end
   end
 

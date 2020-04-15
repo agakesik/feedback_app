@@ -1,19 +1,21 @@
-<div class="sidebar-item">
-  <ul class="horizontal-links">
-    <%= link_to content_tag(:li, "Strona głowna"), root_url %>
-    <%= link_to content_tag(:li, "Pomoc"), help_path %>
-    <%= link_to content_tag(:li, "Admin"), admin_path %>
+<div class="sidebar-content">
+  <div class="sidebar-item">
+    <ul class="horizontal-links">
+      <%= link_to content_tag(:li, "Strona głowna"), root_url %>
+      <%= link_to content_tag(:li, "Pomoc"), help_path %>
+      <%= link_to content_tag(:li, "Admin"), admin_path %>
+    </ul>
+  </div>
+
+  <div>
+    <div class="sidebar-item"><h3>opcje<h3></div>
+    <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
+    <%= link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
+    <%= link_to content_tag(:div, "Lista ludzi", class: "sidebar-item sidebar-link"), users_path %>
+    <%= link_to content_tag(:div, "Lista skillsów", class: "sidebar-item sidebar-link"), skills_path %>
+  </div>
+  <div>
+    <div class="sidebar-item"><h3>Moje konto</h3></div>
+    <%= link_to content_tag(:div, "Moje oceny", class: "sidebar-item  sidebar-link"), '#' %>
   </ul>
 </div>
-
-<div>
-  <div class="sidebar-item"><h3>opcje<h3></div>
-  <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
-  <%= link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
-  <%= link_to content_tag(:div, "Lista ludzi", class: "sidebar-item sidebar-link"), users_path %>
-  <%= link_to content_tag(:div, "Lista skillsów", class: "sidebar-item sidebar-link"), skills_path %>
-</div>
-<div>
-  <div class="sidebar-item"><h3>Moje konto</h3></div>
-  <%= link_to content_tag(:div, "Moje oceny", class: "sidebar-item  sidebar-link"), '#' %>
-</ul>
