@@ -187,20 +187,20 @@ p {
 .single-page {
   align-items: stretch;
   box-sizing: border-box;
-  height: auto;
   display: flex;
   flex-direction: column;
-  max-width: 980px;
+  height: auto;
   margin: 0 auto;
+  max-width: 980px;
   min-height: 100%;
 }
 
 // SPREADSHEET PAGE STYLES
 .head-row {
+  background-color: $light-gray;
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
-  background-color: $light-gray;
 }
 
 // SINGLE PAGE SINGLE-CONTENT STYLES
@@ -256,15 +256,13 @@ p {
   .row {
     display: flex;
     justify-content: center;
+    align-items: center;
     .cell {
-      display: inline-block;
       width: 10em;
     }
     .skill-category-cell {
-      box-sizing: border-box;
       margin: 0;
       width: 100%;
-
     }
   }
 }
@@ -282,18 +280,15 @@ p {
     opacity: 1;
     color:white;
   }
-
 }
 .delete {
   background-color: #b25b5b;
-  // margin: 2em;
 }
 .add {
   background-color: #5bb268;
 }
 .submit {
   background-color: #555;
-  display: block;
   border: none;
   cursor: pointer;
   margin: 2em 0;
@@ -303,6 +298,9 @@ p {
 .form {
   margin: 1em auto;
   width: 80%;
+  h4 {
+    margin: 0;
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -320,12 +318,17 @@ p {
 .label {
   font-size: 2em;
   display: block;
-  margin: 1em 0 0.3em;
+  margin: 1em 0 0.2em 1em;
 }
 input, select {
-  background-color: white;
+  background-color: $light-gray;
+  border: 1px solid $dark-gray;
   font-size: 1.5em;
   width: 100%;
+  &:hover, &:active, &focus {
+    border: 1px solid $dark-gray;
+    outline: none;
+  }
 }
 .rating-choice-container {
   display: flex;
@@ -333,23 +336,21 @@ input, select {
 }
 .choice {
   border: 3px solid transparent;
-  display: block;
-  flex-grow: 1;
-  background-color: #ffe6b3;
-  margin: auto 0.5em;
-  color: black;
-  text-align: center;
-  // vertical-align: center;
   box-sizing: border-box;
+  color: black;
+  flex-grow: 1;
+  margin: auto 0.5em;
+  text-align: center;
+  &:hover, &:active {
+    color: $dark-gray;
+  }
 }
 input[type="radio"]:checked + .choice {
   border: 3px solid black;
 }
-.form-control {}
 .hidden {
   display: none;
 }
-
 
 // ALERT STYLES
 .alert-container {
@@ -426,14 +427,14 @@ input[type="radio"]:checked + .choice {
     height: auto;
   }
   .single-page {
-    width: 100vw;
     padding: 0;
+    width: 100vw;
   }
 
   // SINGLE PAGE SINGLE-CONTENT STYLES
   .single-column-content {
-    padding: 0.5em;
     margin: 1em;
+    padding: 0.5em;
   }
 
   // SINGLE PAGE COLUMNS STYLES
@@ -465,19 +466,22 @@ input[type="radio"]:checked + .choice {
 
   // BUTTONS STYLES
   .submit {
-    margin: 0.3em 0 0;
+    margin: 1em 0 0;
   }
   // FORM STYLES
   .form {
-    margin: 1em 0;
+    margin: 0;
     width: auto;
+  }
+  .label {
+    margin: 1em 0 0.5em;
   }
   .rating-choice-container {
     flex-direction: column;
 
   }
   .choice {
-    margin: 0.5em 0;
+    margin: 0.2em 0;
   }
   // Admin page
   .admin-controll {

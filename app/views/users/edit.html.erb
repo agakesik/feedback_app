@@ -1,23 +1,26 @@
 <% provide(:title, "Edytuj #{@user.name}") %>
 <% provide(:position, "Edytuj profil") %>
 
-<div class="form">
-  <%= form_with(model: @user, local: true) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+<div class="single-column-content">
+  <div class="form">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name, "Imię", class: "label" %>
-    <%= f.text_field :name, class: 'form-control' %>
+      <%= f.label :name, "Imię", class: "label" %>
+      <%= f.text_field :name, class: 'form-control' %>
 
-    <p class="label"> Status zawodnika: </p>
-    <div class="rating-choice-container">
-      <% SkaterStatus.all.each do |status| %>
-        <%= f.radio_button :skater_status_id, status.id,
-                           class: "hidden choice" %>
-        <%= f.label :skater_status_id, status.name, value: status.id,
-                    class: "choice button", style: "background-color: #{status.color}" %>
-      <% end %>
-    </div>
+      <p class="label"> Status zawodnika: </p>
+      <div class="rating-choice-container">
+        <% SkaterStatus.all.each do |status| %>
+          <%= f.radio_button :skater_status_id, status.id,
+                             class: "hidden choice" %>
+          <%= f.label :skater_status_id, status.name, value: status.id,
+                      class: "choice button",
+                      style: "background-color: #{status.color}" %>
+        <% end %>
+      </div>
 
-    <%= f.submit "dodaj", class: "button submit" %>
-  <% end %>
+      <%= f.submit "dodaj", class: "button submit" %>
+    <% end %>
+  </div>
 </div>

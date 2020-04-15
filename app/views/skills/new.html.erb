@@ -1,17 +1,19 @@
 <% provide(:title, "Dodaj skilla") %>
 <% provide(:position, "Dodaj nowego skilla") %>
 
-<div class="form">
-  <%= form_with(model: @skill, local: true) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+<div class="single-column-content">
+  <div class="form">
+    <%= form_with(model: @skill, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-    <%= f.label :name, "Nazwa", class: "label" %>
-    <%= f.text_field :name, class: "form-control" %>
+      <%= f.label :name, "Nazwa", class: "label" %>
+      <%= f.text_field :name, class: "form-control" %>
 
-    <%= f.label :skills_categories, "Kategoria", class: "label" %>
-    <%= f.collection_select :skills_category_id, SkillsCategory.all, :id,
-                            :name, class: "form-control" %>
+      <%= f.label :skills_categories, "Kategoria", class: "label" %>
+      <%= f.collection_select :skills_category_id, SkillsCategory.all, :id,
+                              :name, class: "form-control" %>
 
-    <%= f.submit "dodaj", class: "button submit" %>
-  <% end %>
+      <%= f.submit "dodaj", class: "button submit" %>
+    <% end %>
+  </div>
 </div>
