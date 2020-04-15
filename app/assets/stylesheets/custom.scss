@@ -71,6 +71,7 @@ p {
   padding: 0 2em;
   text-align: center;
   h1 {
+    color: $light-accent-color;
     display: inline-block;
     font-size: 1.5em;
     line-height: 2.5em;
@@ -388,11 +389,18 @@ input[type="radio"]:checked + .choice {
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
   color: #521414;
+  li {
+    list-style: disc inside;
+  }
 }
 
 // Admin page
-.admin-controll {
+.admin-control {
   font-size: 1.5em;
+  margin: 0 2em;
+  li {
+    list-style: circle;
+  }
   span {
     font-size: 0.7em;
     color: #666;
@@ -478,13 +486,14 @@ input[type="radio"]:checked + .choice {
   }
   .rating-choice-container {
     flex-direction: column;
-
   }
   .choice {
     margin: 0.2em 0;
   }
+
   // Admin page
-  .admin-controll {
+  .admin-control {
     font-size: 1em;
+    margin: 0;
   }
 }

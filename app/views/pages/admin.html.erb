@@ -1,5 +1,8 @@
+<% provide(:title, "Admin") %>
+<% provide(:position, "admin") %>
+
 <div class="single-column-content">
-  <div class="admin-controll">
+  <div class="admin-control">
     <h3>Katogorie Skillsów</h3>
     <ul>
       <% SkillsCategory.all.each do |category| %>
@@ -7,7 +10,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="admin-controll">
+  <div class="admin-control">
     <h3>Status Zawodników</h3>
     <ul>
       <% SkaterStatus.all.each do |status| %>
