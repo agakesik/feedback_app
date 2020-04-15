@@ -226,6 +226,12 @@ p {
   h2 {
     text-align: right;
   }
+  .info-content {
+    margin: 1em 0;
+  }
+  .cell {
+    width: auto;
+  }
 }
 .list-column {
   flex-grow: 1;
@@ -250,7 +256,6 @@ p {
   .row {
     display: flex;
     justify-content: center;
-
     .cell {
       display: inline-block;
       width: 10em;
@@ -449,9 +454,8 @@ input[type="radio"]:checked + .choice {
   }
   .rating-column {
     .row {
-      width: 80%;
       .cell {
-        // width: 40%;
+        width: 8em;
       }
       .skill-category-cell {
         width: 100%;

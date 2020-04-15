@@ -4,10 +4,10 @@
 <div class="column-page">
   <div class="info-column column">
     <h2><%= @user.name %></h2>
-    <div>
+    <div class="info-content">
       <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
     </div>
-    <div>
+    <div class="info-content">
       Status:
       <%= content_tag(:div, @user.skater_status.name, class: "cell",
                   style: "background-color: #{@user.skater_status.color}" ) %>
