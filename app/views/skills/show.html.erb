@@ -15,13 +15,13 @@
   <div class="rating-column column">
     <h3>Oceny</h3>
 
-    <% @users.each do |user| %>
-      <div class="row">
-        <%= user_cell(user) %>
-
-        <%= rating_cell(user, @skill, true) %>
-
-      </div>
+    <% @skater_statuses.each do |status| %>
+      <% status.users.each do |user| %>
+        <div class="row">
+          <%= user_cell(user) %>
+          <%= rating_cell(user, @skill, true) %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

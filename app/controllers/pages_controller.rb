@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @users = User.all
+    @skater_statuses = SkaterStatus.all
     @skill_categories = SkillsCategory.all
   end
 
