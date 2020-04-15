@@ -1,19 +1,21 @@
-<% provide(:title, "Skillsy") %>
+<% provide(:title, "Lista") %>
 <% provide(:position, "Skills") %>
 
 <div class="column-page">
   <div class="info-column column">
-    <h2>Lista skillów</h2>
+    <h2>Lista umiejętności</h2>
     <%= render 'shared/add_button', who: "skill" %>
   </div>
   <div class="list-column column">
+
     <% @skills_categories.each do |category| %>
-      <p><strong><%= category.name %></strong></p>
+      <p><%= category.name %></p>
       <ul class="skills">
         <% category.skills.each do |skill| %>
           <li> <%= link_to skill.name, skill_path(skill) %></li>
         <% end %>
       </uL>
     <% end %>
+
   </div>
 </div>

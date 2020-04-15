@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @skater_statuses = SkaterStatus.all
+
   end
 
   def show
