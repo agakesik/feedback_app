@@ -3,39 +3,11 @@
 
 <div class="column-page">
   <div class="info-column column">
-    <h2><%= @user.name %></h2>
-    <div class="info-content">
-      <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
-    </div>
-    <div class="info-content">
-      Status:
-      <%= content_tag(:div, @user.skater_status.name, class: "cell",
-                  style: "background-color: #{@user.skater_status.color}" ) %>
-    </div>
-    <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
-    <%= link_to "usuń", @user, method: :delete, class: "button delete",
-    data: { confirm: "Na pewno usunąć?" } %>
+    <%= render 'user_show_info' %>
   </div>
 
   <div class="rating-column column">
-    <h3>Oceny</h3>
-
-    <% @skill_categories.each do |category| %>
-      <div class="row">
-        <div class="cell skill-category-cell">
-          <strong><%= category.name %></strong>
-        </div>
-      </div>
-      <% category.skills.each do |skill| %>
-        <div class="row">
-            <%= skill_cell(skill) %>
-
-            <%= rating_cell(@user, skill, true) %>
-
-        </div>
-      <% end %>
-
-    <% end %>
+    <%= render 'user_show_ratings' %>    
   </div>
 
 </div>

@@ -1,21 +1,15 @@
 <% provide(:title, "Lista") %>
 <% provide(:position, "Skills") %>
+<% provide(:list_content, "skills") %>
 
 <div class="column-page">
   <div class="info-column column">
     <h2>Lista umiejętności</h2>
-    <%= render 'shared/add_button', who: "skill" %>
+    <%= add_button("DODAJ skilla", :skills) %>
   </div>
   <div class="list-column column">
 
-    <% @skills_categories.each do |category| %>
-      <p><%= category.name %></p>
-      <ul class="skills">
-        <% category.skills.each do |skill| %>
-          <li> <%= link_to skill.name, skill_path(skill) %></li>
-        <% end %>
-      </uL>
-    <% end %>
+    <%= render 'shared/index_list' %>
 
   </div>
 </div>

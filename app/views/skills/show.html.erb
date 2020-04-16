@@ -3,25 +3,10 @@
 
 <div class="column-page">
   <div class="info-column column">
-    <h2> <%= @skill.name %> </h2>
-    <div class="info-content">
-      Kategoria: <%= SkillsCategory.find(@skill.skills_category_id).name %>
-    </div>
-
-    <%= link_to "usuń", @skill, method: :delete, class: "button delete",
-              data: { confirm: "Na pewno usunąć?" } %>
+    <%= render 'skill_show_info' %>
   </div>
 
   <div class="rating-column column">
-    <h3>Oceny</h3>
-
-    <% @skater_statuses.each do |status| %>
-      <% status.users.each do |user| %>
-        <div class="row">
-          <%= user_cell(user) %>
-          <%= rating_cell(user, @skill, true) %>
-        </div>
-      <% end %>
-    <% end %>
+    <%= render 'skill_show_ratings' %>
   </div>
 </div>

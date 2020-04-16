@@ -1,0 +1,17 @@
+<% controller = yield(:list_content) %>
+<% if controller == "skills" %>
+  <% categories = @skills_categories %>
+<% elsif controller == "users" %>
+  <% categories = @skater_statuses %>
+<% end %>
+
+
+<% categories.each do |category| %>
+  <p><%= category.name %></p>
+  <ul>
+    <% category.method(controller).call.each do |element| %>
+      <li> <%= link_to element.name, controller: controller, 
+               action: :show, id: element.id %></li>
+    <% end %>
+  </uL>
+<% end %>

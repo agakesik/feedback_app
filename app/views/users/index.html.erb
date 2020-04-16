@@ -1,21 +1,15 @@
 <% provide(:title, "Skaters") %>
-<%provide(:position, "Skaters") %>
+<% provide(:position, "Skaters") %>
+<% provide(:list_content, "users" ) %>
 
 <div class="column-page">
   <div class="info-column column">
     <h2> Lista ludzi</h2>
-    <%= render 'shared/add_button', who: "user" %>
+    <%= add_button("DODAJ człowieka", :users) %>
   </div>
   <div class="list-column column">
 
-    <% @skater_statuses.each do |status| %>
-      <p><%= status.name %></p>
-      <ul class="users">
-        <% status.users.each do |user| %>
-          <li> <%= link_to user.name, user_path(user) %></li>
-        <% end %>
-      </uL>
-    <% end %>
+    <%= render 'shared/index_list' %>
 
   </div>
 </div>

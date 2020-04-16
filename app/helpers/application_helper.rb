@@ -9,9 +9,13 @@ module ApplicationHelper
     end
   end
 
+  def add_button(description, controller)
+    link_to description, {controller: controller}, action: :new,
+                         class: "button add"
+
+  end
+
   def rating_cell(user, skill, full = false )
-    # name = show_rating_value(user, skill).value
-    # name += "." if full
     name = "-"
     background_color = nil
     value = show_rating_value(user, skill)
