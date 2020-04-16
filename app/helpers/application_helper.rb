@@ -9,10 +9,13 @@ module ApplicationHelper
     end
   end
 
+  def inside_layout(layout = "application", &block)
+    render inline: capture(&block), layout: "layouts/#{layout}"
+  end
+
   def add_button(description, controller)
     link_to description, {controller: controller}, action: :new,
                          class: "button add"
-
   end
 
   def rating_cell(user, skill, full = false )

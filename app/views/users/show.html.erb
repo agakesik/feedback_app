@@ -1,13 +1,11 @@
 <% provide(:title, @user.name) %>
 <% provide(:position, "Profil") %>
+<% provide(:column_type, "rating") %>
 
-<div class="column-page">
-  <div class="info-column column">
-    <%= render 'user_show_info' %>
-  </div>
+<% content_for :info do %>
+  <%= render 'user_show_info' %>
+<% end %>
 
-  <div class="rating-column column">
-    <%= render 'user_show_ratings' %>    
-  </div>
-
-</div>
+<% content_for :content do %>
+  <%= render 'user_show_ratings' %>
+<% end %>

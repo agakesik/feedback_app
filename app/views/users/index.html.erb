@@ -1,15 +1,14 @@
 <% provide(:title, "Skaters") %>
 <% provide(:position, "Skaters") %>
+<% provide(:column_type, "list") %>
 <% provide(:list_content, "users" ) %>
 
-<div class="column-page">
-  <div class="info-column column">
-    <h2> Lista ludzi</h2>
-    <%= add_button("DODAJ człowieka", :users) %>
-  </div>
-  <div class="list-column column">
 
-    <%= render 'shared/index_list' %>
+<% content_for :info do %>
+  <h2> Lista ludzi</h2>
+  <%= add_button("DODAJ człowieka", :users) %>
+<% end %>
 
-  </div>
-</div>
+<% content_for :content do %>
+  <%= render 'shared/index_list' %>
+<% end %>

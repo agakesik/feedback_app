@@ -1,15 +1,13 @@
 <% provide(:title, "Lista") %>
 <% provide(:position, "Skills") %>
+<% provide(:column_type, "list") %>
 <% provide(:list_content, "skills") %>
 
-<div class="column-page">
-  <div class="info-column column">
-    <h2>Lista umiejętności</h2>
-    <%= add_button("DODAJ skilla", :skills) %>
-  </div>
-  <div class="list-column column">
+<% content_for :info do %>
+  <h2>Lista umiejętności</h2>
+  <%= add_button("DODAJ skilla", :skills) %>
+<% end %>
 
-    <%= render 'shared/index_list' %>
-
-  </div>
-</div>
+<% content_for :content do %>
+  <%= render 'shared/index_list' %>
+<% end %>

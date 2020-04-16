@@ -2,12 +2,13 @@ class UsersController < ApplicationController
 
   def index
     @skater_statuses = SkaterStatus.all
-
+    render layout: "two_column_page"
   end
 
   def show
     @user = User.find(params[:id])
     @skill_categories = SkillsCategory.all
+    render layout: "two_column_page"
   end
 
   def new

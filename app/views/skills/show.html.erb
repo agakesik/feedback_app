@@ -1,12 +1,11 @@
 <% provide(:title, @skill.name) %>
 <% provide(:position, "Skills") %>
+<% provide(:column_type, "rating") %>
 
-<div class="column-page">
-  <div class="info-column column">
-    <%= render 'skill_show_info' %>
-  </div>
+<% content_for :info do %>
+  <%= render 'skill_show_info' %>
+<% end %>
 
-  <div class="rating-column column">
-    <%= render 'skill_show_ratings' %>
-  </div>
-</div>
+<% content_for :content do %>
+  <%= render 'skill_show_ratings' %>
+<% end %>
