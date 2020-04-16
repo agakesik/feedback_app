@@ -47,4 +47,8 @@ module ApplicationHelper
       content_tag(:div, skill.name, class: "cell skill-cell")
     end
   end
+
+  def skill_category_cell(skill_category)
+    content_tag :div, skill_category.name, class: "cell skill-category-cell"
+  end
 end

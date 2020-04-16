@@ -2,17 +2,12 @@
 
 <% @skill_categories.each do |category| %>
   <div class="row">
-    <div class="cell skill-category-cell">
-      <strong><%= category.name %></strong>
-    </div>
+    <%= skill_category_cell(category) %>
   </div>
   <% category.skills.each do |skill| %>
     <div class="row">
-        <%= skill_cell(skill) %>
-
-        <%= rating_cell(@user, skill, true) %>
-
+      <%= skill_cell(skill) %>
+      <%= rating_cell(@user, skill, true) %>
     </div>
   <% end %>
-
 <% end %>

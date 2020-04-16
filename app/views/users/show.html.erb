@@ -3,7 +3,18 @@
 <% provide(:column_type, "rating") %>
 
 <% content_for :info do %>
-  <%= render 'user_show_info' %>
+  <h2><%= @user.name %></h2>
+  <div class="info-content">
+    <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
+  </div>
+  <div class="info-content">
+    Status:
+    <%= content_tag(:div, @user.skater_status.name, class: "cell",
+                style: "background-color: #{@user.skater_status.color}" ) %>
+  </div>
+  <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
+  <%= link_to "usuń", @user, method: :delete, class: "button delete",
+                      data: { confirm: "Na pewno usunąć?" } %>
 <% end %>
 
 <% content_for :content do %>

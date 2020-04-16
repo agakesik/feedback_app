@@ -3,7 +3,13 @@
 <% provide(:column_type, "rating") %>
 
 <% content_for :info do %>
-  <%= render 'skill_show_info' %>
+  <h2> <%= @skill.name %> </h2>
+  <div class="info-content">
+    Kategoria: <%= SkillsCategory.find(@skill.skills_category_id).name %>
+  </div>
+
+  <%= link_to "usuń", @skill, method: :delete, class: "button delete",
+                      data: { confirm: "Na pewno usunąć?" } %>
 <% end %>
 
 <% content_for :content do %>
