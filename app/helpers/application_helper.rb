@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def add_button(description, controller)
-    link_to description, {controller: controller}, action: :new,
+    link_to description, {controller: controller, action: :new},
                          class: "button add"
   end
 

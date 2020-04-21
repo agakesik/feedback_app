@@ -3,11 +3,12 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name: "Aga")
+    @skater_status = SkaterStatus.first
+    @user = User.new(name: "Very new user", skater_status_id: @skater_status.id)
   end
 
   test "should be valid" do
-    @user.valid?
+    assert @user.valid?
   end
 
   test "name should be present and not too long" do
@@ -24,8 +25,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate.valid?
   end
 
-  test "user should get SkaterStatus on creation" do
-    @user.save
-    assert_equal @user.skater_status_id, 1
+  test "activated user should need valid password" do
+    @user.activated = true
+    assert_not @user.valid?
+    @user.password = @user.password_confirmation = "aa"
+    assert_not @user.valid?
+    @user.password = @user.password_confirmation = "foobar"
+    assert @user.valid?
   end
 end

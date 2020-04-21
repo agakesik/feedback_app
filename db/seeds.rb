@@ -13,10 +13,13 @@ SkaterStatus.create(name: "mocny kontakt", color: "#56dc50")
 SkaterStatus.create(name: "gra", color: "#50a7dc")
 
 # Users
+
+# User.create(name: "Admin", skater_status_id: SkaterStatus.first.id,
+#             activated: true, password: "foobar", password_confirmation: "")
 user = ["Kaczor Donald", "Hyzio", "Dyzio", "Zyzio", "Myszka Mickey", "Pluto",
         "Sknerus", "Daisy", "Myszka Minnie", "Dziobak", "Goofy" ]
 user.each do |name|
-  User.create(name: name)
+  User.create(name: name, skater_status_id: SkaterStatus.first.id)
 end
 
 # Skills Categories
