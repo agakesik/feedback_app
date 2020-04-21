@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'skills/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'pages#home'
   get '/help', to: 'pages#help'
@@ -8,4 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :skills
   resources :ratings, only: [:new, :create, :destroy]
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 end

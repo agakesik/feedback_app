@@ -14,8 +14,9 @@ SkaterStatus.create(name: "gra", color: "#50a7dc")
 
 # Users
 
-# User.create(name: "Admin", skater_status_id: SkaterStatus.first.id,
-#             activated: true, password: "foobar", password_confirmation: "")
+User.create(name: "Admin", skater_status_id: SkaterStatus.first.id,
+            activated: true, email: "admin@admin.com",
+            password: "foobar", password_confirmation: "foobar")
 user = ["Kaczor Donald", "Hyzio", "Dyzio", "Zyzio", "Myszka Mickey", "Pluto",
         "Sknerus", "Daisy", "Myszka Minnie", "Dziobak", "Goofy" ]
 user.each do |name|

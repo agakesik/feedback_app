@@ -28,9 +28,20 @@ class UserTest < ActiveSupport::TestCase
   test "activated user should need valid password" do
     @user.activated = true
     assert_not @user.valid?
+    @user.email = "aga@gmail.com"
     @user.password = @user.password_confirmation = "aa"
     assert_not @user.valid?
     @user.password = @user.password_confirmation = "foobar"
+    assert @user.valid?
+  end
+
+  test "activated user should need valid email" do
+    @user.activated = true
+    @user.password = @user.password_confirmation = "foobar"
+    assert_not @user.valid?
+    @user.email = "aga@"
+    assert_not @user.valid?
+    @user.email = "aga@gmail.pl"
     assert @user.valid?
   end
 end

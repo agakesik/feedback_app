@@ -3,6 +3,9 @@
 aga:
   name: Aga
   skater_status: SS1
+  activated: true
+  email: aga@aga.com
+  password_digest: <%= User.digest('password') %>
 
 adam:
   name: Adam

@@ -1,21 +1,27 @@
 <div class="sidebar-content">
   <div class="sidebar-item">
     <ul class="horizontal-links">
-      <%= link_to content_tag(:li, "Strona głowna"), root_url %>
-      <%= link_to content_tag(:li, "Pomoc"), help_path %>
-      <%= link_to content_tag(:li, "Admin"), admin_path %>
+      <% if logged_in? %>
+        <%= link_to content_tag(:li, "wyloguj"), logout_path, method: :delete %>
+        <%= link_to content_tag(:li, "moje konto"), current_user %>
+        <%= link_to content_tag(:li, "Admin"), admin_path %>
+      <% else %>
+        <%= link_to content_tag(:li, "Zaloguj się"), login_path %>
+      <% end %>
     </ul>
   </div>
 
   <div>
     <div class="sidebar-item"><h3>opcje<h3></div>
+      <%= link_to content_tag(:div, "Strona główna", class: "sidebar-item sidebar-link"), root_url %>
     <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
     <%= link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
     <%= link_to content_tag(:div, "Lista ludzi", class: "sidebar-item sidebar-link"), users_path %>
     <%= link_to content_tag(:div, "Lista skillsów", class: "sidebar-item sidebar-link"), skills_path %>
   </div>
   <div>
-    <div class="sidebar-item"><h3>Moje konto</h3></div>
+    <div class="sidebar-item"><h3>Inne</h3></div>
     <%= link_to content_tag(:div, "Moje oceny", class: "sidebar-item  sidebar-link"), '#' %>
+    <%= link_to content_tag(:div, "Pomoc", class: "sidebar-item  sidebar-link"), help_path %>
   </ul>
 </div>
