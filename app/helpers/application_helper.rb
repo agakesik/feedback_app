@@ -1,14 +1,5 @@
 module ApplicationHelper
 
-  # Returns page type: spreadshit or single page
-  def page_type(page_type = '')
-    if page_type.empty?
-      "single-page"
-    else
-      "spreadsheet-page"
-    end
-  end
-
   def inside_layout(layout = "application", &block)
     render inline: capture(&block), layout: "layouts/#{layout}"
   end
@@ -50,5 +41,11 @@ module ApplicationHelper
 
   def skill_category_cell(skill_category)
     content_tag :div, skill_category.name, class: "cell skill-category-cell"
+  end
+
+  def check_if_authenticated
+    if not logged_in?
+      redirect_to login_path, alert: "please log in!"
+    end
   end
 end

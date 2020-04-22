@@ -2,8 +2,15 @@ require 'test_helper'
 
 class HomePageTest < ActionDispatch::IntegrationTest
 
-  test "home page should show users, skills and ratings" do
+  def setup
+    @admin = users(:aga)
+  end
+
+  test "home page should show users, skills and ratings for logged in user" do
+    log_in_as(@admin)
+    assert is_logged_in?
     get root_url
+    # assert_template 'pages/home'
     User.all.each do |user|
       assert_match user.name, response.body
       assert_match user.skater_status.color, response.body
@@ -20,9 +27,9 @@ class HomePageTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "template" do
-    get root_url
-    assert_template 'pages/home'
-    assert_match  new_rating_path, response.body
+  test "home page should show login template when not logged in" do
+    get root_path
+    assert_template 'sessions/new'
   end
+
 end

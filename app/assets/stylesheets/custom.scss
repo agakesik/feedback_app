@@ -100,10 +100,12 @@ p {
 }
 
 /* SIDEBAR STYLES */
-.sidebar-content {
+.sidebar {
   @include menu-box;
+  box-sizing: border-box;
   flex: 0 0 18em;
   height: 100%;
+  padding-top: 3em;
   a {
     color: rgba($light-gray, 0.8);
     text-decoration-color: rgba($light-gray, 0.3);
@@ -116,7 +118,9 @@ p {
 .sidebar-item {
   padding: 0.5em 1em;
   h3 {
+    // border: $test-border;
     margin: 0;
+    margin-top: 0.5em;
   }
 }
 .sidebar-link {
@@ -178,22 +182,27 @@ p {
 
 // CONTENT PAGES
 .page {
+  // align-items: center;
+  display: flex;
   flex: 1 1 0;
+  flex-direction: column;
+  // justify-content: space-evenly;
   overflow: scroll;
+  padding: auto;
 }
 .spreadsheet-page {
   display: inline-block;
   padding: 0.5em;
 }
-.single-page {
-  align-items: stretch;
+
+.single-column-content {
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.8);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  margin: 0 auto;
+  flex: 0 1 auto;
+  margin: 1em 0;
   max-width: 980px;
-  min-height: 100%;
+  padding: 2em;
 }
 
 // SPREADSHEET PAGE STYLES
@@ -204,24 +213,20 @@ p {
   top: 0;
 }
 
-// SINGLE PAGE SINGLE-CONTENT STYLES
-.single-column-content {
-  background-color: rgba(255, 255, 255, 0.8);
-  flex: 1;
-  padding: 1em;
-}
-
 /* SINGLE PAGE COLUMNS STYLES */
-.column-page {
+.two-column-page {
   display: flex;
   flex-grow: 1;
+  justify-content: center;
+  margin-top: 1em;
 }
 .column {
   background: rgba(255, 255, 255, 0.8);
   margin: 0 1em;
+  max-width: 500px;
 }
 .info-column {
-  flex: 0 1 20vw;
+  flex: 0 0 20vw;
   padding: 0 1.5em;
   text-align: center;
   h2 {
@@ -236,6 +241,7 @@ p {
 }
 .list-column {
   flex-grow: 1;
+  box-sizing: border-box;
   padding: 1em 3em;
   p {
     font-weight: bold;

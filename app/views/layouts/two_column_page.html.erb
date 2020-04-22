@@ -1,10 +1,8 @@
 <% column_type = yield(:column_type) %>
-<% column_content = 'shared/index_list'  if column_type == "list" %>
-<% column_content = 'skill_show_ratings' if column_type == "rating" %>
 
 <%= inside_layout "application" do %>
 
-  <div class="column-page">
+  <div class="two-column-page">
     <div class="info-column column">
       <%= yield :info %>
     </div>

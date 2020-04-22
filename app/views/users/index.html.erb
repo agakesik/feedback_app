@@ -3,10 +3,12 @@
 <% provide(:column_type, "list") %>
 <% provide(:list_content, "users" ) %>
 
-
 <% content_for :info do %>
   <h2> Lista ludzi</h2>
-  <%= add_button("DODAJ człowieka", :users) %>
+
+  <% if current_user.admin? || current_user.coach? %>
+    <%= add_button("DODAJ człowieka", :users) %>
+  <% end %>
 <% end %>
 
 <% content_for :content do %>

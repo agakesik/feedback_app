@@ -12,6 +12,11 @@
     <%= content_tag(:div, @user.skater_status.name, class: "cell",
                 style: "background-color: #{@user.skater_status.color}" ) %>
   </div>
+
+  <div>
+    admin? <% if @user.admin? %> yes <% else %> no <% end %><br>
+    coach? <% if @user.coach? %> yes <% else %> no <% end %>
+  </div>
   <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
   <%= link_to "usuń", @user, method: :delete, class: "button delete",
                       data: { confirm: "Na pewno usunąć?" } %>
