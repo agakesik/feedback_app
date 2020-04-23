@@ -6,7 +6,7 @@
 <% content_for :info do %>
   <h2> Lista ludzi</h2>
 
-  <% if current_user.admin? || current_user.coach? %>
+  <% if current_user.coach? %>
     <%= add_button("DODAJ człowieka", :users) %>
   <% end %>
 <% end %>

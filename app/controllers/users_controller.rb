@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
                                         :show, :new, :create]
-  before_action :coach_only, only: [:new, :create, :destroy, :index]
   before_action :correct_user, only: [:show, :edit, :update]
+  before_action :coach_or_admin_only, only: [:index]
+  before_action :coach_only, only: [:new, :create]
+  before_action :admin_only, only: [:destroy]
 
   def index
     @skater_statuses = SkaterStatus.all

@@ -4,6 +4,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:aga)
+    @admin = users(:admin)
     @coach = users(:coach)
   end
 
@@ -18,8 +19,8 @@ class UserShowTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "delete user should only be visible to coach" do
-    log_in_as(@coach)
+  test "delete user should only be visible to admin" do
+    log_in_as(@admin)
     get user_path(@user)
     assert_select 'a[href=?]', user_path(@user), text: "usuń"
     assert_difference 'User.count', -1 do

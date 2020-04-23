@@ -17,9 +17,12 @@
     admin? <% if @user.admin? %> yes <% else %> no <% end %><br>
     coach? <% if @user.coach? %> yes <% else %> no <% end %>
   </div>
+
   <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
-  <%= link_to "usuń", @user, method: :delete, class: "button delete",
-                      data: { confirm: "Na pewno usunąć?" } %>
+  <% if current_user.admin? %>
+    <%= link_to "usuń", @user, method: :delete, class: "button delete",
+                        data: { confirm: "Na pewno usunąć?" } %>
+  <% end %>
 <% end %>
 
 <% content_for :content do %>

@@ -33,7 +33,7 @@ module ApplicationHelper
   def user_cell(user)
     content = content_tag(:div, user.name, class: "cell user-cell",
                     style: "background-color: #{user.skater_status.color}")
-    if current_user.coach?
+    if current_user.coach? || current_user.admin?
       link_to content, user_path(user)
     else
       content
@@ -42,7 +42,7 @@ module ApplicationHelper
 
   def skill_cell(skill)
     content =  content_tag(:div, skill.name, class: "cell skill-cell")
-    if current_user.coach?
+    if current_user.coach? || current_user.admin?
       link_to content, skill_path(skill)
     else
       content

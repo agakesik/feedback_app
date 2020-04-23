@@ -28,9 +28,16 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def coach_or_admin_only
+      unless current_user.coach? || current_user.admin?
+        flash[:danger] = "Dostępne tylko trenerom"
+        redirect_to root_url
+      end
+    end
+
     def correct_user
       @user = User.find(params[:id])
-      unless current_user.coach? || @user == current_user
+      unless current_user.coach? || current_user.admin? || @user == current_user
         flash[:danger] = "Treść niedostępna"
         redirect_to root_url
       end

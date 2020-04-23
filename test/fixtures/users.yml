@@ -10,6 +10,9 @@ aga:
 adam:
   name: Adam
   skater_status: SS2
+  activated: true
+  email: adam@adam.com
+  password_digest: <%= User.digest('password') %>
 
 coach:
   name: Coach

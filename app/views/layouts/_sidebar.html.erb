@@ -6,20 +6,23 @@
       <%= link_to content_tag(:div, "Wszystkie oceny", class: "sidebar-item sidebar-link"), '#' %>
       <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
       <%= link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
-      <%= link_to content_tag(:div, "Lista ludzi", class: "sidebar-item sidebar-link"), users_path %>
-      <%= link_to content_tag(:div, "Lista skillsów", class: "sidebar-item sidebar-link"), skills_path %>
     </div>
   <% end %>
-  <div class="logged-in-content">
+  <% if current_user.admin? || current_user.coach? %>
+    <div class="admin-content">
+      <div class="sidebar-item"><h3>Panel kontrolny</h3></div>
+      <%= link_to content_tag(:div, "Lista ludzi", class: "sidebar-item sidebar-link"), users_path %>
+      <%= link_to content_tag(:div, "Lista skillsów", class: "sidebar-item sidebar-link"), skills_path %>
+      <% if current_user.admin? %>
+        <%= link_to content_tag(:div, "Opcje admina", class: "sidebar-item  sidebar-link"), admin_path %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="user-content">
     <div class="sidebar-item"><h3>Moje konto</h3></div>
     <%= link_to content_tag(:div, "moje konto", class: "sidebar-item sidebar-link"), current_user %>
     <%= link_to content_tag(:div, "wyloguj", class: "sidebar-item sidebar-link"), logout_path, method: :delete %>
-  <% if current_user.admin? %>
-    <div class="admin-content">
-      <div class="sidebar-item"><h3>Opcje admina</h3></div>
-      <%= link_to content_tag(:div, "Panel kontrolny", class: "sidebar-item  sidebar-link"), admin_path %>
-    </div>
-  <% end %>
+  </div>
 <% else %>
   <%= link_to content_tag(:div, "Zaloguj się", class: "sidebar-item  sidebar-link"), login_path %>
 <% end %>
