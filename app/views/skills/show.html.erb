@@ -8,8 +8,11 @@
     Kategoria: <%= SkillsCategory.find(@skill.skills_category_id).name %>
   </div>
 
-  <%= link_to "usuń", @skill, method: :delete, class: "button delete",
-                      data: { confirm: "Na pewno usunąć?" } %>
+  <%= link_to "edytuj", edit_skill_path(@skill), class: "button add" %>
+  <% if current_user.admin? %>
+    <%= link_to "usuń", @skill, method: :delete, class: "button delete",
+                        data: { confirm: "Na pewno usunąć?" } %>
+  <% end %>
 <% end %>
 
 <% content_for :content do %>

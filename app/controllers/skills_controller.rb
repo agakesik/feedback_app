@@ -1,6 +1,9 @@
 class SkillsController < ApplicationController
-  before_action :logged_in_user, only: [:index, :destroy, :show, :new, :create]
-  before_action :coach_only, only: [:index, :destroy, :show, :new, :create]
+  before_action :logged_in_user, only: [:index, :destroy, :show, :new, :create,
+                                         :edit, :update]
+  before_action :coach_or_admin_only, only: [:index, :show, :edit, :update]
+  before_action :coach_only, only: [:new, :create]
+  before_action :admin_only, only: [:destroy]
 
   def index
     @skills_categories = SkillsCategory.all
@@ -24,6 +27,20 @@ class SkillsController < ApplicationController
       redirect_to @skill
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @skill = Skill.find(params[:id])
+  end
+
+  def update
+    @skill = Skill.find(params[:id])
+    if @skill.update(skill_params)
+      flash[:success] = "Profil zmieniony"
+      redirect_to @skill
+    else
+      render 'edit'
     end
   end
 

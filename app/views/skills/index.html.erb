@@ -5,7 +5,9 @@
 
 <% content_for :info do %>
   <h2>Lista umiejętności</h2>
-  <%= add_button("DODAJ skilla", :skills) %>
+  <% if current_user.coach? %>
+    <%= add_button("DODAJ skilla", :skills) %>
+  <% end %>
 <% end %>
 
 <% content_for :content do %>

@@ -80,8 +80,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should only allow user show page to coach, admin and said user" do
-    # get user_path(@average_user)
-    # assert_redirected_to root_url
+    get user_path(@average_user)
+    assert_redirected_to login_path
     get user_path(@average_user)
     assert_redirected_to login_url
     log_in_as(@average_user)
