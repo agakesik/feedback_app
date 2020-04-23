@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_070534) do
+ActiveRecord::Schema.define(version: 2020_04_23_122751) do
 
   create_table "rating_values", force: :cascade do |t|
     t.integer "value"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_070534) do
     t.string "email"
     t.boolean "admin", default: false
     t.boolean "coach", default: false
+    t.string "activation_digest"
     t.index ["admin", "coach"], name: "index_users_on_admin_and_coach"
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["skater_status_id"], name: "index_users_on_skater_status_id"

@@ -5,19 +5,29 @@
 <% content_for :info do %>
   <h2><%= @user.name %></h2>
   <div class="info-content">
-    <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
-  </div>
-  <div class="info-content">
     Status:
     <%= content_tag(:div, @user.skater_status.name, class: "cell",
-                style: "background-color: #{@user.skater_status.color}" ) %>
+      style: "background-color: #{@user.skater_status.color}" ) %>
+  </div>
+  <div class="info-content">
+    aktywny/-a? <% if @user.activated? %> tak <% else %> nie <% end %>
+  </div>
+  <div class="info-content">
+    token: <%= @user.activation_token %> 
+  </div>
+  <div class="info-content">
+    email: <%= @user.email %>
+  </div>
+  <div class="info-content">
+    <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
   </div>
 
-  <div>
+  <!-- <div>
     admin? <% if @user.admin? %> yes <% else %> no <% end %><br>
     coach? <% if @user.coach? %> yes <% else %> no <% end %><br>
-    aktywny? <% if @user.activated? %> yes <% else %> no <% end %>
-  </div>
+    aktywny? <% if @user.activated? %> tak <% else %> nie <% end %>
+    e
+  </div> -->
 
   <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
   <% if current_user.admin? %>
