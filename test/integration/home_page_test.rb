@@ -29,7 +29,7 @@ class HomePageTest < ActionDispatch::IntegrationTest
 
   test "home page should show login template when not logged in" do
     get root_path
-    assert_template 'sessions/new'
+    assert_redirected_to login_path
   end
 
 end

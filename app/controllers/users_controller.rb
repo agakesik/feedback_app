@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
+                                        :show, :new, :create]
+  before_action :coach_only, only: [:new, :create, :destroy, :index]
+  before_action :correct_user, only: [:show, :edit, :update]
 
   def index
     @skater_statuses = SkaterStatus.all
@@ -48,6 +52,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :skater_status_id)
+      params.require(:user).permit(:name, :skater_status_id, :email, :password,
+                                   :password_confirmation)
     end
 end

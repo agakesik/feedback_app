@@ -1,4 +1,6 @@
 class RatingsController < ApplicationController
+  before_action :logged_in_user
+  before_action :coach_only
   before_action :get_skill_and_user, only: [:new]
 
   def new

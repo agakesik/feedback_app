@@ -10,7 +10,8 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   test 'layout content when not logged in' do
     get root_path
-    assert_template 'pages/home'
+    assert_redirected_to login_path
+    follow_redirect!
     assert_select "div.content-container"
     assert_select "header"
     assert_select "div.sidebar"

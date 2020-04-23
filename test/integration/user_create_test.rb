@@ -4,9 +4,11 @@ class UserCreateTest < ActionDispatch::IntegrationTest
 
   def setup
     @skater_status = skater_statuses(:SS1)
+    @coach = users(:coach)
   end
 
   test "Invalid user create information" do
+    log_in_as(@coach)
     get new_user_path
     assert_no_difference 'User.count' do
       post users_path, params: { user: { name: "" } }
@@ -16,6 +18,7 @@ class UserCreateTest < ActionDispatch::IntegrationTest
   end
 
   test "valid user create information" do
+    log_in_as(@coach)
     get new_user_path
     assert_difference 'User.count', 1 do
       post users_path, params: { user: { name: "boobooboo",

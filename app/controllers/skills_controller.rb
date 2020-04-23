@@ -1,4 +1,6 @@
 class SkillsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :destroy, :show, :new, :create]
+  before_action :coach_only, only: [:index, :destroy, :show, :new, :create]
 
   def index
     @skills_categories = SkillsCategory.all
