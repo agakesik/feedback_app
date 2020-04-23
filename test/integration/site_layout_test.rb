@@ -24,7 +24,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     log_in_as(@normal_user)
     get root_path
     assert_select "a[href=?]", user_path(@normal_user)
-    assert_select "div.logged-in-content"
+    assert_select "div.user-content"
     assert_select "div.admin-content", count: 0
     assert_select "div.coach-content", count: 0
   end
@@ -32,16 +32,16 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout should show admin content when logged in as admin" do
     log_in_as(@admin)
     get root_path
-    assert_select "div.logged-in-content"
-    assert_select "div.admin-content"
+    assert_select "div.user-content"
+    assert_select "a[href=?]", admin_path, count: 1
     assert_select "div.coach-content", count: 0
   end
 
   test "layout should show coach content when logged in as coach" do
     log_in_as(@coach)
     get root_path
-    assert_select "div.logged-in-content"
-    assert_select "div.admin-content", count: 0
+    assert_select "div.user-content"
+    assert_select "a[href=?]", admin_path, count: 0
     assert_select "div.coach-content"
   end
 end

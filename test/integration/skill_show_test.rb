@@ -5,9 +5,10 @@ class SkillShowTest < ActionDispatch::IntegrationTest
   def setup
     @skill = skills(:plowstop)
     @coach = users(:coach)
+    @admin = users(:admin)
   end
 
-  test "show skill's page - only coach should be able" do
+  test "show skill's page - only coach and admin should be able" do
     log_in_as(@coach)
     get skill_path(@skill)
     assert_template 'skills/show'
@@ -19,7 +20,7 @@ class SkillShowTest < ActionDispatch::IntegrationTest
   end
 
   test "delete skill" do
-    log_in_as(@coach)
+    log_in_as(@admin)
     get skill_path(@skill)
     assert_select 'a[href=?]', skill_path(@skill), text: "usuń"
     assert_difference 'Skill.count', -1 do

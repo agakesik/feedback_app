@@ -15,7 +15,8 @@
 
   <div>
     admin? <% if @user.admin? %> yes <% else %> no <% end %><br>
-    coach? <% if @user.coach? %> yes <% else %> no <% end %>
+    coach? <% if @user.coach? %> yes <% else %> no <% end %><br>
+    aktywny? <% if @user.activated? %> yes <% else %> no <% end %>
   </div>
 
   <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>

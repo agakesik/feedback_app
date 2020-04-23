@@ -201,7 +201,7 @@ p {
   box-sizing: border-box;
   flex: 0 1 auto;
   margin: 1em 0;
-  max-width: 980px;
+  width: 980px;
   padding: 2em;
 }
 
@@ -447,7 +447,7 @@ input[type="radio"]:checked + .choice {
   .single-column-content {
     margin: 1em;
     padding: 0.5em;
-    min-width: 90vw;
+    width: 90vw;
   }
 
   // SINGLE PAGE COLUMNS STYLES

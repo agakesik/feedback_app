@@ -6,13 +6,18 @@
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <% if current_user.coach? %>
+      <% if current_user.coach? || current_user.admin? %>
         <%= f.label :name, "Imię", class: "label" %>
         <%= f.text_field :name, class: 'form-control' %>
       <% end %>
 
       <%= f.label :email, "Email", class: "label" %>
       <%= f.email_field :email, class: 'form-control' %>
+
+      <% unless @user.activated? %>
+      <%= f.label :activated, "Aktywować?", class: "label" %>
+      <%= f.check_box :activated, class: "" %>
+      <% end %>
 
       <% if current_user == @user %>
         <%= f.label :password, "Hasło", class: "label" %>
