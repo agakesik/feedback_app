@@ -441,20 +441,21 @@ input[type="radio"]:checked + .choice {
   }
   .single-page {
     padding: 0;
-    width: 100vw;
   }
 
   // SINGLE PAGE SINGLE-CONTENT STYLES
   .single-column-content {
     margin: 1em;
     padding: 0.5em;
+    min-width: 90vw;
   }
 
   // SINGLE PAGE COLUMNS STYLES
-  .column-page {
+  .two-column-page {
     flex-direction: column;
     margin: 0;
     padding: 0;
+    width: 100vw;
   }
   .column {
     margin: 1em 0.5em;
