@@ -10,7 +10,7 @@ class User < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   has_secure_password :validations => false
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true,
-                       if: :activating
+                       if: :activated
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, length: { maximum: 255 },
                               format: { with: VALID_EMAIL_REGEX },
