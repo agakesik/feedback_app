@@ -36,7 +36,7 @@ class User < ApplicationRecord
   end
 
   def create_activation_digest
-    if self.activated? && self.activation_token.nil?
+    if self.activating? && self.activation_digest.nil?
       self.activation_token = User.new_token
       self.activation_digest = User.digest(activation_token)
     end

@@ -10,7 +10,10 @@
       style: "background-color: #{@user.skater_status.color}" ) %>
   </div>
   <div class="info-content">
-    aktywny/-a? <% if @user.activated? %> tak <% else %> nie <% end %>
+    wysłano maila? <% if @user.activating? %> tak <% else %> nie <% end %>
+  </div>
+  <div class="info-content">
+    potwierdził maila? <% if @user.activated? %> tak <% else %> nie <% end %>
   </div>
   <div class="info-content">
     token: <%= @user.activation_token %>

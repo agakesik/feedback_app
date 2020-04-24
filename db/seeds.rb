@@ -15,10 +15,10 @@ SkaterStatus.create(name: "gra", color: "#50a7dc")
 # Users
 
 User.create(name: "Admin", skater_status_id: SkaterStatus.first.id,
-            activated: true, email: "admin@admin.com", admin: true, coach: true,
+            activated: true, activating: true, email: "admin@admin.com", admin: true, coach: true,
             password: "foobar", password_confirmation: "foobar")
 User.create(name: "Coach", skater_status_id: SkaterStatus.first.id,
-            activated: true, email: "coach@admin.com", admin: false, coach: true,
+            activated: true, activating: true, email: "coach@admin.com", admin: false, coach: true,
             password: "foobar", password_confirmation: "foobar")
 user = ["Kaczor Donald", "Hyzio", "Dyzio", "Zyzio", "Myszka Mickey", "Pluto",
         "Sknerus", "Daisy", "Myszka Minnie", "Dziobak", "Goofy" ]

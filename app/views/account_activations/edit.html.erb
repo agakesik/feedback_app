@@ -1,0 +1,27 @@
+<% provide(:title, "Aktywuj profil") %>
+<% provide(:position, "Ustaw hasło") %>
+
+<div class="single-column-content">
+  <div class="form">
+    <%= form_with(model: @user, url: account_activation_path(params[:id]),
+                  local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :name, @user.name, class: 'label' %>
+        <%= f.label :email, @user.email, class: 'label' %>
+        <%= hidden_field_tag :email, @user.email %>
+
+        <%= f.radio_button :activated, true, checked: true, class: "hidden" %>
+
+
+        <%= f.label :password, "Hasło", class: "label" %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Potwierdź hasło", class: "label" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+
+      <%= f.submit "Edytuj", class: "button submit" %>
+    <% end %>
+  </div>
+</div>

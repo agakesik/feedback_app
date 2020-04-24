@@ -48,13 +48,13 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:info] = "user usunięty"
+    flash[:info] = "Profil usunięty"
     redirect_to users_path
   end
 
   def send_activation_email
-    if @user.activated? && !@user.activation_email_send
-      flash[:success] = "Email aktywacyjny wysłany"
+    if @user.activating? && !@user.activated && !@user.activation_email_send
+      flash[:success] += ",\nEmail aktywacyjny wysłany"
       UserMailer.account_activation(@user).deliver_now
       @user.activation_email_send = true
     end
@@ -64,6 +64,6 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name, :skater_status_id, :email, :password,
-                                   :password_confirmation, :activated)
+                                   :password_confirmation, :activated, :activating)
     end
 end
