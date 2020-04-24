@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mattr_accessor :activation_token, default: "-"
+  mattr_accessor :activation_token
   mattr_accessor :activation_email_send, default: false
   before_save :downcase_email
   # before_save :create_activation_digest
@@ -38,6 +38,7 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
+    update_columns(activation_digest: User.digest(activation_token))
   end
 
   private
