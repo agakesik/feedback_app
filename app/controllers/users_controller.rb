@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :coach_or_admin_only, only: [:index]
   before_action :coach_only, only: [:new, :create]
   before_action :admin_only, only: [:destroy]
-  # after_action :send_activation_email, only: :update
+  after_action :send_activation_email, only: :update
 
   def index
     @skater_statuses = SkaterStatus.all
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Profil zmieniony"
-      redirect_to root_url
+      redirect_to @user
     else
       render 'edit'
     end

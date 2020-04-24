@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_103144) do
     t.string "activation_digest"
     t.boolean "activating", default: false
     t.index ["admin", "coach"], name: "index_users_on_admin_and_coach"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, where: "activating"
     t.index ["name"], name: "index_users_on_name", unique: true
     t.index ["skater_status_id"], name: "index_users_on_skater_status_id"
   end
