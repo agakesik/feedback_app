@@ -16,7 +16,7 @@
 
       <% unless @user.activating? %>
       <%= f.label :activating, "Aktywować?", class: "label" %>
-      <%= f.check_box :activating, class: "" %>
+      <%= f.check_box :activating %>
       <% end %>
 
       <% if current_user == @user %>

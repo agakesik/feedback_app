@@ -4,13 +4,6 @@ class AccountActivationsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.activating? && !@user.activated && @user.authenticated?(params[:id])
       flash[:success] = "tu będzie można zmienić hasło"
-      # if @user.update(user_params)
-      #   flash[:success] = "Hasło zapisane, konto aktywowane"
-      #   redirect_to @user
-      #
-      # else
-      #   render 'edit'
-      # end
     else
       flash[:danger] = "Wystąpił błąd z linkiem aktywacyjnym"
       redirect_to root_url
