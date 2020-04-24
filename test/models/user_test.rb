@@ -26,6 +26,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "activated user should need valid password" do
+    @user.activating = true
     @user.activated = true
     assert_not @user.valid?
     @user.email = "aga@gmail.com"
@@ -36,7 +37,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "activated user should need valid email" do
-    @user.activated = true
+    @user.activating = true
     @user.password = @user.password_confirmation = "foobar"
     assert_not @user.valid?
     @user.email = "aga@"
@@ -48,7 +49,7 @@ class UserTest < ActiveSupport::TestCase
   test "create_activation_digest should change activation_token" do
     assert_nil @user.activation_token
     assert_nil @user.activation_digest
-    @user.activated = true
+    @user.activating = true
     @user.create_activation_digest
     assert_not @user.activation_token.nil?
   end

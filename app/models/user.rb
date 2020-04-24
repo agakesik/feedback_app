@@ -10,12 +10,12 @@ class User < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   has_secure_password :validations => false
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true,
-                       if: :activated
+                       if: :activating
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, length: { maximum: 255 },
                               format: { with: VALID_EMAIL_REGEX },
                               uniqueness: true, allow_blank: true
-  validates :email, presence: true, if: :activated
+  validates :email, presence: true, if: :activating
 
     # Returns the hash digest of the given string.
   def User.digest(string)
