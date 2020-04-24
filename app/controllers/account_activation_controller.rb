@@ -2,10 +2,11 @@ class AccountActivationController < ApplicationController
 
   def edit
     @user = User.find_by(email: params[:email])
-    if @user && @user.activated && @user.authenticated?(params[:id])
+    if @user && @user.activated? && @user.authenticated?(params[:id])
       if @user.update(user_params)
         flash[:success] = "Hasło zapisane, konto aktywowane"
         redirect_to @user
+
       else
         render 'edit'
       end

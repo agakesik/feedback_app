@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action :coach_or_admin_only, only: [:index]
   before_action :coach_only, only: [:new, :create]
   before_action :admin_only, only: [:destroy]
+  after_action :send_activation_email, only: :update
 
   def index
     @skater_statuses = SkaterStatus.all
@@ -39,11 +40,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Profil zmieniony"
-      if @user.activated && !@user.activation_email_send
-        flash[:success] = "Email aktywacyjny wysłany"
-        UserMailer.account_activation(@user).deliver_now
-        @user.activation_email_send = true
-      end
       redirect_to @user
     else
       render 'edit'
@@ -54,6 +50,14 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:info] = "user usunięty"
     redirect_to users_path
+  end
+
+  def send_activation_email
+    if @user.activated? && !@user.activation_email_send
+      flash[:success] = "Email aktywacyjny wysłany"
+      UserMailer.account_activation(@user).deliver_now
+      @user.activation_email_send = true
+    end
   end
 
   private
