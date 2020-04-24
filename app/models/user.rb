@@ -16,6 +16,7 @@ class User < ApplicationRecord
   #                             format: { with: VALID_EMAIL_REGEX },
   #                             uniqueness: true, allow_blank: true, allow_nil: true
   # validates :email, presence: true, if: :activating
+  validates :email, uniqueness: false
 
     # Returns the hash digest of the given string.
   def User.digest(string)
