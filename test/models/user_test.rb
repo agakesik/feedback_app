@@ -44,4 +44,12 @@ class UserTest < ActiveSupport::TestCase
     @user.email = "aga@gmail.pl"
     assert @user.valid?
   end
+
+  test "create_activation_digest should change activation_token" do
+    assert_nil @user.activation_token
+    assert_nil @user.activation_digest
+    @user.activated = true
+    @user.create_activation_digest
+    assert_not @user.activation_token.nil?
+  end
 end

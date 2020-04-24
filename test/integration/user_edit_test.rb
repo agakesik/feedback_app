@@ -4,8 +4,10 @@ class UserEditTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:aga)
+    @user.activation_email_send = true
     @skater_status = skater_statuses(:SS2)
     @coach = users(:coach)
+    # @inactive_user = users(:jago)
   end
 
   test "unsuccessful edit" do
@@ -13,10 +15,10 @@ class UserEditTest < ActionDispatch::IntegrationTest
     get edit_user_path(@user)
     assert_template 'users/edit'
     patch user_path(@user), params: { user: { name: "", skater_status_id: 0,
-                                     email: "a.p", password: "aa", password_confirmation: "bb"} }
+                                     email: "a.p"} }
     assert_template 'users/edit'
     assert_select "div.error-explanation"
-    assert_select "div.alert-danger", "Błędy w liczbie: 4"
+    assert_select "div.alert-danger", "Błędy w liczbie: 3"
   end
 
   test "successful edit" do
@@ -49,5 +51,9 @@ class UserEditTest < ActionDispatch::IntegrationTest
     @user.reload
     assert_equal name, @user.name
     assert_equal @skater_status.id, @user.skater_status.id
+  end
+
+  test "activating account" do
+
   end
 end

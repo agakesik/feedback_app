@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  attr_accessor :activation_token
+  mattr_accessor :activation_token
+  mattr_accessor :activation_email_send
   before_save :downcase_email
   before_save :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 },
@@ -28,6 +29,19 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
+  # Returnrs true if given token matches digest
+  def authenticated?(token)
+    return false if activation_digest.nil?
+    BCrypt::Password.new(activation_digest).is_password?(token)
+  end
+
+  def create_activation_digest
+    if self.activated && self.password.blank?
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
+  end
+
   private
 
     def downcase_email
@@ -36,11 +50,5 @@ class User < ApplicationRecord
       end
     end
 
-    def create_activation_digest
-      if self.activated && self.password.blank?
-        self.activation_token = User.new_token
-        self.activation_digest = User.digest(activation_token)
-      end
-    end
 
 end

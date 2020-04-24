@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
     @average_user = users(:aga)
+    @average_user.activation_email_send = true
     @other_user = users(:adam)
     @admin = users(:admin)
     @coach = users(:coach)

@@ -1,0 +1,21 @@
+<% provide(:title, "Aktywacja profilu") %>
+<% provide(:position, "Ustaw hasło") %>
+
+<div class="single-column-content">
+  <div class="form">
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <h1> Ustaw hasło </h1>
+
+
+      <%= f.label :password, "Hasło", class: "label" %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Potwierdź hasło", class: "label" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    
+      <%= f.submit "Edytuj", class: "button submit" %>
+    <% end %>
+  </div>
+</div>

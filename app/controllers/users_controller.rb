@@ -39,6 +39,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Profil zmieniony"
+      if @user.activated && !@user.activation_email_send
+        flash[:success] = "Email aktywacyjny wysłany"
+        UserMailer.account_activation(@user).deliver_now
+        @user.activation_email_send = true
+      end
       redirect_to @user
     else
       render 'edit'

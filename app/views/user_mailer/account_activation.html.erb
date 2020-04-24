@@ -1,0 +1,7 @@
+<h2>Hej <%= @user.name %></h2>
+
+<p>
+  Zaraz będziesz mieć dostęp do swojego konta w hellcastowej aplikacji feedbackowej!
+</p>
+<%= link_to "Kliknij tutaj, żeby ustawić hasło",
+    edit_account_activation_url(@user.activation_token, email: @user.email) %>

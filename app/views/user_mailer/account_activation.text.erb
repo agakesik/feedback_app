@@ -1,0 +1,6 @@
+Hej <%= @user.name %>,
+
+Zaraz będziesz mieć dostęp do swojego konta w hellcastowej aplikacji feedbackowej!
+
+Kliknij tutaj:
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
