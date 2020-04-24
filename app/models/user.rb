@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  mattr_accessor :activation_token
-  mattr_accessor :activation_email_send
+  mattr_accessor :activation_token, default: "-"
+  mattr_accessor :activation_email_send, default: false
   before_save :downcase_email
-  before_save :create_activation_digest
+  # before_save :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 },
                    uniqueness: { case_sensitive: false, message: "imię nie może się powtarzać"}
   has_many :ratings, dependent: :destroy
@@ -36,10 +36,8 @@ class User < ApplicationRecord
   end
 
   def create_activation_digest
-    if self.activating? && self.activation_digest.nil?
-      self.activation_token = User.new_token
-      self.activation_digest = User.digest(activation_token)
-    end
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
   end
 
   private
