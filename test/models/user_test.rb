@@ -47,6 +47,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "create_activation_digest should change activation_token" do
+    @user.save
     assert_nil @user.activation_token
     assert_nil @user.activation_digest
     @user.activating = true
