@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/menu', to: 'pages#menu'
   get '/admin', to: 'pages#admin'
   resources :users
+  resources :users do
+    get 'toggle_activating', :on => :member
+  end
   resources :skills
   resources :ratings, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'

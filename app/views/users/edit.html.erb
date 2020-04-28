@@ -14,11 +14,6 @@
       <%= f.label :email, "Email", class: "label" %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <% unless @user.activating? %>
-      <%= f.label :activating, "Aktywować?", class: "label" %>
-      <%= f.check_box :activating %>
-      <% end %>
-
       <% if current_user == @user %>
         <%= f.label :password, "Hasło", class: "label" %>
         <%= f.password_field :password, class: 'form-control' %>

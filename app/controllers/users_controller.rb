@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   before_action :coach_or_admin_only, only: [:index]
   before_action :coach_only, only: [:new, :create]
   before_action :admin_only, only: [:destroy]
-  after_action :send_activation_email, only: :update
 
   def index
     @skater_statuses = SkaterStatus.all
@@ -52,13 +51,13 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  def send_activation_email
-    if @user.activating? && !@user.activated && !@user.activation_email_send
-      @user.create_activation_digest
-      UserMailer.account_activation(@user).deliver_now
-      @user.activation_email_send = true
-      flash[:success] += ",\nEmail aktywacyjny wysłany"
-    end
+  def toggle_activating
+    @user = User.find(params[:id])
+    @user.toggle!(:activating)
+    @user.create_activation_digest
+    UserMailer.account_activation(@user).deliver_now
+    flash[:success] = "Email aktywacyjny wysłany"
+    redirect_to @user
   end
 
   private

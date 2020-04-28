@@ -14,46 +14,40 @@
       style: "background-color: #{@user.skater_status.color}" ) %>
   </div>
   <div class="info-content">
-    wysłano maila?
-    <% if @user.activating? %>
-      tak
-    <% else %>
-      nie
-      <p id="activation-link" class="js-toggle">Aktywować?</p>
-      <div id="activation-option">
-        <div> email: "wpisz email" </div>
-        <div> >przycisk do aktywowania< </div>
-      </div>
+    <h3>Informacje o osobie</h3>
+    <p> name: <%= @user.name %> </p>
+    <p> email: <%= @user.email %> </p>
+      <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
+  </div>
+  <div class="info-content">
+    <h3>Informacje o koncie</h3>
+    <p><%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %></p>
+    <p>Aktywny/-a?
+      <% if @user.activated? %>
+        tak
+      <% else %>
+        nie
+      <% end %>
+    </p>
+    <% if !@user.activated? %>
+      <p>wysłano maila do rejestracji?
+        <% if @user.activating? %>
+          tak
+        <% else %>
+          nie
+        <% end %>
+      </p>
+    <% end %>
+
+    <%= render 'users/user_activation' %>
+
+    <% if current_user.admin? %>
+    <hr>
+      <%= link_to "usuń profil", @user, method: :delete, class: "delete",
+                          data: { confirm: "Na pewno usunąć? Nie będzie można odzyskać danych" } %>
     <% end %>
   </div>
-  <div class="info-content">
-    potwierdził maila? <% if @user.activated? %> tak <% else %> nie <% end %>
-  </div>
-  <div class="info-content">
-    token: <%= @user.activation_token %>
-  </div>
-  <div class="info-content">
-    digest: <%= @user.activation_digest %>
-  </div>
-  <div class="info-content">
-    email: <%= @user.email %>
-  </div>
-  <div class="info-content">
-    <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>
-  </div>
 
-  <!-- <div>
-    admin? <% if @user.admin? %> yes <% else %> no <% end %><br>
-    coach? <% if @user.coach? %> yes <% else %> no <% end %><br>
-    aktywny? <% if @user.activated? %> tak <% else %> nie <% end %>
-    e
-  </div> -->
-
-  <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
-  <% if current_user.admin? %>
-    <%= link_to "usuń", @user, method: :delete, class: "button delete",
-                        data: { confirm: "Na pewno usunąć?" } %>
-  <% end %>
 <% end %>
 
 <% content_for :content do %>
