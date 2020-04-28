@@ -57,6 +57,9 @@ a, .js-toggle {
     text-decoration-color: rgba($dark-accent-color, 0.3);
   }
 }
+.js-toggle {
+  user-select: none;
+}
 p {
   margin: 0;
 }
