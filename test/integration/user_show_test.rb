@@ -22,7 +22,7 @@ class UserShowTest < ActionDispatch::IntegrationTest
   test "delete user should only be visible to admin" do
     log_in_as(@admin)
     get user_path(@user)
-    assert_select 'a[href=?]', user_path(@user), text: "usuń"
+    assert_select 'a[href=?]', user_path(@user), text: "usuń profil"
     assert_difference 'User.count', -1 do
       delete user_path(@user)
     end
