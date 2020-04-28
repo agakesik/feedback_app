@@ -17,6 +17,8 @@ $success: #5bb268;
 $light-accent-color: #ffdf80;
 $dark-accent-color: #997300;
 $test-border: 1px solid blue;
+$darker: rgba(0,0,0, 0.02);
+$ligther: rgba(255, 255, 255, 0.02);
 
 @mixin menu-box {
   background-color: $dark-gray;
@@ -37,6 +39,7 @@ $test-border: 1px solid blue;
 body {
   background-color: $light-gray;
   display: flex;
+  flex-direction: column;
   font-family: "Montserrat",helvetica, arial, sans-serif;
   height: 100vh;
   margin: 0;
@@ -45,8 +48,9 @@ h1, h2, h3, h4 {
   font-family: "Scope-One", serif, helvetica, arial;
   text-transform: uppercase;
 }
-a {
+a, .js-toggle {
   color: rgba($dark-gray, 0.8);
+  text-decoration: underline;
   text-decoration-color: rgba($dark-gray, 0.3);
   &:hover, &:active {
     color: rgba($dark-accent-color, 0.8);
@@ -58,18 +62,22 @@ p {
 }
 .content-container {
   display: flex;
-  flex: 1 1 0;
-  flex-direction: column;
-  width: 40vh;
+  flex-direction: row;
+  padding-top: 3em;
+  width: 100vw;
+  overflow: auto;
 }
 
 /* HEADER */
 .header {
   @include menu-box;
+  box-sizing: border-box;
   flex: 0 0 auto;
   height: 3em;
   padding: 0 2em;
   text-align: center;
+  position: fixed;
+  width: 100vw;
   h1 {
     color: $light-accent-color;
     display: inline-block;
@@ -77,26 +85,22 @@ p {
     line-height: 2.5em;
     margin: 0;
   }
-  .fa {
+  .menu-icon {
     @include menu-buttons;
-    float: left;
-    font-size: 2em;
-    margin: 0.1em 0;
-    padding: 0.15em;
-
-  }
-  .menu-toggle {
-    @include menu-buttons;
-    display: none;
+    // display: none;
+    box-sizing: border-box;
     float: right;
-    line-height: 2em;
-    margin: 0.3em 0;
-    padding: 0.15em 0.3em;
+    line-height: 1em;
+    font-size: 2em;
+    margin: 0.1em 0 0.1em 0.5em;
+    min-width: 1.5em;
+    padding: 0.15em;
     a {
       color:inherit;
       text-decoration-color: inherit;
     }
   }
+
 }
 
 /* SIDEBAR STYLES */
@@ -105,7 +109,6 @@ p {
   box-sizing: border-box;
   flex: 0 0 18em;
   height: 100%;
-  padding-top: 3em;
   a {
     color: rgba($light-gray, 0.8);
     text-decoration-color: rgba($light-gray, 0.3);
@@ -142,6 +145,9 @@ p {
   a ~ a {
    border-left: 1px solid rgba(255, 255, 255, 0.4);
   }
+}
+.current {
+  background-color: red;
 }
 
 // RATING STYLES
@@ -185,6 +191,7 @@ p {
   // align-items: center;
   display: flex;
   flex: 1 1 0;
+  flex-grow: 1;
   flex-direction: column;
   // justify-content: space-evenly;
   overflow: scroll;
@@ -197,7 +204,7 @@ p {
 
 .single-column-content {
   align-self: center;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: white;
   box-sizing: border-box;
   flex: 0 1 auto;
   margin: 1em 0;
@@ -213,15 +220,14 @@ p {
   top: 0;
 }
 
-/* SINGLE PAGE COLUMNS STYLES */
+/* SINGLE PAGE 2 COLUMNS STYLES */
 .two-column-page {
   display: flex;
-  flex-grow: 1;
   justify-content: center;
   margin-top: 1em;
 }
 .column {
-  background: rgba(255, 255, 255, 0.8);
+  // background: white;
   margin: 0 1em;
   max-width: 500px;
 }
@@ -229,10 +235,13 @@ p {
   flex: 0 0 20vw;
   padding: 0 1.5em;
   text-align: center;
-  h2 {
+  h1 {
     text-align: right;
   }
   .info-content {
+    background: white;
+    padding: 0.5em;
+    border-radius: 10px;
     margin: 1em 0;
   }
   .cell {
@@ -272,6 +281,11 @@ p {
       width: 100%;
     }
   }
+}
+
+// USER INFORMATION COLUMN
+#activation-option {
+  display: none;
 }
 
 // BUTTONS

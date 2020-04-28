@@ -5,24 +5,25 @@
   </head>
 
   <body>
+    <header class="header">
+      <%= fa_icon "bars", class: "menu-icon sidebar-toggle" %>
+      <button class="menu-icon sidebar-toggle" onclick="openNav()">&#9776;</button>
+      <%= link_to root_url do %>
+        <%= fa_icon "home", class: "menu-icon" %>
+      <% end %>
+      <h1><%= yield(:position) %></h1>
+    </header>
     <div class="content-container">
-      <header class="header">
-        <%= link_to root_url do %>
-          <%= fa_icon "home" %>
-        <% end %>
-        <h1><%= yield(:position) %></h1>
-        <%= render 'layouts/menu_toggle' %>
-      </header>
       <div class="page">
 
         <%= render 'layouts/alerts' %>
         <%= yield %>
       </div>
+      <div id="Sidebar" class="sidebar">
+        <%= render 'layouts/sidebar' %>
+      </div>
     </div>
 
-    <div class="sidebar">
-      <%= render 'layouts/sidebar' %>
-    </div>
 
   </body>
 </html>

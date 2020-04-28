@@ -1,16 +1,30 @@
 <% provide(:title, @user.name) %>
 <% provide(:position, "Profil") %>
 <% provide(:column_type, "rating") %>
+<% content_for :js do %>
+  <%= javascript_pack_tag 'show_activation' %>
+<% end %>
 
 <% content_for :info do %>
-  <h2><%= @user.name %></h2>
+  <h1><%= @user.name %></h1>
   <div class="info-content">
+    <h3>Informacje treningowe</h3>
     Status:
     <%= content_tag(:div, @user.skater_status.name, class: "cell",
       style: "background-color: #{@user.skater_status.color}" ) %>
   </div>
   <div class="info-content">
-    wysłano maila? <% if @user.activating? %> tak <% else %> nie <% end %>
+    wysłano maila?
+    <% if @user.activating? %>
+      tak
+    <% else %>
+      nie
+      <p id="activation-link" class="js-toggle">Aktywować?</p>
+      <div id="activation-option">
+        <div> email: "wpisz email" </div>
+        <div> >przycisk do aktywowania< </div>
+      </div>
+    <% end %>
   </div>
   <div class="info-content">
     potwierdził maila? <% if @user.activated? %> tak <% else %> nie <% end %>
