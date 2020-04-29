@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :users do
     get 'toggle_activating', :on => :member
+    get 'change_skater_status', :on => :member
   end
   resources :skills
   resources :ratings, only: [:new, :create, :destroy]

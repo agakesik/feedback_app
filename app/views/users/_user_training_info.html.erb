@@ -2,7 +2,13 @@
   <span>Status:</span>
   <%= content_tag(:div, @user.skater_status.name, class: "cell",
     style: "background-color: #{@user.skater_status.color}" ) %>
-<p id="edit-skater-status" class="js-toggle">edytuj status?<p>
-<div id="edit-skater-status-show" class="js-content">
-  hello
-</div>
+<% if current_user.coach? %>
+  <p id="edit-skater-status" class="js-toggle">edytuj status?<p>
+  <div id="edit-skater-status-show" class="js-content">
+    <% SkaterStatus.all.each do |status| %>
+      <%= link_to status.name, change_skater_status_user_path(@user, skater_status_id: status.id),
+                  class: "choice cell block",
+                  style: "background-color: #{status.color}" %>
+    <% end %>
+  </div>
+<% end %> 

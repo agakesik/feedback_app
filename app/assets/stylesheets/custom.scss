@@ -135,6 +135,7 @@ p {
   }
   div {
     opacity: 0;
+    display: none;
     transition: opacity 300ms ease-out;
   }
 }
@@ -399,9 +400,12 @@ input, select {
   color: black;
   flex-grow: 1;
   margin: auto 0.5em;
+  opacity: 0.6;
+  text-decoration: none;
   text-align: center;
   &:hover, &:active {
     color: $dark-gray;
+    opacity: 1;
   }
 }
 input[type="radio"]:checked + .choice {
@@ -410,7 +414,9 @@ input[type="radio"]:checked + .choice {
 .hidden {
   display: none;
 }
-
+.block {
+  display: block;
+}
 // ALERT STYLES
 .alert-container {
   position: -webkit-sticky; /* Safari */
