@@ -1,0 +1,5 @@
+$("#skater-status").html("<%= @user.skater_status.name %>")
+$("#skater-status").css("background-color", "<%= @user.skater_status.color %>")
+$("#change-status-confirmation").css("opacity", "1")
+$("#change-status-confirmation").css("height", "auto")
+$("#edit-skater-status-show").toggle()

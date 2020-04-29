@@ -64,8 +64,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     skater_status_id = SkaterStatus.find(params[:skater_status_id]).id
     @user.update_attribute(:skater_status_id, skater_status_id)
-    flash[:success] = "Status zawodnika zmieniony"
-    redirect_to @user
+    # redirect_to @user
+    respond_to do |format|
+      format.html { redirect_to @user }
+      format.js
+    end
   end
 
   private

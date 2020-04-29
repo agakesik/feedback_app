@@ -1,14 +1,17 @@
 <h3>Informacje treningowe</h3>
   <span>Status:</span>
-  <%= content_tag(:div, @user.skater_status.name, class: "cell",
+  <%= content_tag(:div, @user.skater_status.name, id: "skater-status", class: "cell",
     style: "background-color: #{@user.skater_status.color}" ) %>
+
+<p id="change-status-confirmation" class="text-info hidden-text"> status został zmieniony </p>
+
 <% if current_user.coach? %>
   <p id="edit-skater-status" class="js-toggle">edytuj status?<p>
   <div id="edit-skater-status-show" class="js-content">
     <% SkaterStatus.all.each do |status| %>
       <%= link_to status.name, change_skater_status_user_path(@user, skater_status_id: status.id),
-                  class: "choice cell block",
+                  class: "choice cell block", remote: true,
                   style: "background-color: #{status.color}" %>
     <% end %>
   </div>
-<% end %> 
+<% end %>
