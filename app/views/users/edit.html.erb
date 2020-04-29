@@ -22,19 +22,6 @@
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       <% end %>
 
-      <% if current_user.coach? %>
-        <p class="label"> Status zawodnika: </p>
-        <div class="rating-choice-container">
-          <% SkaterStatus.all.each do |status| %>
-            <%= f.radio_button :skater_status_id, status.id,
-                               class: "hidden choice" %>
-            <%= f.label :skater_status_id, status.name, value: status.id,
-                        class: "choice button",
-                        style: "background-color: #{status.color}" %>
-          <% end %>
-        </div>
-      <% end %>
-
       <%= f.submit "Edytuj", class: "button submit" %>
     <% end %>
   </div>
