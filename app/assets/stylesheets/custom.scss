@@ -60,6 +60,7 @@ p {
   margin: 0;
 }
 .content-container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   padding-top: 3em;
@@ -130,6 +131,7 @@ p {
     }
   }
   div {
+    display: none;
     opacity: 0;
   }
 }
@@ -137,6 +139,7 @@ p {
   flex-basis: 18em;
   transition: all 200ms ease-in-out;
   div {
+    display: block;
     opacity: 1;
     transition: opacity 300ms ease-in-out;
   }
