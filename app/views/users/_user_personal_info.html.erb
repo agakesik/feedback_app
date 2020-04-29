@@ -1,0 +1,4 @@
+<h3>Informacje o osobie</h3>
+<p> <span>name:</span> <%= @user.name %> </p>
+<p> <span>email:</span> <%= @user.email %> </p>
+  <%= link_to "edytuj", edit_user_path(@user), class: "text-button" %>

@@ -1,14 +1,14 @@
 <% if !@user.activated? && !@user.activating? %>
-  <p id="activation-toggle" class="js-toggle">Wysłać?</p>
-  <div id="activation-option" class="js-content">
+  <p id="activation" class="js-toggle">Wysłać?</p>
+  <div id="activation-show" class="js-content">
     <% if @user.email.blank? %>
       <p class="text-danger"> MUSISZ NAJPIERW DODAĆ ADRES EMAIL DO KONTA </p>
     <% else %>
-      <p> Zostanie wysłany email aktywacyjny na adres:</p>
+    <p>
+      <%= link_to "wyślij email aktywacyjny", toggle_activating_user_path(@user) %>
+    </p>
+      <p><span>Email aktywacyjny będzie wysłany na adres:</span></p>
       <p class="text-info"> <%= @user.email %></p>
-      <p>
-        <%= link_to "wyślij email aktywacyjny", toggle_activating_user_path(@user) %>
-      </p>
 
     <% end %>
   </div>

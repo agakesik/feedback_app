@@ -1,0 +1,8 @@
+<h3>Informacje treningowe</h3>
+  <span>Status:</span>
+  <%= content_tag(:div, @user.skater_status.name, class: "cell",
+    style: "background-color: #{@user.skater_status.color}" ) %>
+<p id="edit-skater-status" class="js-toggle">edytuj status?<p>
+<div id="edit-skater-status-show" class="js-content">
+  hello
+</div>

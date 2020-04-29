@@ -2,50 +2,19 @@
 <% provide(:position, "Profil") %>
 <% provide(:column_type, "rating") %>
 <% content_for :js do %>
-  <%= javascript_pack_tag 'show_activation' %>
+  <%= javascript_pack_tag 'toggle_show_hide' %>
 <% end %>
 
 <% content_for :info do %>
   <h1><%= @user.name %></h1>
   <div class="info-content">
-    <h3>Informacje treningowe</h3>
-    Status:
-    <%= content_tag(:div, @user.skater_status.name, class: "cell",
-      style: "background-color: #{@user.skater_status.color}" ) %>
+    <%= render 'users/user_training_info' %>
   </div>
   <div class="info-content">
-    <h3>Informacje o osobie</h3>
-    <p> name: <%= @user.name %> </p>
-    <p> email: <%= @user.email %> </p>
-      <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>
+    <%= render 'users/user_personal_info' %>
   </div>
   <div class="info-content">
-    <h3>Informacje o koncie</h3>
-    <p><%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %></p>
-    <p>Aktywny/-a?
-      <% if @user.activated? %>
-        tak
-      <% else %>
-        nie
-      <% end %>
-    </p>
-    <% if !@user.activated? %>
-      <p>wysłano maila do rejestracji?
-        <% if @user.activating? %>
-          tak
-        <% else %>
-          nie
-        <% end %>
-      </p>
-    <% end %>
-
-    <%= render 'users/user_activation' %>
-
-    <% if current_user.admin? %>
-    <hr>
-      <%= link_to "usuń profil", @user, method: :delete, class: "delete",
-                          data: { confirm: "Na pewno usunąć? Nie będzie można odzyskać danych" } %>
-    <% end %>
+    <%= render 'users/user_profile_info' %>
   </div>
 
 <% end %>

@@ -50,6 +50,7 @@ h1, h2, h3, h4 {
 }
 a, .js-toggle {
   color: rgba($dark-gray, 0.8);
+  font-weight: bold;
   text-decoration-color: rgba($dark-gray, 0.3);
   &:hover, &:active {
     color: rgba($dark-accent-color, 0.8);
@@ -105,6 +106,7 @@ p {
     float: right;
     line-height: 1em;
     font-size: 2em;
+    font-weight: normal;
     margin: 0.1em 0 0.1em 0.5em;
     min-width: 1.5em;
     padding: 0.15em;
@@ -151,6 +153,7 @@ p {
   }
 }
 .sidebar-link {
+  font-weight: normal;
   padding-left: 2em;
   &:hover {
     background-color: rgba($light-accent-color, 0.8);
@@ -256,8 +259,9 @@ p {
   max-width: 500px;
 }
 .info-column {
-  flex: 0 0 20vw;
-  padding: 0 1.5em;
+  flex: 0 0 25vw;
+  font-size: 1.2em;
+  max-width: 800px;
   text-align: center;
   h1, h3 {
     text-align: right;
@@ -269,6 +273,10 @@ p {
     margin: 1em 0;
     p {
       margin: 0.5em 0;
+    }
+    span {
+      font-size: 0.8em;
+      color: $dark-gray;
     }
   }
   .cell {
@@ -334,14 +342,14 @@ p {
   cursor: pointer;
   margin: 2em 0;
 }
-.delete {
+.text-button {
   border: 1px dotted $dark-gray;
   display: inline-block;
   margin: 1em;
   padding: 0.5em;
   text-decoration: none;
 }
-.delete:hover {
+.danger:hover {
   background-color: #b25b5b;
   color: white;
 }

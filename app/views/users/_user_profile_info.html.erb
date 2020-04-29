@@ -1,0 +1,26 @@
+<h3>Informacje o koncie</h3>
+<p> <span>Dodana/-y</span> <%= @user.created_at.strftime("%d.%m.%Y")  %></p>
+<p><span>Aktywny/-a?</span>
+  <% if @user.activated? %>
+    tak
+  <% else %>
+    nie
+  <% end %>
+</p>
+<% if !@user.activated? %>
+  <p><span>wysłano maila do rejestracji?</span>
+    <% if @user.activating? %>
+      tak
+    <% else %>
+      nie
+    <% end %>
+  </p>
+<% end %>
+
+<%= render 'users/user_activation' %>
+
+<% if current_user.admin? %>
+<hr>
+  <%= link_to "usuń profil", @user, method: :delete, class: "text-button danger",
+                      data: { confirm: "Na pewno usunąć? Nie będzie można odzyskać danych" } %>
+<% end %>
