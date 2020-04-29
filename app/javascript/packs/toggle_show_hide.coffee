@@ -3,4 +3,4 @@ $(document).on "turbolinks:load", ->
     $("#change-status-confirmation").css("opacity", "0")
     $("#change-status-confirmation").css("height", "0")
     toggle = @id
-    $('#'+toggle+'-show').toggle("blind");
+    $('#'+toggle+'-show').toggle("blind")
