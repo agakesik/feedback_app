@@ -66,6 +66,7 @@ p {
   padding-top: 3em;
   width: 100vw;
   overflow: auto;
+  height: 100%;
 }
 .js-toggle {
   text-decoration: underline;
@@ -131,17 +132,14 @@ p {
     }
   }
   div {
-    display: none;
     opacity: 0;
+    transition: opacity 300ms ease-out;
   }
 }
 .sidebar-show{
   flex-basis: 18em;
-  transition: all 200ms ease-in-out;
   div {
-    display: block;
     opacity: 1;
-    transition: opacity 300ms ease-in-out;
   }
 }
 .sidebar-item {
