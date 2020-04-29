@@ -6,6 +6,7 @@
 
   <body>
     <header class="header">
+      <%= fa_icon "bars", id: "sidebar-toggle", class: "menu-icon js-toggle" %>
       <%= link_to root_url do %>
         <%= fa_icon "home", class: "menu-icon" %>
       <% end %>
@@ -17,7 +18,7 @@
         <%= render 'layouts/alerts' %>
         <%= yield %>
       </div>
-      <div id="Sidebar" class="sidebar">
+      <div id="sidebar" class="sidebar js-content-horizontal">
         <%= render 'layouts/sidebar' %>
       </div>
     </div>

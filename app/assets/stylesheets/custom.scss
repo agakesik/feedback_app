@@ -50,15 +50,11 @@ h1, h2, h3, h4 {
 }
 a, .js-toggle {
   color: rgba($dark-gray, 0.8);
-  text-decoration: underline;
   text-decoration-color: rgba($dark-gray, 0.3);
   &:hover, &:active {
     color: rgba($dark-accent-color, 0.8);
     text-decoration-color: rgba($dark-accent-color, 0.3);
   }
-}
-.js-toggle {
-  user-select: none;
 }
 p {
   margin: 0;
@@ -69,6 +65,18 @@ p {
   padding-top: 3em;
   width: 100vw;
   overflow: auto;
+}
+.js-toggle {
+  text-decoration: underline;
+  user-select: none;
+}
+.js-content{
+  display: none;
+  transition: width 200ms ease-in-out;
+}
+.js-content-show {
+  display: block;
+  transition: width 200ms ease-in-out;
 }
 
 /* HEADER */
@@ -92,26 +100,27 @@ p {
     @include menu-buttons;
     // display: none;
     box-sizing: border-box;
-    float: left;
+    float: right;
     line-height: 1em;
     font-size: 2em;
     margin: 0.1em 0 0.1em 0.5em;
     min-width: 1.5em;
     padding: 0.15em;
+    text-decoration: none;
     a {
       color:inherit;
-      text-decoration-color: inherit;
     }
   }
-
 }
 
 /* SIDEBAR STYLES */
 .sidebar {
   @include menu-box;
   box-sizing: border-box;
-  flex: 0 0 18em;
+  flex: 0 0 0;
   height: 100%;
+  transition: all 200ms ease-in-out;
+  width: 0;
   a {
     color: rgba($light-gray, 0.8);
     text-decoration-color: rgba($light-gray, 0.3);
@@ -119,6 +128,17 @@ p {
       color: rgba($light-accent-color, 0.8);
       text-decoration-color: rgba($light-accent-color, 0.3);
     }
+  }
+  div {
+    opacity: 0;
+  }
+}
+.sidebar-show{
+  flex-basis: 18em;
+  transition: all 200ms ease-in-out;
+  div {
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
   }
 }
 .sidebar-item {
@@ -289,10 +309,6 @@ p {
   }
 }
 
-// USER INFORMATION COLUMN
-#activation-option {
-  display: none;
-}
 
 // BUTTONS
 .button {

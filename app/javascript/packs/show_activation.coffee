@@ -1,3 +1,3 @@
 $(document).on "turbolinks:load", ->
-  $('#activation-link').click ->
-    $('#activation-option').toggle()
+  $('#activation-toggle').click ->
+    $('#activation-option').toggle("js-content-show");
