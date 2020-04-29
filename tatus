@@ -1,0 +1,89 @@
+[1mdiff --git a/app/views/users/show.html.erb b/app/views/users/show.html.erb[m
+[1mindex a8fe6b4..7fdb6f1 100644[m
+[1m--- a/app/views/users/show.html.erb[m
+[1m+++ b/app/views/users/show.html.erb[m
+[36m@@ -3,7 +3,6 @@[m
+ <% provide(:column_type, "rating") %>[m
+ <% content_for :js do %>[m
+   <%= javascript_pack_tag 'show_activation' %>[m
+[31m-  <%= javascript_pack_tag 'hello_coffee' %>[m
+ <% end %>[m
+ [m
+ <% content_for :info do %>[m
+[36m@@ -15,40 +14,46 @@[m
+       style: "background-color: #{@user.skater_status.color}" ) %>[m
+   </div>[m
+   <div class="info-content">[m
+[31m-    <h3>Informacje o osobie</h3>[m
+[31m-    <p> name: <%= @user.name %> </p>[m
+[31m-    <p> email: <%= @user.email %> </p>[m
+[31m-      <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>[m
+[32m+[m[32m    wysłano maila?[m
+[32m+[m[32m    <% if @user.activating? %>[m
+[32m+[m[32m      tak[m
+[32m+[m[32m    <% else %>[m
+[32m+[m[32m      nie[m
+[32m+[m[32m      <p id="activation-link" class="js-toggle">Aktywować?</p>[m
+[32m+[m[32m      <div id="activation-option">[m
+[32m+[m[32m        <div> email: "wpisz email" </div>[m
+[32m+[m[32m        <div> >przycisk do aktywowania< </div>[m
+[32m+[m[32m      </div>[m
+[32m+[m[32m    <% end %>[m
+   </div>[m
+   <div class="info-content">[m
+[31m-    <h3>Informacje o koncie</h3>[m
+[31m-    <p><%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %></p>[m
+[31m-    <p>Aktywny/-a?[m
+[31m-      <% if @user.activated? %>[m
+[31m-        tak[m
+[31m-      <% else %>[m
+[31m-        nie[m
+[31m-      <% end %>[m
+[31m-    </p>[m
+[31m-    <% if !@user.activated? %>[m
+[31m-      <p>wysłano maila do rejestracji?[m
+[31m-        <% if @user.activating? %>[m
+[31m-          tak[m
+[31m-        <% else %>[m
+[31m-          nie[m
+[31m-        <% end %>[m
+[31m-      </p>[m
+[31m-    <% end %>[m
+[31m-[m
+[31m-    <%= render 'users/user_activation' %>[m
+[31m-[m
+[31m-    <% if current_user.admin? %>[m
+[31m-    <hr>[m
+[31m-      <%= link_to "usuń profil", @user, method: :delete, class: "delete",[m
+[31m-                          data: { confirm: "Na pewno usunąć? Nie będzie można odzyskać danych" } %>[m
+[31m-    <% end %>[m
+[32m+[m[32m    potwierdził maila? <% if @user.activated? %> tak <% else %> nie <% end %>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <div class="info-content">[m
+[32m+[m[32m    token: <%= @user.activation_token %>[m
+   </div>[m
+[32m+[m[32m  <div class="info-content">[m
+[32m+[m[32m    digest: <%= @user.activation_digest %>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <div class="info-content">[m
+[32m+[m[32m    email: <%= @user.email %>[m
+[32m+[m[32m  </div>[m
+[32m+[m[32m  <div class="info-content">[m
+[32m+[m[32m    <%= @user.created_at.strftime("Dodana/-y %d.%m.%Y")  %>[m
+[32m+[m[32m  </div>[m
+[32m+[m
+[32m+[m[32m  <!-- <div>[m
+[32m+[m[32m    admin? <% if @user.admin? %> yes <% else %> no <% end %><br>[m
+[32m+[m[32m    coach? <% if @user.coach? %> yes <% else %> no <% end %><br>[m
+[32m+[m[32m    aktywny? <% if @user.activated? %> tak <% else %> nie <% end %>[m
+[32m+[m[32m    e[m
+[32m+[m[32m  </div> -->[m
+ [m
+[32m+[m[32m  <%= link_to "edytuj", edit_user_path(@user), class: "button add" %>[m
+[32m+[m[32m  <% if current_user.admin? %>[m
+[32m+[m[32m    <%= link_to "usuń", @user, method: :delete, class: "button delete",[m
+[32m+[m[32m                        data: { confirm: "Na pewno usunąć?" } %>[m
+[32m+[m[32m  <% end %>[m
+ <% end %>[m
+ [m
+ <% content_for :content do %>[m
