@@ -1,4 +1,6 @@
-<%= link_to content_tag(:div, "Strona główna", class: "sidebar-item sidebar-link"), root_url %>
+<div>
+  <%= link_to content_tag(:div, "Strona główna", class: "sidebar-item sidebar-link"), root_url %>
+</div>
 <% if logged_in? %>
   <% if current_user.coach? %>
     <div class="coach-content">
