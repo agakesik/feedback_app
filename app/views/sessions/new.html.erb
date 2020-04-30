@@ -1,7 +1,7 @@
 <% provide(:title, "Logowanie") %>
 <!-- <% provide(:position, "Logowanie") %> -->
 
-<div class="single-column-content">
+<div class="single-column-content content-box">
   <div class="form">
     <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
       <%= f.label :email, class: "label" %>
