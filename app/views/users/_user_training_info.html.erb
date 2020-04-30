@@ -1,5 +1,5 @@
 <h3>Informacje treningowe</h3>
-<p> <%= link_to "Oceny", "#oceny" %> </p>
+<p class="rating-id-link"> <%= link_to "Oceny \u21E3", "#oceny" %> </p>
   <span>Status:</span>
   <%= content_tag(:div, @user.skater_status.name, id: "skater-status", class: "cell",
     style: "background-color: #{@user.skater_status.color}" ) %>

@@ -276,6 +276,9 @@ p {
   .cell {
     width: auto;
   }
+  .rating-id-link {
+    display: hidden;
+  }
 }
 .list-column {
   flex-grow: 1;
@@ -295,7 +298,7 @@ p {
 }
 .rating-column {
   flex-grow: 1;
-  h3 {
+  h2 {
     margin-left: 3em;
   }
   .row {
@@ -311,7 +314,6 @@ p {
     }
   }
 }
-
 
 // BUTTONS
 .button {
@@ -491,6 +493,7 @@ input[type="radio"]:checked + .choice {
   .sidebar-show {
     flex-basis: 100vw;
   }
+
   // RATING STYLES
   .row {
     margin: 0.3em 0;
@@ -503,18 +506,14 @@ input[type="radio"]:checked + .choice {
   .spreadsheet-page {
     height: auto;
   }
-  .single-page {
-    padding: 0;
-  }
-
-  // SINGLE PAGE SINGLE-CONTENT STYLES
   .single-column-content {
     margin: 1em;
     padding: 0.5em;
     width: 90vw;
   }
 
-  // SINGLE PAGE COLUMNS STYLES
+
+  // SINGLE PAGE 2 COLUMNS STYLES
   .two-column-page {
     flex-direction: column;
     margin: 0;
@@ -522,16 +521,22 @@ input[type="radio"]:checked + .choice {
     width: 100vw;
   }
   .column {
-    margin: 1em 0.5em;
-    border-radius: 5px;
+    // border: $test-border;
+    margin: 0.5em 0.5em;
   }
   .info-column {
-    padding: 0 1em 1em;
+    .info-content{
+      padding: 0.5em 0;
+    }
+    .rating-id-link {
+      display: block;
+    }
   }
   .list-column {
     padding: 1em 1em;
   }
   .rating-column {
+    border-top: 1px dotted $dark-gray;
     .row {
       .cell {
         width: 8em;
@@ -545,6 +550,10 @@ input[type="radio"]:checked + .choice {
   // BUTTONS STYLES
   .submit {
     margin: 1em 0 0;
+  }
+  .danger {
+    background-color: #b25b5b;
+    color: white;
   }
   // FORM STYLES
   .form {
