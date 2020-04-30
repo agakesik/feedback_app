@@ -1,7 +1,7 @@
 <% provide(:title, "Aktywuj profil") %>
 <% provide(:position, "Ustaw hasło") %>
 
-<div class="single-column-content content-box">
+<div class="single-column-page content-box">
   <div class="form">
     <%= form_with(model: @user, url: account_activation_path(params[:id]),
                   local: true) do |f| %>

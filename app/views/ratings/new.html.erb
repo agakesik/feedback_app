@@ -1,7 +1,7 @@
 <%= provide(:title, "Dodaj ocenę") %>
 <%= provide(:position, "Dodaj ocenę") %>
 
-<div class="single-column-content content-box">
+<div class="single-column-page content-box">
   <div class="form">
     <%= form_with(model: @rating, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>

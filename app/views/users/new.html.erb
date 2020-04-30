@@ -1,7 +1,7 @@
 <% provide(:title, "Dodaj człowieka") %>
 <% provide(:position, "Dodaj nowego człowieka") %>
 
-<div class="single-column-content content-box">
+<div class="single-column-page content-box">
   <div class="form">
     <%= form_with(model: @user, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>

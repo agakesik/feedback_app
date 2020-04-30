@@ -1,8 +1,8 @@
 <% provide(:title, "Admin") %>
 <% provide(:position, "admin") %>
 
-<div class="single-column-content">
-  <div class="content-box">
+<div class="single-column-page">
+  <div class="content-box single-column-content">
     <h3>Katogorie Skillsów</h3>
     <ul>
       <% SkillsCategory.all.each do |category| %>
@@ -11,7 +11,7 @@
     </ul>
   </div>
 
-  <div class="content-box">
+  <div class="content-box single-column-content">
     <h3>Status Zawodników</h3>
     <ul>
       <% SkaterStatus.all.each do |status| %>
@@ -20,7 +20,7 @@
     </ul>
   </div>
 
-  <div class="content-box">
+  <div class="content-box single-column-content">
     <h3>Oceny</h3>
     <ul>
       <% RatingValue.all.each do |rating| %>

@@ -1,7 +1,7 @@
 <% provide(:title, "Edytuj #{@skill.name}") %>
 <% provide(:position, "Edytuj skilla") %>
 
-<div class="single-column-content content-box">
+<div class="single-column-page content-box">
   <div class="form">
     <%= form_with(model: @skill, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>

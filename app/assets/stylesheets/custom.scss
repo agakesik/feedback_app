@@ -223,13 +223,28 @@ p {
   padding: 0.5em;
 }
 
-.single-column-content {
-  align-self: center;
+.single-column-page {
   box-sizing: border-box;
   flex: 0 1 auto;
+  justify-content: space-evenly;
   margin: 1em 0;
-  width: 980px;
+  // width: 980px;
   padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+}
+.content-box{
+  background: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  margin: 1em 0;
+  span {
+    font-size: 0.8em;
+    color: $dark-gray;
+  }
+}
+.single-column-content {
+  margin: 1em;
 }
 
 // SPREADSHEET PAGE STYLES
@@ -269,16 +284,6 @@ p {
   }
   .rating-id-link {
     display: none;
-  }
-}
-.content-box{
-  background: white;
-  padding: 0.5em 1em;
-  border-radius: 10px;
-  margin: 1em 0;
-  span {
-    font-size: 0.8em;
-    color: $dark-gray;
   }
 }
 .list-column {
@@ -475,11 +480,6 @@ input[type="radio"]:checked + .choice {
   display: block;
 }
 
-@media (max-width: 1300px) {
-  .single-column-content {
-    width: 100%;
-  }
-}
 
 @media (max-width: 800px) {
 
@@ -512,8 +512,12 @@ input[type="radio"]:checked + .choice {
   .spreadsheet-page {
     height: auto;
   }
-  .single-column-content {
+  .single-column-page {
     padding: 0.5em;
+  }
+  .single-column-content {
+    width: 100%;
+    margin: 0.5em 0;
   }
 
 
