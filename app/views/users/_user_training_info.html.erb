@@ -3,7 +3,7 @@
   <%= content_tag(:div, @user.skater_status.name, id: "skater-status", class: "cell",
     style: "background-color: #{@user.skater_status.color}" ) %>
 
-<p id="change-status-confirmation" class="text-info hidden-text"> status został zmieniony </p>
+<p id="change-status-confirmation" class="text-info hidden"> status został zmieniony </p>
 
 <% if current_user.coach? %>
   <p id="edit-skater-status" class="js-toggle">edytuj status?<p>

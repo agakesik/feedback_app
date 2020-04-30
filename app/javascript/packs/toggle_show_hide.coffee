@@ -1,6 +1,5 @@
 $(document).on "turbolinks:load", ->
   $('.js-toggle').click ->
-    $("#change-status-confirmation").css("opacity", "0")
-    $("#change-status-confirmation").css("height", "0")
+    $("#change-status-confirmation").fadeOut(300)
     toggle = @id
-    $('#'+toggle+'-show').toggle("js-content-show")
+    $('#'+toggle+'-show').slideToggle(1000)
