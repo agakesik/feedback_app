@@ -44,7 +44,7 @@ class NewRatingTest < ActionDispatch::IntegrationTest
     post ratings_path, params: { rating: { user_id: @user.id,
                                            skill_id: @skill.id,
                                            rating_value_id: @rating_value.id } }
-    assert_redirected_to root_url
+    assert_redirected_to @user
     follow_redirect!
     assert_select 'div.alert-success'
   end

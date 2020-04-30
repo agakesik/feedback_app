@@ -6,7 +6,6 @@
     <%= form_with(model: @rating, local: true) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= hidden_field_tag :previous_url, @previous_url %>
       <h4> Dodajesz ocenę dla:</h4>
       <ul>
         <li>zawodnika: <span><%= @user.name %></span></li>

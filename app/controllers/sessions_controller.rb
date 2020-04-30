@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if @user.authenticate(params[:session][:password])
         log_in @user
         flash[:success] = "Poprawne logowanie"
-        redirect_to @user
+        redirect_back_or root_url
       else
         flash[:danger] = "Błędne hasło"
         render 'new'

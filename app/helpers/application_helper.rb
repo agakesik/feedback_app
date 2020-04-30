@@ -24,7 +24,7 @@ module ApplicationHelper
                            style: background_color)
     # end
     if current_user.coach?
-      link_to content, path_to_new_rating(user, skill)
+      link_to content, path_to_new_rating(user, skill), :onclick => remote_function
     else
       content
     end
@@ -62,7 +62,6 @@ module ApplicationHelper
       cell
     end
   end
-
 
   def check_if_authenticated
     if not logged_in?

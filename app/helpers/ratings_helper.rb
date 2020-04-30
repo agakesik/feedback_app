@@ -11,9 +11,6 @@ module RatingsHelper
 
 
   def path_to_new_rating(user, skill)
-    previous_url = root_url
-    previous_url = request.original_url unless request.nil?
-    new_rating_path(user_id: user.id, skill_id: skill.id,
-                    previous_url: previous_url)
+    new_rating_path(user_id: user.id, skill_id: skill.id)
   end
 end

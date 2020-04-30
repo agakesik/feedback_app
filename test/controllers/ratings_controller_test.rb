@@ -10,6 +10,7 @@ class RatingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect action new when not logged in as coach" do
+    get root_url
     get path_to_new_rating(@average_user, @skill)
     assert_redirected_to login_url
     log_in_as(@average_user)
