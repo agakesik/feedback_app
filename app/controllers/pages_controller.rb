@@ -3,8 +3,6 @@ class PagesController < ApplicationController
   before_action :admin_only, only: :admin
 
   def home
-    @skater_statuses = SkaterStatus.all
-    @skill_categories = SkillsCategory.all
   end
 
   def help

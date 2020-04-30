@@ -15,6 +15,6 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     SkaterStatus.all.each do |status|
       assert_match status.name, response.body
     end
-    assert_select 'a.button', "DODAJ człowieka"
+    assert_select 'a.text-button', "DODAJ CZŁOWIEKA"
   end
 end

@@ -9,9 +9,10 @@ Rails.application.routes.draw do
     get 'change_skater_status', :on => :member
   end
   resources :skills
-  resources :ratings, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :account_activations, only: [:edit, :update]
+  resources :ratings, only: [:new, :create, :destroy]
+  get '/all-ratings', to: 'ratings#all'
 end

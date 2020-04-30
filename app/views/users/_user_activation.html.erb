@@ -1,5 +1,11 @@
-<% if !@user.activated? && !@user.activating? %>
-  <p id="activation" class="js-toggle">Wysłać?</p>
+<% if !@user.activated? %>
+  <p id="activation" class="js-toggle">
+    <% if !@user.activating? %>
+      Wysłać?
+    <% else %>
+      Wysłać jeszcze raz?
+    <% end %>
+  </p>
   <div id="activation-show" class="hidden">
     <% if @user.email.blank? %>
       <p class="text-danger"> MUSISZ NAJPIERW DODAĆ ADRES EMAIL DO KONTA </p>

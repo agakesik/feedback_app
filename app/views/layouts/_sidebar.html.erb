@@ -5,7 +5,7 @@
   <% if current_user.coach? %>
     <div class="coach-content">
       <div class="sidebar-item"><h3>opcje trenera</h3></div>
-      <%= link_to content_tag(:div, "Wszystkie oceny", class: "sidebar-item sidebar-link"), '#' %>
+      <%= link_to content_tag(:div, "Wszystkie oceny", class: "sidebar-item sidebar-link"), all_ratings_path %>
       <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
       <%= link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
     </div>

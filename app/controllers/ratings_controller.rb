@@ -29,6 +29,11 @@ class RatingsController < ApplicationController
     end
   end
 
+  def all
+    @skater_statuses = SkaterStatus.all
+    @skill_categories = SkillsCategory.all
+  end
+
   private
 
     def get_skill_and_user
