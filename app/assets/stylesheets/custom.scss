@@ -469,11 +469,6 @@ input[type="radio"]:checked + .choice {
 .hidden {
   display: none;
 }
-.hidden-text {
-  height: 0;
-  opacity: 0;
-  transition: opacity 300ms linear;
-}
 .block {
   display: block;
 }

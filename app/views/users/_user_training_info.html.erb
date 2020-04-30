@@ -7,7 +7,7 @@
 
 <% if current_user.coach? %>
   <p id="edit-skater-status" class="js-toggle">edytuj status?<p>
-  <div id="edit-skater-status-show" class="js-content">
+  <div id="edit-skater-status-show" class="hidden">
     <% SkaterStatus.all.each do |status| %>
       <%= link_to status.name, change_skater_status_user_path(@user, skater_status_id: status.id),
                   class: "choice cell block", remote: true,
