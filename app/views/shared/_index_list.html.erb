@@ -7,11 +7,13 @@
 
 
 <% categories.each do |category| %>
-  <p><%= category.name %></p>
-  <ul>
-    <% category.method(controller).call.each do |element| %>
-      <li> <%= link_to element.name, controller: controller, 
-               action: :show, id: element.id %></li>
-    <% end %>
-  </uL>
+  <div class="content-box"
+    <p><%= category.name %></p>
+    <ul>
+      <% category.method(controller).call.each do |element| %>
+        <li> <%= link_to element.name, controller: controller,
+                 action: :show, id: element.id %></li>
+      <% end %>
+    </uL>
+  </div>
 <% end %>

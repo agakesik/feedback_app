@@ -261,10 +261,6 @@ p {
     text-align: right;
   }
   .info-content {
-    background: white;
-    padding: 0.5em 1em;
-    border-radius: 10px;
-    margin: 1em 0;
     p {
       margin: 0.5em 0;
     }
@@ -280,10 +276,15 @@ p {
     display: hidden;
   }
 }
+.content-box{
+  background: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  margin: 1em 0;
+}
 .list-column {
   flex-grow: 1;
-  box-sizing: border-box;
-  padding: 1em 3em;
+  padding: 1em;
   p {
     font-weight: bold;
     text-transform: uppercase;
@@ -525,18 +526,19 @@ input[type="radio"]:checked + .choice {
     margin: 0.5em 0.5em;
   }
   .info-column {
-    .info-content{
-      padding: 0.5em;
-    }
+    border-bottom: 1px dotted $dark-gray;
     .rating-id-link {
       display: block;
     }
   }
+  .content-box{
+    padding: 0.5em;
+  }
   .list-column {
-    padding: 1em 1em;
+    padding: 0;
   }
   .rating-column {
-    border-top: 1px dotted $dark-gray;
+    // border-top: 1px dotted $dark-gray;
     .row {
       .cell {
         width: 8em;

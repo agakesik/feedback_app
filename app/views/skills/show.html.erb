@@ -4,7 +4,7 @@
 
 <% content_for :info do %>
   <h1> <%= @skill.name %> </h1>
-  <div class="info-content">
+  <div class="info-content content-box">
     <span>Kategoria:</span> <%= SkillsCategory.find(@skill.skills_category_id).name %>
 
   <%= link_to "edytuj", edit_skill_path(@skill), class: "text-button" %>

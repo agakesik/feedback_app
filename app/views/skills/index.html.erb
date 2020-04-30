@@ -4,10 +4,12 @@
 <% provide(:list_content, "skills") %>
 
 <% content_for :info do %>
-  <h2>Lista umiejętności</h2>
-  <% if current_user.coach? %>
-    <%= add_button("DODAJ skilla", :skills) %>
-  <% end %>
+  <h1>Lista umiejętności</h1>
+  <div class="info-content content-box">
+    <% if current_user.coach? %>
+      <%= link_to "DODAJ CZŁOWIEKA", new_user_path, class: "text-button" %>
+    <% end %>
+  </div>
 <% end %>
 
 <% content_for :content do %>
