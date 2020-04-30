@@ -20,7 +20,7 @@
 <%= render 'users/user_activation' %>
 
 <% if current_user.admin? %>
-<hr>
+  <hr>
   <%= link_to "usuń profil", @user, method: :delete, class: "text-button danger",
                       data: { confirm: "Na pewno usunąć? Nie będzie można odzyskać danych" } %>
 <% end %>

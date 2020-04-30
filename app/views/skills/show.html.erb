@@ -3,16 +3,17 @@
 <% provide(:column_type, "rating") %>
 
 <% content_for :info do %>
-  <h2> <%= @skill.name %> </h2>
+  <h1> <%= @skill.name %> </h1>
   <div class="info-content">
-    Kategoria: <%= SkillsCategory.find(@skill.skills_category_id).name %>
-  </div>
+    <span>Kategoria:</span> <%= SkillsCategory.find(@skill.skills_category_id).name %>
 
-  <%= link_to "edytuj", edit_skill_path(@skill), class: "button add" %>
+  <%= link_to "edytuj", edit_skill_path(@skill), class: "text-button" %>
   <% if current_user.admin? %>
-    <%= link_to "usuń", @skill, method: :delete, class: "button delete",
-                        data: { confirm: "Na pewno usunąć?" } %>
+    <hr>
+    <%= link_to "usuń", @skill, method: :delete, class: "text-button danger",
+                        data: { confirm: "Na pewno usunąć?  Nie będzie można odzyskać danych" } %>
   <% end %>
+  </div>
 <% end %>
 
 <% content_for :content do %>
