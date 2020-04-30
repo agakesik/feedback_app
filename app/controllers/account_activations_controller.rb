@@ -3,7 +3,6 @@ class AccountActivationsController < ApplicationController
   def edit
     @user = User.find_by(email: params[:email])
     if @user && @user.activating? && !@user.activated && @user.authenticated?(params[:id])
-      flash[:success] = "tu będzie można zmienić hasło"
     else
       flash[:danger] = "Wystąpił błąd z linkiem aktywacyjnym"
       redirect_to root_url
