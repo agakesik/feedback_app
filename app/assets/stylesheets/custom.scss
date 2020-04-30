@@ -29,7 +29,7 @@ $ligther: rgba(255, 255, 255, 0.02);
   background-color: rgba($light-gray, 0.2);
   border-radius: 5px;
   color: rgba($light-gray, 0.8);
-  &:hover, &:active {
+  &:hover {
     background-color: rgba($light-accent-color, 0.8);
     color: $dark-gray;
   }
@@ -117,7 +117,7 @@ p {
   flex: 0 0 0;
   height: 100%;
   transition: all 300ms ease-in-out;
-  overflow: hidden;
+  overflow:auto;
   a {
     color: rgba($light-gray, 0.8);
     text-decoration-color: rgba($light-gray, 0.3);
@@ -483,10 +483,14 @@ input[type="radio"]:checked + .choice {
       display: block;
     }
   }
-  .sidebar {
-    display: none;
-  }
 
+  // SIDEBAR STYLES
+  .sidebar {
+    padding: 1em 0 2em;
+  }
+  .sidebar-show {
+    flex-basis: 100vw;
+  }
   // RATING STYLES
   .row {
     margin: 0.3em 0;
