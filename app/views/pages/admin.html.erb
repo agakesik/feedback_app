@@ -2,28 +2,30 @@
 <% provide(:position, "admin") %>
 
 <div class="single-column-content">
-  <h3>Katogorie Skillsów</h3>
-  <ul>
-    <% SkillsCategory.all.each do |category| %>
-      <li><%= category.name %> <span>edytuj | usuń<span></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="content-box">
+    <h3>Katogorie Skillsów</h3>
+    <ul>
+      <% SkillsCategory.all.each do |category| %>
+        <li><%= category.name %> <span>edytuj | usuń<span></li>
+      <% end %>
+    </ul>
+  </div>
 
-<div class="single-column-content">
-  <h3>Status Zawodników</h3>
-  <ul>
-    <% SkaterStatus.all.each do |status| %>
-      <li><%= status.name %> <span>edytuj | usuń<span></li>
-    <% end %>
-  </ul>
-</div>
+  <div class="content-box">
+    <h3>Status Zawodników</h3>
+    <ul>
+      <% SkaterStatus.all.each do |status| %>
+        <li><%= status.name %> <span>edytuj | usuń<span></li>
+      <% end %>
+    </ul>
+  </div>
 
-<div class="single-column-content">
-  <h3>Oceny</h3>
-  <ul>
-    <% RatingValue.all.each do |rating| %>
-      <li><%= "#{rating.value} - #{rating.name}"  %> <span>edytuj | usuń<span></li>
-    <% end %>
-  </ul>
+  <div class="content-box">
+    <h3>Oceny</h3>
+    <ul>
+      <% RatingValue.all.each do |rating| %>
+        <li><%= "#{rating.value} - #{rating.name}"  %> <span>edytuj | usuń<span></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
