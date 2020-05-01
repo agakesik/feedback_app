@@ -14,5 +14,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :account_activations, only: [:edit, :update]
   resources :ratings, only: [:new, :create, :destroy]
+  resources :ratings do
+    # get 'add_new_rating'
+  end
+  get 'add_new_rating', to: 'ratings#add_new_rating'
   get '/all-ratings', to: 'ratings#all'
 end

@@ -1,80 +1,30 @@
-<!-- We have 3 options: -->
-<!-- 1. many users and many skills (home page) -->
-<!-- 2. one user and many skills (user show page) -->
-<!-- 3. many users and one skill (skill show page) -->
+<div class="row head-row">
+  <div class="cell skill-cell hidden-cell">  </div>
 
+    <% SkaterStatus.all.each do |status| %>
 
-<!-- if we have spreadsheet with many users and many skills -->
-<!-- top row with names of all users -->
-<% if @users && @skill_categories %>
-  <div class="row head-row">
-    <div class="placeholder"><div class="cell skill-cell"> SKILLS </div></div>
-    <% @users.each do |user| %>
-      <div class="placeholder"><div class="cell user-cell">
-        <%= user.name %>
-      </div></div>
+      <% status.users.each do |user| %>
+        <%= user_cell(user) %>
+      <% end %>
     <% end %>
+
+</div>
+<% SkillsCategory.all.each do |category| %>
+  <div class="row">
+   <%= skill_category_cell(category) %>
   </div>
-<% end %>
 
-
-<!-- many skills -->
-<% if @skill_categories %>
-  <% @skill_categories.each do |category| %>
+  <% category.skills.each do |skill| %>
     <div class="row">
-      <div class="placeholder"><div class="cell skill-category-cell">
-        <strong><%= category.name %></strong>
-      </div></div>
-    </div>
+      <%= skill_cell(skill) %>
 
-    <% category.skills.each do |skill| %>
-      <div class="row">
-        <div class="placeholder"><div class="cell skill-cell"><%= skill.name %></div></div>
-
-        <!-- If we have many users-->
-        <% if @users %>
-
-          <% @users.each do |user| %>
-            <div class="line-row">
-              <div class="cell user-cell user-list-cell"><%= user.name %></div>
-              <%= link_to(path_to_new_rating(user, skill)) do %>
-                <div class="placeholder"><div class="cell rating-cell">
-                  <%= show_rating_value(user, skill) %>
-                </div></div>
-              <% end %>
-            </div>
-          <% end %>
-
-        <!-- if we only have one user -->
-        <% elsif @user %>
-
-          <%= link_to(path_to_new_rating(@user, skill)) do %>
-            <div class="cell rating-cell">
-              <%= show_rating_value(@user, skill) %>
-            </div>
-          <% end %>
-
+      <% SkaterStatus.all.each do |status| %>
+        <% status.users.each do |user| %>
+          <%= rating_cell(user, skill) %>
         <% end %>
-
-      </div>
-    <% end %>
-
-  <% end %>
-<% end %>
-
-<!-- many users one skill -->
-<% if @users && @skill %>
-
-  <% @users.each do |user| %>
-    <div class="row">
-      <div class="cell user-cell"><%= user.name %></div>
-
-      <%= link_to(path_to_new_rating(user, @skill)) do %>
-        <div class="cell rating-cell">
-          <%= show_rating_value(user, @skill) %>
-        </div>
       <% end %>
 
     </div>
   <% end %>
+
 <% end %>

@@ -1,0 +1,20 @@
+<header class="modal__header">
+  <h2 class="modal__title" id="modal-1-title">
+    Dodaj ocenę
+  </h2>
+  <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+</header>
+<main class="modal__content" id="modal-1-content">
+  <p>zawodnik/-czka: <span><%= @user.name %></span></p>
+  <p>w skillu: <span><%= @skill.name %></span></p>
+  <% RatingValue.all.each do |value| %>
+    <%= link_to value.name, add_new_rating_path(user_id: @user, skill_id: @skill.id, rating_value_id: value.id),
+                class: "choice cell block", remote: true,
+                style: "background-color: #{value.color}" %>
+  <% end %>
+  <%= link_to "główna", root_url %>
+</main>
+<footer class="modal__footer">
+  <button class="modal__btn modal__btn-primary">Continue</button>
+  <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+</footer>

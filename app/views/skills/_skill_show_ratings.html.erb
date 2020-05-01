@@ -1,6 +1,6 @@
 <h2>Oceny</h2>
 
-<% @skater_statuses.each do |status| %>
+<% SkaterStatus.all.each do |status| %>
   <% status.users.each do |user| %>
     <div class="row">
       <%= user_cell(user) %>

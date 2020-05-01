@@ -2,35 +2,6 @@
 <% provide(:position, "Oceny jeżdzących") %>
 <% provide(:page_type, "spreadsheet") %>
 
-<div class="spreadsheet-page">
-  <div class="row head-row">
-    <div class="cell skill-cell hidden-cell">  </div>
-
-      <% @skater_statuses.each do |status| %>
-
-        <% status.users.each do |user| %>
-          <%= user_cell(user) %>
-        <% end %>
-      <% end %>
-
-  </div>
-  <% @skill_categories.each do |category| %>
-    <div class="row">
-     <%= skill_category_cell(category) %>
-    </div>
-
-    <% category.skills.each do |skill| %>
-      <div class="row">
-        <%= skill_cell(skill) %>
-
-        <% @skater_statuses.each do |status| %>
-          <% status.users.each do |user| %>
-            <%= rating_cell(user, skill) %>
-          <% end %>
-        <% end %>
-
-      </div>
-    <% end %>
-
-  <% end %>
+<div class="spreadsheet-page" id="all-ratings">
+  <%= render 'shared/ratings_base' %>
 </div>

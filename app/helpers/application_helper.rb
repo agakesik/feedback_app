@@ -24,7 +24,8 @@ module ApplicationHelper
                            style: background_color)
     # end
     if current_user.coach?
-      link_to content, path_to_new_rating(user, skill)
+      link_to content, path_to_new_rating(user, skill),
+         {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}
     else
       content
     end

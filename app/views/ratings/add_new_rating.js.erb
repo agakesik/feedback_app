@@ -1,0 +1,6 @@
+$("#modal").find(".modal-content").html("");
+$("#modal").css("display", "none");
+console.log("hello again");
+$("#user-ratings").html("<%= j (render 'users/user_show_ratings') %>");
+$("#skill-ratings").html("<%= j (render 'skills/skill_show_ratings') %>");
+$("#all-ratings").html("<%= j (render 'shared/ratings_base') %>");
