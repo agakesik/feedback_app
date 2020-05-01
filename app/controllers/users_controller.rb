@@ -53,7 +53,7 @@ class UsersController < ApplicationController
 
   def toggle_activating
     @user = User.find(params[:id])
-    @user.toggle!(:activating)
+    @user.toggle!(:activating) if !@user.activating?
     @user.create_activation_digest
     UserMailer.account_activation(@user).deliver_now
     flash[:success] = "Email aktywacyjny wysłany"
