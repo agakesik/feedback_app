@@ -14,6 +14,10 @@ adam:
   email: adam@adam.com
   password_digest: <%= User.digest('password') %>
 
+fresh:
+  name: Fresh
+  skater_status: SS1
+  activated: false
 
 coach:
   name: Coach

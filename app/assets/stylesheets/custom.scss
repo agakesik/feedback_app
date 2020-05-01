@@ -226,8 +226,8 @@ p {
   align-self:  center;
   display: flex;
   flex-direction: column;
-  // border: $test-border;
   margin-top: 10vh;
+  min-width: 40vw;
   h1 {
     // border: $test-border;
     float: left;
