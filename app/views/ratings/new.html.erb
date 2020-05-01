@@ -1,31 +1,32 @@
 <%= provide(:title, "Dodaj ocenę") %>
 <%= provide(:position, "Dodaj ocenę") %>
 
-<div class="single-column-page content-box">
-  <div class="form">
-    <%= form_with(model: @rating, local: true) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
+<div class="single-box-page">
+  <h1> Dodaj nową ocenę </h1>
+  <div class="content-box">
+    <div class="form">
+      <%= form_with(model: @rating, local: true) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
 
-      <h4> Dodajesz ocenę dla:</h4>
-      <ul>
-        <li>zawodnika: <span><%= @user.name %></span></li>
-        <li>w skillu: <span><%= @skill.name %></span></li>
-      </ul>
-      <%= f.radio_button :user_id, @user.id, checked: true, class: "hidden" %>
-      <%= f.radio_button :skill_id, @skill.id, checked: true, class: "hidden" %>
+        <ul>
+          <li>zawodnik/-czka: <span><%= @user.name %></span></li>
+          <li>w skillu: <span><%= @skill.name %></span></li>
+        </ul>
+        <%= f.radio_button :user_id, @user.id, checked: true, class: "hidden" %>
+        <%= f.radio_button :skill_id, @skill.id, checked: true, class: "hidden" %>
 
-      <p class="label"> Oceń: </p>
-      <div class="rating-choice-container">
-        <% @rating_values.each do |value| %>
-          <%= f.radio_button :rating_value_id, value.id, class: "hidden choice" %>
-          <%= f.label :rating_value_id, "#{value.value}.  #{value.name}",
-                      value: value.id, class: "choice button",
-                      style: "background-color: #{value.color}" %>
-        <% end %>
-      </div>
+        <p class="label"> Oceń: </p>
+        <div class="rating-choice-container">
+          <% @rating_values.each do |value| %>
+            <%= f.radio_button :rating_value_id, value.id, class: "hidden choice" %>
+            <%= f.label :rating_value_id, "#{value.value}.  #{value.name}",
+                        value: value.id, class: "choice button",
+                        style: "background-color: #{value.color}" %>
+          <% end %>
+        </div>
 
 
-      <%= f.submit "oceń", class: "button submit" %>
-    <% end %>
+        <%= f.submit "oceń", class: "button submit" %>
+      <% end %>
+    </div>
   </div>
-</div>

@@ -214,13 +214,26 @@ p {
   flex: 1 1 0;
   flex-grow: 1;
   flex-direction: column;
-  // justify-content: space-evenly;
+  // justify-content: center;
   overflow: scroll;
   padding: auto;
 }
 .spreadsheet-page {
   display: inline-block;
   padding: 0.5em;
+}
+.single-box-page {
+  align-self:  center;
+  display: flex;
+  flex-direction: column;
+  // border: $test-border;
+  margin-top: 10vh;
+  h1 {
+    // border: $test-border;
+    float: left;
+    padding: 1em 1em 0 0;
+    margin: 0;
+  }
 }
 
 .single-column-page {
@@ -234,6 +247,7 @@ p {
   flex-wrap: wrap;
 }
 .content-box{
+  // border: $test-border;
   background: white;
   padding: 0.5em 1em;
   border-radius: 10px;
@@ -490,6 +504,9 @@ input[type="radio"]:checked + .choice {
     .menu-toggle {
       display: block;
     }
+    h1 {
+      display: none;
+    }
   }
 
   // SIDEBAR STYLES
@@ -511,6 +528,13 @@ input[type="radio"]:checked + .choice {
   // CONTENT PAGES
   .spreadsheet-page {
     height: auto;
+  }
+  .single-box-page {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    h1 {
+      font-size: 1.5em;
+    }
   }
   .single-column-page {
     padding: 0.5em;

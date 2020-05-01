@@ -24,7 +24,7 @@ module ApplicationHelper
                            style: background_color)
     # end
     if current_user.coach?
-      link_to content, path_to_new_rating(user, skill), :onclick => remote_function
+      link_to content, path_to_new_rating(user, skill)
     else
       content
     end

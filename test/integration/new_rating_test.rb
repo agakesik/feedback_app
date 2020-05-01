@@ -37,14 +37,12 @@ class NewRatingTest < ActionDispatch::IntegrationTest
 
   test "valid new rating" do
     log_in_as(@coach)
-    get user_path(@user)
     get path_to_new_rating(@user, @skill)
     assert_match @user.name, response.body
     assert_match @skill.name, response.body
     post ratings_path, params: { rating: { user_id: @user.id,
                                            skill_id: @skill.id,
                                            rating_value_id: @rating_value.id } }
-    assert_redirected_to @user
     follow_redirect!
     assert_select 'div.alert-success'
   end
