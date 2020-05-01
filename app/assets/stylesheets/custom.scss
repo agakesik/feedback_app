@@ -227,7 +227,7 @@ p {
   display: flex;
   flex-direction: column;
   margin-top: 10vh;
-  min-width: 40vw;
+  min-width: 50vw;
   h1 {
     // border: $test-border;
     float: left;
@@ -532,6 +532,7 @@ input[type="radio"]:checked + .choice {
   .single-box-page {
     padding: 0.5em;
     margin: 0.5em 0;
+    min-width: 80vw;
     h1 {
       font-size: 1.5em;
     }
