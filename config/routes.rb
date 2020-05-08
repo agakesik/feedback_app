@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'pages#home'
   get '/help', to: 'pages#help'
@@ -19,4 +21,5 @@ Rails.application.routes.draw do
   end
   get 'add_new_rating', to: 'ratings#add_new_rating'
   get '/all-ratings', to: 'ratings#all'
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

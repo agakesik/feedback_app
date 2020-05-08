@@ -1,0 +1,19 @@
+<% provide(:title, "Logowanie") %>
+<% provide(:position, "Reset hasła") %>
+
+<div class="single-box-page">
+  <h1> Reset hasła </h1>
+  <div class="content-box">
+    <div class="form">
+      <%= form_with(url: password_resets_path, scope: :password_reset,
+                    local: true) do |f| %>
+        <%= f.label :email, class: "label" %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.submit "resetuj", class: "button submit" %>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>

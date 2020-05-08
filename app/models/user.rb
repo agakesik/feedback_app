@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  mattr_accessor :activation_token
+  mattr_accessor :activation_token, :reset_token
   mattr_accessor :activation_email_send, default: false
   before_save :downcase_email
   # before_save :create_activation_digest
@@ -30,15 +30,29 @@ class User < ApplicationRecord
   end
 
   # Returnrs true if given token matches digest
-  def authenticated?(token)
-    return false if activation_digest.nil?
-    BCrypt::Password.new(activation_digest).is_password?(token)
+  def authenticated?(attribute, token)
+    digest = self.send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def create_activation_digest
     self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
     update_columns(activation_digest: User.digest(activation_token))
+  end
+
+  def create_reset_digest
+    self.reset_token  = User.new_token
+    update_columns(reset_digest: User.digest(reset_token))
+    update_columns(reset_sent_at: Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
   end
 
   private

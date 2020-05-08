@@ -1,0 +1,24 @@
+<% provide(:title, "Reset hasła") %>
+<% provide(:position, "Reset hasła") %>
+
+<div class="single-box-page">
+  <h1> Ustaw nowe hasło </h1>
+  <div class="content-box">
+    <div class="form">
+      <%= form_with(model: @user, url: password_reset_path(params[:id]),
+                    local: true) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= hidden_field_tag :email, @user.email %>
+
+        <%= f.label :password, "Hasło", class: "label" %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Potwierdź hasło", class: "label" %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.submit "Zmień hasło", class: "button submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>
