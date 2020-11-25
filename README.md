@@ -2,6 +2,15 @@
 
 ## Application for easier evaluating skaters skill during roller derby training
 
+### Live preview
+
+To see current preview [go here](https://rd-feedback-app.herokuapp.com/login)
+login information: 
+* coach user: coach@admin.com
+* admin user: admin@admin.com
+* password to both: "foobar"
+feel free to check it out and play all the options
+
 ### Project backstory
 
 As trainers for roller derby team [Warsaw Hellcats Roller Girls](http://www.warsawhellcats.com/) (and later other Warsaw teams) we need to be aware of skill level of all skaters on trainings.  Additionally every skater, that wants to be rosted for a game has to be eligible: they have to pass ["Minimum Skills Requirements"](https://resources.wftda.org/education/skater-training/)
@@ -50,14 +59,6 @@ But they are still things that would be helpfull, for example:
   * more freedom with editing rating systems (adding/changing ranges for skater status % skill evaluation)
   * more informations on evaluation: who added, when was it added, leaving additional feedback in form of comments
   
-### Live preview
-
-To see current preview [go here](https://rd-feedback-app.herokuapp.com/login)
-login information: 
-* coach user: coach@admin.com
-* admin user: admin@admin.com
-* password to both: "foobar"
-feel free to check it out and play all the options
 
 ## Contact
-Feel free to contact me: aga@gmail.com 
+Feel free to contact me: aga.k396@gmail.com 
