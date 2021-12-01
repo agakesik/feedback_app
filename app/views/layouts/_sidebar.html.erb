@@ -3,16 +3,16 @@
 </div>
 <% if logged_in? %>
   <% if current_user.coach? %>
-    <div class="coach-content">
       <div class="sidebar-item"><h3>opcje trenera</h3></div>
+    <div class="coach-content">
       <%= link_to content_tag(:div, "Wszystkie oceny", class: "sidebar-item sidebar-link"), all_ratings_path %>
-      <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
-      <%= link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
+       <%# <%= link_to content_tag(:div, "Porównaj", class: "sidebar-item sidebar-link"), '#' %>
+       <%# <%=  link_to content_tag(:div, "Oceń", class: "sidebar-item sidebar-link"), '#' %>
     </div>
   <% end %>
   <% if current_user.admin? || current_user.coach? %>
-    <div class="admin-content">
       <div class="sidebar-item"><h3>Panel kontrolny</h3></div>
+    <div class="admin-content">
       <%= link_to content_tag(:div, "Lista ludzi", class: "sidebar-item sidebar-link"), users_path %>
       <%= link_to content_tag(:div, "Lista skillsów", class: "sidebar-item sidebar-link"), skills_path %>
       <% if current_user.admin? %>
@@ -20,8 +20,8 @@
       <% end %>
     </div>
   <% end %>
-  <div class="user-content">
     <div class="sidebar-item"><h3>Moje konto</h3></div>
+  <div class="user-content">
     <%= link_to content_tag(:div, "moje konto", class: "sidebar-item sidebar-link"), current_user %>
     <%= link_to content_tag(:div, "wyloguj", class: "sidebar-item sidebar-link"), logout_path, method: :delete %>
   </div>

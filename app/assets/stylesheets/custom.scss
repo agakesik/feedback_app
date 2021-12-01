@@ -1,11 +1,11 @@
 /* fonts */
 @font-face {
-  font-family: 'Scope-One';
-  src:font-url('ScopeOne-Regular.ttf');
+  font-family: "Scope-One";
+  src: font-url("ScopeOne-Regular.ttf");
 }
 @font-face {
-  font-family: 'Montserrat';
-  src:font-url('Montserrat-Regular.ttf');
+  font-family: "Montserrat";
+  src: font-url("Montserrat-Regular.ttf");
 }
 @import "font-awesome";
 
@@ -17,7 +17,7 @@ $success: #5bb268;
 $light-accent-color: #ffdf80;
 $dark-accent-color: #997300;
 $test-border: 1px solid blue;
-$darker: rgba(0,0,0, 0.02);
+$darker: rgba(0, 0, 0, 0.02);
 $ligther: rgba(255, 255, 255, 0.02);
 
 @mixin menu-box {
@@ -40,19 +40,24 @@ body {
   background-color: $light-gray;
   display: flex;
   flex-direction: column;
-  font-family: "Montserrat",helvetica, arial, sans-serif;
+  font-family: "Montserrat", helvetica, arial, sans-serif;
   height: 100vh;
   margin: 0;
 }
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: "Scope-One", serif, helvetica, arial;
   text-transform: uppercase;
 }
-a, .js-toggle {
+a,
+.js-toggle {
   color: rgba($dark-gray, 0.8);
   font-weight: bold;
   text-decoration-color: rgba($dark-gray, 0.3);
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: rgba($dark-accent-color, 0.8);
     text-decoration-color: rgba($dark-accent-color, 0.3);
   }
@@ -73,7 +78,6 @@ p {
   text-decoration: underline;
   user-select: none;
 }
-
 
 /* HEADER */
 .header {
@@ -105,7 +109,7 @@ p {
     padding: 0.15em;
     text-decoration: none;
     a {
-      color:inherit;
+      color: inherit;
     }
   }
 }
@@ -117,11 +121,12 @@ p {
   flex: 0 0 0;
   height: 100%;
   transition: all 300ms ease-in-out;
-  overflow:auto;
+  overflow: auto;
   a {
     color: rgba($light-gray, 0.8);
     text-decoration-color: rgba($light-gray, 0.3);
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: rgba($light-accent-color, 0.8);
       text-decoration-color: rgba($light-accent-color, 0.3);
     }
@@ -131,7 +136,7 @@ p {
     transition: opacity 400ms ease-out;
   }
 }
-.sidebar-show{
+.sidebar-show {
   flex-basis: 18em;
   div {
     opacity: 1;
@@ -164,7 +169,7 @@ p {
     padding: 0 1em;
   }
   a ~ a {
-   border-left: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
   }
 }
 .current {
@@ -223,7 +228,7 @@ p {
   padding: 0.5em;
 }
 .single-box-page {
-  align-self:  center;
+  align-self: center;
   display: flex;
   flex-direction: column;
   margin-top: 10vh;
@@ -246,10 +251,10 @@ p {
   display: flex;
   flex-wrap: wrap;
 }
-.content-box{
+.content-box {
   // border: $test-border;
   background: white;
-  padding: 0.5em 1em;
+  padding: 1em 2em;
   border-radius: 10px;
   margin: 1em 0;
   span {
@@ -286,7 +291,8 @@ p {
   max-width: 800px;
   text-align: center;
   // width: 100%;
-  h1, h3 {
+  h1,
+  h3 {
     text-align: right;
   }
   .info-content {
@@ -344,9 +350,10 @@ p {
   opacity: 0.8;
   padding: 0.5em 1em;
   text-decoration: none;
-  &:hover, &:active {
+  &:hover,
+  &:active {
     opacity: 1;
-    color:white;
+    color: white;
   }
 }
 .add {
@@ -396,12 +403,15 @@ p {
   display: block;
   margin: 1em 0 0.2em 1em;
 }
-input, select {
+input,
+select {
   background-color: $light-gray;
   border: 1px solid $dark-gray;
   font-size: 1.5em;
   width: 100%;
-  &:hover, &:active, &focus {
+  &:hover,
+  &:active,
+  &focus {
     outline: none;
   }
 }
@@ -418,7 +428,8 @@ input, select {
   opacity: 0.6;
   text-decoration: none;
   text-align: center;
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: $dark-gray;
     opacity: 1;
   }
@@ -445,7 +456,7 @@ input[type="radio"]:checked + .choice {
     transition: 0.3s;
   }
 }
-.alert-success{
+.alert-success {
   background-color: #adebb0;
   color: #145217;
 }
@@ -493,12 +504,10 @@ input[type="radio"]:checked + .choice {
 }
 .block {
   display: block;
-  width:100%;
+  width: 100%;
 }
 
-
 @media (max-width: 800px) {
-
   // GLOBAL STYLES
   /* HEADER */
   .header {
@@ -547,7 +556,6 @@ input[type="radio"]:checked + .choice {
     margin: 0.5em 0;
   }
 
-
   // SINGLE PAGE 2 COLUMNS STYLES
   .two-column-page {
     flex-direction: column;
@@ -565,7 +573,7 @@ input[type="radio"]:checked + .choice {
       display: block;
     }
   }
-  .content-box{
+  .content-box {
     padding: 0.5em;
   }
   .list-column {

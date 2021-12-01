@@ -1,14 +1,31 @@
 <% provide(:title, "Derbowy Feedback") %>
 <% provide(:position, "Strona główna") %>
 
+
+
 <div class="single-column-page">
-  <div class="content-box single-column-content">
-    tu będą różne rzeczy
-  </div>
-  <div class="content-box single-column-content">
-    kontrolka do swojego konta
-  </div>
-  <div class="content-box single-column-content">
-    linki do oceniania
+  <% if current_user.coach? %>
+    <div class="">
+      <h3>opcje trenera</h3>
+      <%= link_to content_tag(:div, "Wszystkie oceny", class: "content-box single-column-content"), all_ratings_path %>
+    </div>
+  <% end %>
+  <% if current_user.admin? || current_user.coach? %>
+    <div class="">
+      <h3>Panel kontrolny</h3>
+      <%= link_to content_tag(:div, "Lista ludzi", class: "content-box single-column-content"), users_path %>
+      <%= link_to content_tag(:div, "Lista skillsów", class: "content-box single-column-content"), skills_path %>
+      <% if current_user.admin? %>
+        <%= link_to content_tag(:div, "Opcje admina", class: "content-box single-column-content"), admin_path %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="">
+    <h3>Moje konto</h3>
+    <%= link_to content_tag(:div, "moje konto", class: "content-box single-column-content"), current_user %>
+    <%= link_to content_tag(:div, "wyloguj", class: "content-box single-column-content"), logout_path, method: :delete %>
   </div>
 </div>
+
+ 
+
