@@ -620,3 +620,11 @@ input[type="radio"]:checked + .choice {
     margin: 0;
   }
 }
+
+.page-info {
+  align-self: center;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px dashed #262626;
+}
