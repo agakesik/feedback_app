@@ -13,9 +13,9 @@ feel free to check it out and play all the options
 
 ### Project backstory
 
-As trainers for roller derby team [Warsaw Hellcats Roller Girls](http://www.warsawhellcats.com/) (and later other Warsaw teams) we need to be aware of skill level of all skaters on trainings.  Additionally every skater, that wants to be rosted for a game has to be eligible: they have to pass ["Minimum Skills Requirements"](https://resources.wftda.org/education/skater-training/)
+As coaches for roller derby team [Warsaw Hellcats Roller Girls](http://www.warsawhellcats.com/) (and later other Warsaw teams) we need to be aware of skill level of all skaters on trainings.  Additionally every skater, that wants to be rosted for a game has to be eligible: they have to pass ["Minimum Skills Requirements"](https://resources.wftda.org/education/skater-training/)
 
-Because of this we recently started rating our skaters on their skills (those listed in requirements + some additional that we decided were crucial as well) using these guildelines:
+Because of this we recently started rating our skaters on their skills (those listed in requirements + some additional that we decided were crucial as well) using these guidelines:
 
 * each skater is to be ranked on 1 of 4 levels: "0 contact", "minor contact", "full contact", "playing"
 
@@ -29,8 +29,6 @@ Roller derby is a full contact sport on roller skates, because of that we have t
 4 & 5 are for pushing seasoned players to better themself and give them clear feedback on where they are with their skills 
 
 We started using Google Spreasheet as an easy way to store, edit and view all this evaluations
-
-// Add screenshot for visual
 
 ### Reasons to create app
 
@@ -53,7 +51,6 @@ Currently we have fully functioning application
     * skater gets and email with a link, that redirects them to page where they can set up account password
     * since then skater has full access to their account
   
-// add screenshots
 
 But they are still things that would be helpfull, for example: 
   * more freedom with editing rating systems (adding/changing ranges for skater status % skill evaluation)
@@ -61,4 +58,4 @@ But they are still things that would be helpfull, for example:
   
 
 ## Contact
-Feel free to contact me: aga.k396@gmail.com 
+Feel free to contact me: aga.kesik.dev@gmail.com 
